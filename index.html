@@ -29,7 +29,7 @@
       "@type": "PostalAddress",
       "addressCountry": "ID"
     },
-    "description": "Layanan perjalanan ibadah Umroh dan Haji Khusus resmi Kemenag RI bersama Samira Travel dan Mitra Terbaik Dedy MBS (M-DGI-9725).",
+    "description": "Layanan perjalanan ibadah Umroh dan Haji Khusus resmi Kemenag RI bersama Samira Travel and Mitra Terbaik Dedy MBS (M-DGI-9725).",
     "priceRange": "$$"
   }
   </script>
@@ -50,11 +50,48 @@
       scroll-behavior: smooth;
     }
 
+    /* Adjust page container for sticky top promo bar */
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: #ffffff;
       color: var(--text-dark);
       overflow-x: hidden;
+      padding-top: 40px; /* Space for sticky top promo banner */
+    }
+
+    /* Fixed Top Urgency Promo Bar */
+    .promo-sticky-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 40px;
+      background-color: #fecdd3;
+      color: #9f1239;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      z-index: 1060;
+      box-shadow: 0 2px 10px rgba(159, 18, 57, 0.15);
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
+    }
+    .promo-sticky-bar:hover {
+      background-color: #ffe4e6;
+      color: #9f1239;
+      transform: scale(1.005);
+    }
+
+    /* Adjusted Navbar top to accommodate sticky banner */
+    .navbar.sticky-top {
+      top: 40px !important;
+      box-shadow: 0 4px 30px rgba(15, 23, 42, 0.05);
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.95) !important;
     }
 
     /* Luxury Header Hero with Islamic pattern background */
@@ -64,7 +101,7 @@
       position: relative;
       overflow: hidden;
       color: #0f172a;
-      padding: 100px 0 80px 0;
+      padding: 60px 0 80px 0;
     }
 
     .header-hero::before {
@@ -108,25 +145,6 @@
     }
     @keyframes waveText {
       to { background-position: 200% center; }
-    }
-
-    .ticker {
-      position: relative;
-      overflow: hidden;
-      white-space: nowrap;
-      background: var(--accent);
-      color: #000000;
-      font-weight: 700;
-      box-shadow: inset 0 -2px 10px rgba(0,0,0,.1);
-    }
-    .ticker__track {
-      display: inline-block;
-      padding: 10px 0;
-      animation: tickerMove 22s linear infinite;
-    }
-    @keyframes tickerMove {
-      0% { transform: translateX(100%) }
-      100% { transform: translateX(-100%) }
     }
 
     /* Page Utilities & Structure */
@@ -204,7 +222,32 @@
       font-weight: 500;
     }
 
-    /* Floating WhatsApp Button */
+    /* Floating "Daftar Harga" Button (Yellow/Gold) */
+    .float-harga {
+      position: fixed;
+      z-index: 1030;
+      right: 25px;
+      bottom: 85px; /* Above the Dedy MBS button */
+      background: var(--accent);
+      color: #0f172a;
+      border-radius: 50px;
+      padding: 10px 18px;
+      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.35);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .float-harga:hover {
+      color: #0f172a;
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 15px 25px rgba(212, 175, 55, 0.45);
+    }
+
+    /* Floating WhatsApp Button (Green) */
     .float-wa {
       position: fixed;
       z-index: 1030;
@@ -237,14 +280,7 @@
       border: 4px solid var(--accent);
     }
 
-    .navbar {
-      transition: all 0.3s ease;
-    }
-    .navbar.sticky-top {
-      box-shadow: 0 4px 30px rgba(15, 23, 42, 0.05);
-      backdrop-filter: blur(10px);
-      background-color: rgba(255, 255, 255, 0.95) !important;
-    }
+    /* Navbar design tokens */
     .navbar-brand {
       color: var(--primary) !important;
     }
@@ -366,7 +402,7 @@
       box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
     }
 
-    /* Urgency Notification Banner */
+    /* Urgency Notification Banner - Normal Flow Hidden */
     .urgency-badge {
       background-color: #fecdd3;
       color: #9f1239;
@@ -398,13 +434,11 @@
 
 <body>
 
-  <!-- Running Text -->
-  <div class="ticker">
-    <div class="ticker__track px-3">
-      Selamat datang di Samira Travel, bersama Dedy MBS (M-DGI-9725) kami menyediakan layanan Umroh, Tour Halal, Haji Khusus, dan Haji Furodha • Nikmati kemudahan beribadah bersama tim profesional kami • 
-      Selamat datang di Samira Travel, bersama Dedy MBS (M-DGI-9725) kami menyediakan layanan Umroh, Tour Halal, Haji Khusus, dan Haji Furodha • Nikmati kemudahan beribadah bersama tim profesional kami •
-    </div>
-  </div>
+  <!-- Melayang Sticky Top Promo Bar (Klik Ke WA) -->
+  <a class="promo-sticky-bar" href="https://wa.me/6287783073536?text=Assalaamualaikum%20Pak%20Dedy%20MBS%20(M-DGI-9725)%2C%20saya%20tertarik%20dengan%20info%20Promo%20Umroh%20Kuota%20Terbatas%20dari%20website%20Anda.%20Mohon%20info%20selengkapnya." target="_blank">
+    <span class="spinner-grow spinner-grow-sm text-danger" role="status" style="width: 10px; height: 10px;"></span>
+    Promo Musim Ini & Kuota Terbatas! Amankan Seat Anda Sekarang
+  </a>
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg bg-white sticky-top py-3">
@@ -452,12 +486,10 @@
   <!-- HERO HEADER -->
   <header id="home" class="header-hero py-5 text-center">
     <div class="container py-5 hero-content">
-      <div class="urgency-badge animate__animated animate__fadeInDown">
-        <span class="spinner-grow spinner-grow-sm text-danger" role="status"></span>
-        Promo Musim Ini & Kuota Terbatas! Amankan Seat Anda Sekarang
-      </div><p>
+      <!-- Hero Image berada tepat di bawah Tulisan Promo -->
       <img src="https://lh3.googleusercontent.com/d/1buaqH9w3j5HyMZUdRNwTiH0SMTmnEGcJ" onerror="this.onerror=null;this.src='dedyfoto.jpg';" alt="Profil Dedy MBS - Mitra Samira Travel" class="avatar-circle mb-4" loading="lazy">
-      </p><h1 class="wave-text mb-2">Dedy MBS (M-DGI-9725)</h1>
+      
+      <h1 class="wave-text mb-2">Dedy MBS (M-DGI-9725)</h1>
       <p class="lead mb-4 fs-4 text-secondary">Mitra Resmi Terpercaya Samira Travel — Sahabat Umroh & Haji Keluarga Anda</p>
       
       <h2 class="h4 text-muted mb-4 fw-normal lead-tight">
@@ -517,7 +549,7 @@
           <p class="text-center mt-3 caption text-uppercase fw-bold">KANTOR PUSAT SAMIRA TRAVEL JAKARTA</p>
         </div>
         <div class="col-lg-6">
-          <div class="ratio ratio-16x9 img-rounded overflow-hidden">
+          <div class="ratio ratio-16x9 img-rounded overflow-hidden shadow-lg">
             <iframe src="https://www.youtube.com/embed/KnIOdRxpMTY" title="Video Profil Samira Travel" allowfullscreen></iframe>
           </div>
         </div>
@@ -1086,7 +1118,15 @@
     </div>
   </footer>
 
-  <!-- Floating WhatsApp -->
+  <!-- FLOATING INTERACTIVE WIDGETS -->
+  
+  <!-- Floating Daftar Harga (Gold) -->
+  <a class="float-harga" href="https://drive.google.com/drive/folders/1nMtd0VE93RHl_HB_qydxKcoZvqFkNloI?usp=drive_link" target="_blank" aria-label="Lihat Daftar Harga Samira Travel">
+    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" class="me-1"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+    Daftar Harga
+  </a>
+
+  <!-- Floating WhatsApp Dedy MBS (Green) -->
   <a class="float-wa" href="https://wa.me/6287783073536?text=Assalaamualaikum%20Pak%20Dedy%20MBS%20(M-DGI-9725)%2C%20saya%20tertarik%20dengan%20info%20program%20Umroh%20Samira%20Travel.%20Mohon%20info%20selengkapnya." target="_blank" aria-label="Chat WhatsApp Dedy MBS">
     <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" class="me-1"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.79-11.767c-.273-.136-1.62-.8-1.872-.892-.253-.093-.437-.136-.62.136-.184.272-.712.892-.871 1.075-.16.183-.319.206-.593.07-1.16-.58-1.928-1.002-2.69-2.308-.201-.344.201-.319.575-1.066.06-.113.03-.214-.015-.306-.045-.091-.437-1.053-.6-1.448-.158-.38-.333-.328-.458-.334l-.391-.007c-.135 0-.356.05-.542.253-.186.204-.712.696-.712 1.7 0 1.004.73 1.977.831 2.112.101.136 1.436 2.193 3.48 3.078.486.21 1.054.336 1.415.45.501.16.958.138 1.32.083.403-.061 1.62-.662 1.848-1.302.228-.64.228-1.189.16-1.303-.069-.115-.253-.184-.527-.32z"/></svg>
     Dedy MBS
@@ -1094,6 +1134,7 @@
 
   <!-- Bootstrap 5.3.3 Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
   <script>
     // Set Footer Copyright Year
     document.getElementById('year').textContent = new Date().getFullYear();
