@@ -59,31 +59,47 @@
       padding-top: 40px; /* Space for sticky top promo banner */
     }
 
-    /* Fixed Top Urgency Promo Bar */
+    /* Fixed Top Urgency Promo Bar - Light Blue with Seamless Ticker */
     .promo-sticky-bar {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       height: 40px;
-      background-color: #fecdd3;
-      color: #9f1239;
+      background-color: #e0f2fe; /* Light Blue Background */
+      color: #0369a1;            /* Deep Blue Text */
       font-weight: 700;
       font-size: 0.85rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
       z-index: 1060;
-      box-shadow: 0 2px 10px rgba(159, 18, 57, 0.15);
+      box-shadow: 0 2px 10px rgba(3, 105, 161, 0.15);
       text-decoration: none;
       transition: background-color 0.2s ease, transform 0.2s ease;
       cursor: pointer;
+      overflow: hidden;
     }
     .promo-sticky-bar:hover {
-      background-color: #ffe4e6;
-      color: #9f1239;
-      transform: scale(1.005);
+      background-color: #bae6fd;
+      color: #0284c7;
+      transform: scale(1.002);
+    }
+    .promo-ticker-wrap {
+      width: 100%;
+      overflow: hidden;
+    }
+    .promo-ticker-track {
+      display: flex;
+      width: max-content;
+      animation: promoTicker 45s linear infinite;
+    }
+    .promo-ticker-track span {
+      white-space: nowrap;
+      padding-right: 60px;
+    }
+    @keyframes promoTicker {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
     }
 
     /* Adjusted Navbar top to accommodate sticky banner */
@@ -434,16 +450,20 @@
 
 <body>
 
-  <!-- Melayang Sticky Top Promo Bar (Klik Ke WA) -->
+  <!-- Melayang Sticky Top Promo Bar (Klik Ke WA) dengan Teks Berjalan -->
   <a class="promo-sticky-bar" href="https://wa.me/6287783073536?text=Assalaamualaikum%20Pak%20Dedy%20MBS%20(M-DGI-9725)%2C%20saya%20tertarik%20dengan%20info%20Promo%20Umroh%20Kuota%20Terbatas%20dari%20website%20Anda.%20Mohon%20info%20selengkapnya." target="_blank">
-    <span class="spinner-grow spinner-grow-sm text-danger" role="status" style="width: 10px; height: 10px;"></span>
-    Promo Musim Ini & Kuota Terbatas! Amankan Seat Anda Sekarang
+    <div class="promo-ticker-wrap">
+      <div class="promo-ticker-track">
+        <span><strong style="color: #dc3545;">Promo Musim ini & Kuota Terbatas! Amankan Seat Anda Sekarang</strong> • Selamat datang di Samira Travel, bersama Dedy MBS kami menyediakan layanan Umroh, Tour Halal, Haji Khusus, dan Haji Furodha • Nikmati kemudahan beribadah bersama tim profesional kami ...... <strong style="color: #dc3545;">Udah ga jaman jelasin satu satu..... (kabar gembira!!!...      jika anda ingin mempunyai landing page seperti ini) anda bisa order pada kami seharga Rp 150.000,- berlaku selamanya, komen Mau Webreplika Umroh kirim ke WA kami......</strong> •</span>
+        <span><strong style="color: #dc3545;">Promo Musim ini & Kuota Terbatas! Amankan Seat Anda Sekarang</strong> • Selamat datang di Samira Travel, bersama Dedy MBS kami menyediakan layanan Umroh, Tour Halal, Haji Khusus, dan Haji Furodha • Nikmati kemudahan beribadah bersama tim profesional kami ...... <strong style="color: #dc3545;">Udah ga jaman jelasin satu satu..... (kabar gembira!!!...      jika anda ingin mempunyai landing page seperti ini) anda bisa order pada kami seharga Rp 150.000,- berlaku selamanya, komen Mau Webreplika Umroh kirim ke WA kami......</strong> •</span>
+      </div>
+    </div>
   </a>
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg bg-white sticky-top py-3">
     <div class="container">
-      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#home" style="color: var(--primary) !important;">
+      <a class="navbar-brand fw-bold text-primary d-flex align-items-center gap-2" href="#home">
         <img src="https://lh3.googleusercontent.com/d/1oAH_wOommjgDnkxoHIn1fpxtQU3-krbf" alt="Samira Travel Logo" style="height: 48px; width: auto;" onerror="this.onerror=null;this.src='https://placehold.co/48x48/1e40af/ffffff?text=ST';">
         <span>Samira Travel</span>
       </a>
@@ -451,33 +471,70 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navMain">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-1">
           <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#storytelling">Mengapa Harus Sekarang?</a></li>
-          <li class="nav-item"><a class="nav-link" href="#waktu-umroh">Pilihan Waktu</a></li>
+          
+          <!-- Dropdown: Panduan Ibadah -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#artikel" role="button" data-bs-toggle="dropdown">Materi Umroh</a>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Panduan Ibadah
+            </a>
             <ul class="dropdown-menu border-0 shadow-lg">
+              <li><a class="dropdown-item" href="#storytelling">Mengapa Harus Sekarang?</a></li>
+              <li><a class="dropdown-item" href="#waktu-umroh">Pilihan Waktu Terbaik</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><span class="dropdown-item-text fw-bold text-primary small text-uppercase">Materi Edukasi:</span></li>
               <li><a class="dropdown-item" href="#pengertian">Pengertian Umroh</a></li>
               <li><a class="dropdown-item" href="#sejarah">Sejarah Umroh</a></li>
               <li><a class="dropdown-item" href="#keutamaan">Keutamaan Umroh</a></li>
               <li><a class="dropdown-item" href="#tips">Tips Memilih Travel</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="#samira">Mengenal Samira</a></li>
-          <li class="nav-item"><a class="nav-link" href="#legalitas">Legalitas</a></li>
-          <li class="nav-item"><a class="nav-link" href="#mengapa">Mengapa Samira</a></li>
-          <li class="nav-item"><a class="nav-link" href="#rangkaian">Rangkaian</a></li>
-          <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skema">Skema</a></li>
-          <li class="nav-item"><a class="nav-link" href="#persyaratan">Persyaratan</a></li>
-          <li class="nav-item"><a class="nav-link" href="#perlengkapan-detail">Perlengkapan</a></li>
-          <li class="nav-item"><a class="nav-link" href="#paket">Paket</a></li>
-          <li class="nav-item"><a class="nav-link" href="#video">Video</a></li>
-          <li class="nav-item"><a class="nav-link" href="#galeri2">Galeri Tambahan</a></li>
-          <li class="nav-item"><a class="nav-link" href="#testimoni">Testimoni</a></li>
-          <li class="nav-item"><a class="nav-link" href="#harga">Harga</a></li>
-          <li class="nav-item"><a class="nav-link" href="#form">Daftar</a></li>
+
+          <!-- Dropdown: Tentang Samira -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Tentang Samira
+            </a>
+            <ul class="dropdown-menu border-0 shadow-lg">
+              <li><a class="dropdown-item" href="#samira">Mengenal Samira</a></li>
+              <li><a class="dropdown-item" href="#legalitas">Legalitas Resmi</a></li>
+              <li><a class="dropdown-item" href="#mengapa">Mengapa Samira</a></li>
+              <li><a class="dropdown-item" href="#rangkaian">Rangkaian Kegiatan</a></li>
+            </ul>
+          </li>
+
+          <!-- Dropdown: Paket & Info -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Paket & Info
+            </a>
+            <ul class="dropdown-menu border-0 shadow-lg">
+              <li><a class="dropdown-item" href="#paket">Pilihan Paket & Hotel</a></li>
+              <li><a class="dropdown-item" href="#skema">Skema Pembayaran</a></li>
+              <li><a class="dropdown-item" href="#persyaratan">Persyaratan Dokumen</a></li>
+              <li><a class="dropdown-item" href="#perlengkapan-detail">Perlengkapan Jamaah</a></li>
+              <li><a class="dropdown-item" href="#harga">Daftar Harga Terbaru</a></li>
+            </ul>
+          </li>
+
+          <!-- Dropdown: Dokumentasi -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dokumentasi
+            </a>
+            <ul class="dropdown-menu border-0 shadow-lg">
+              <li><a class="dropdown-item" href="#galeri">Galeri Foto Utama</a></li>
+              <li><a class="dropdown-item" href="#video">Dokumentasi Video</a></li>
+              <li><a class="dropdown-item" href="#galeri2">Galeri Tambahan</a></li>
+              <li><a class="dropdown-item" href="#testimoni">Testimoni Kebahagiaan</a></li>
+            </ul>
+          </li>
+
+          <!-- Tombol CTA Pendaftaran -->
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <a class="btn btn-primary btn-sm px-3 py-2 fw-bold rounded-pill text-dark" href="#form" style="font-size: 0.85rem;">Daftar Sekarang</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -550,7 +607,7 @@
         </div>
         <div class="col-lg-6">
           <div class="ratio ratio-16x9 img-rounded overflow-hidden shadow-lg">
-            <iframe src="https://www.youtube.com/embed/KnIOdRxpMTY" title="Video Profil Samira Travel" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/h9j6FyV0lVo" title="Video Profil Samira Travel" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -971,7 +1028,7 @@
           <div class="ratio ratio-16x9 img-rounded overflow-hidden shadow"><iframe src="https://www.youtube.com/embed/-34KvIwZsTg" title="UMROH AKBAR" allowfullscreen></iframe></div>
         </div>
         <div class="col-12">
-          <div class="ratio ratio-16x9 img-rounded overflow-hidden shadow"><iframe src="https://www.youtube.com/embed/C-cTXHf85cs" title="Kilas Balik Satu Dekade Samira Travel" allowfullscreen></iframe></div>
+          <div class="ratio ratio-16x9 img-rounded overflow-hidden shadow"><iframe src="https://www.youtube.com/embed/1SC3Phhr2WA" title="Kilas Balik Satu Dekade Samira Travel" allowfullscreen></iframe></div>
         </div>
       </div>
     </div>
