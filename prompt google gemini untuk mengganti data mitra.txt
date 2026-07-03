@@ -1,0 +1,6 @@
+Saya ingin kamu meremake isi dari file index.html yang saya upload ini hanya yang sebagai berikut saja:
+1. "Dedy MBS" diubah menjadi "Dr Dina MBS"
+2. Nomor WhatsApp "087783073536" diubah menjadi "085697791616"
+3. Nomor Agen/Mitra: "(M-DGI-9725)" diubah menjadi "(AGN-DGI-123)"
+4. Foto Hero image dengan link google drive ini : https://drive.google.com/file/d/186OXcFPs-a-hzh6fHrC4crtlN0QCJlw8/view?usp=sharing
+Jadi untuk semua posisi, warna, layout, maupun elemen yang lain tetap mengikuti dari file index.html yang saya upload ini. Buatkan langsung file index.html yang terbaru setelah dirubah. Saya akan beritahu jika ada kamu ada melakukan kesalahan, sehingga merubah tampilan nya.
