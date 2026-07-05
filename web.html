@@ -14,7 +14,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Schema.org Structured Data for SEO -->
   <script type="application/ld+json">
@@ -97,6 +97,11 @@
       height: 100%;
       display: flex;
       align-items: center;
+    }
+
+    /* PAUSE TICKER ON HOVER (Berhenti saat didekatkan kursor) */
+    .promo-ticker-wrap:hover .promo-ticker-track {
+      animation-play-state: paused;
     }
 
     .promo-ticker-link {
@@ -334,6 +339,11 @@
     }
     .mbs-slider-btn-right {
       right: 0;
+    }
+
+    /* Custom Portrait Aspect Ratio for Bootstrap */
+    .ratio-9x16 {
+      --bs-aspect-ratio: 177.77777778%; /* 16:9 vertical */
     }
 
     /* Hide standard nav controls on touch devices while keeping scrolling functional */
@@ -1078,7 +1088,7 @@
     <div class="container">
       <div class="text-center mb-4">
         <h2 class="section-title">Dokumentasi Nyata Kegiatan Jamaah</h2>
-        <p class="lead text-muted">Momen-momen indah, khusyuk, dan kebersamaan para jamaah Samira Travel di Tanah Suci.</p>
+        <p class="lead text-muted">Momen-momen indah, khusyuk, and kebersamaan para jamaah Samira Travel di Tanah Suci.</p>
       </div>
 
       <!-- Manual Slider wrapper dengan Tombol Kiri-Kanan -->
@@ -1220,12 +1230,14 @@
         <p class="lead text-muted">Setiap jamaah akan mendapatkan paket perlengkapan premium dari Samira Travel untuk menunjang kenyamanan ibadah.</p>
       </div>
       
-      <!-- Layout satu baris 4 kolom yang responsif -->
+      <!-- Layout satu baris 4 kolom yang sangat responsif, rapi, dan seimbang dengan tinggi potret seragam -->
       <div class="row g-3 row-cols-1 row-cols-sm-2 row-cols-lg-4 justify-content-center text-center">
         <!-- Kolom 1: Foto Perlengkapan Pria -->
         <div class="col">
           <div class="card card-custom border-0 h-100 p-2 bg-white">
-            <img class="img-fluid img-rounded h-100 w-100" src="image/20250106-055220_6b5a5fc415f400e981794ad22a811ec6.jpg" alt="Perlengkapan Umroh Pria" loading="lazy" style="object-fit: cover; min-height: 180px;">
+            <div class="ratio ratio-9x16 img-rounded overflow-hidden">
+              <img class="w-100 h-100" src="image/20250106-055220_6b5a5fc415f400e981794ad22a811ec6.jpg" alt="Perlengkapan Umroh Pria" loading="lazy" style="object-fit: cover;">
+            </div>
             <p class="caption mt-2 fw-bold text-uppercase mb-0">Perlengkapan Pria</p>
           </div>
         </div>
@@ -1233,25 +1245,27 @@
         <!-- Kolom 2: Foto Perlengkapan Wanita -->
         <div class="col">
           <div class="card card-custom border-0 h-100 p-2 bg-white">
-            <img class="img-fluid img-rounded h-100 w-100" src="image/20250106-055220_0a6ef56c9b21291030765858fea21ea7.jpg" alt="Perlengkapan Umroh Wanita" loading="lazy" style="object-fit: cover; min-height: 180px;">
+            <div class="ratio ratio-9x16 img-rounded overflow-hidden">
+              <img class="w-100 h-100" src="image/20250106-055220_0a6ef56c9b21291030765858fea21ea7.jpg" alt="Perlengkapan Umroh Wanita" loading="lazy" style="object-fit: cover;">
+            </div>
             <p class="caption mt-2 fw-bold text-uppercase mb-0">Perlengkapan Wanita</p>
           </div>
         </div>
         
-        <!-- Kolom 3: Video Unboxing Wanita -->
+        <!-- Kolom 3: Video Unboxing Wanita (Kini Berbentuk Portrait Menyerupai Shorts, Seimbang dg Foto di Sebelahnya) -->
         <div class="col">
           <div class="card card-custom border-0 h-100 p-2 bg-white">
-            <div class="ratio ratio-16x9 img-rounded overflow-hidden shadow-sm">
+            <div class="ratio ratio-9x16 img-rounded overflow-hidden shadow-sm">
               <iframe src="https://www.youtube.com/embed/qXZ1h9JPnK8" title="Perlengkapan Jamaah Wanita" allowfullscreen></iframe>
             </div>
             <p class="caption mt-2 fw-bold text-uppercase mb-0">Unboxing Wanita</p>
           </div>
         </div>
         
-        <!-- Kolom 4: Video Unboxing Pria -->
+        <!-- Kolom 4: Video Unboxing Pria (Kini Berbentuk Portrait Menyerupai Shorts, Seimbang dg Foto di Sebelahnya) -->
         <div class="col">
           <div class="card card-custom border-0 h-100 p-2 bg-white">
-            <div class="ratio ratio-16x9 img-rounded overflow-hidden shadow-sm">
+            <div class="ratio ratio-9x16 img-rounded overflow-hidden shadow-sm">
               <iframe src="https://www.youtube.com/embed/odx1htjx5MI" title="Perlengkapan Jamaah Pria" allowfullscreen></iframe>
             </div>
             <p class="caption mt-2 fw-bold text-uppercase mb-0">Unboxing Pria</p>
@@ -1535,8 +1549,7 @@
   <!-- FOOTER -->
   <footer class="bg-dark text-white py-4">
     <div class="container text-center">
-      <div class="small text-white-50">&copy; <span id="year"></span> Samira Travel • <strong>Dedy MBS (M-DGI-9725)</strong>. All Rights Reserved.</div>
-      <h1 class="wave-text mt-3 mb-0 fs-6"> • <strong>Design by MetaVerse Blessing Sphere (MBS)</strong> •</h1>
+      <div class="small text-white-50 mb-1">&copy; <span id="year"></span> Samira Travel • <strong>Dedy MBS (M-DGI-9725)</strong>.</div><div class="small text-white-50 mb-0">All Rights Reserved.</div><h1 class="wave-text mt-0 mb-0" style="font-size: clamp(10px, 3.2vw, 13px); font-weight: 700; white-space: nowrap; display: inline-block; letter-spacing: 0.5px;">• Design by MetaVerse Blessing Sphere (MBS) •</h1>
     </div>
   </footer>
 
