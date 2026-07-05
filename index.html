@@ -238,23 +238,119 @@
       box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
     }
 
-    .gallery-grid {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    }
-    .gallery-grid img {
+    /* PREMIUM CONTINUOUS CAROUSEL MARQUEE SYSTEM */
+    .mbs-marquee-outer {
+      position: relative;
       width: 100%;
-      height: 200px;
+      overflow: hidden;
+      padding: 20px 0;
+    }
+
+    /* Fade indicator overlays at both edges */
+    .mbs-marquee-outer::before,
+    .mbs-marquee-outer::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 120px;
+      height: 100%;
+      z-index: 5;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mbs-marquee-outer::before {
+      left: 0;
+      background: linear-gradient(to right, #ffffff 10%, rgba(255,255,255,0));
+    }
+    .mbs-marquee-outer::after {
+      right: 0;
+      background: linear-gradient(to left, #ffffff 10%, rgba(255,255,255,0));
+    }
+
+    /* Color scheme adaptions for premium light-gray background */
+    .bg-light-premium .mbs-marquee-outer::before {
+      background: linear-gradient(to right, #f8fafc 10%, rgba(248,250,252,0));
+    }
+    .bg-light-premium .mbs-marquee-outer::after {
+      background: linear-gradient(to left, #f1f5f9 10%, rgba(241,245,249,0));
+    }
+
+    /* Hide fade indicators on smaller devices to maximize visibility */
+    @media (max-width: 768px) {
+      .mbs-marquee-outer::before,
+      .mbs-marquee-outer::after {
+        width: 40px;
+      }
+    }
+
+    /* Left to Right Infinite Animation */
+    @keyframes marqueeL2R {
+      0% {
+        transform: translate3d(-50%, 0, 0);
+      }
+      100% {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    .mbs-marquee-track {
+      display: flex;
+      width: max-content;
+      gap: 25px;
+      animation: marqueeL2R 45s linear infinite;
+    }
+
+    /* Pause animation smoothly on hover (Cursor mendekat) */
+    .mbs-marquee-outer:hover .mbs-marquee-track {
+      animation-play-state: paused;
+    }
+
+    /* Carousel Items Style */
+    .mbs-marquee-item {
+      flex-shrink: 0;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+    }
+
+    /* Slight Hover elevation & focus state */
+    .mbs-marquee-item:hover {
+      transform: scale(1.04) translateY(-8px);
+      z-index: 10;
+    }
+
+    /* Images customized for marquee track */
+    .mbs-marquee-item img {
+      width: 320px;
+      height: 220px;
       object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      border: 3px solid #ffffff;
+      transition: border-color 0.3s ease;
+    }
+    .mbs-marquee-item img:hover {
+      border-color: var(--accent);
+    }
+
+    /* Video Items customized for marquee track */
+    .mbs-marquee-item.video-card-container {
+      width: 420px;
+      max-width: 85vw;
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 24px;
+      border: 3px solid #ffffff;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      transition: border-color 0.3s ease;
+    }
+    .mbs-marquee-item.video-card-container:hover {
+      border-color: var(--accent);
+    }
+    .mbs-marquee-item.video-card-container .ratio {
       border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
     }
-    .gallery-grid img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-    }
+
+    /* End of Marquee Styles */
 
     .caption {
       font-size: .85rem;
@@ -862,7 +958,7 @@
             <p class="lead-tight text-muted mb-4">Pastikan Anda selalu memilih travel yang berizin resmi Kementerian Agama RI, transparan dalam rincian biaya, dan berpengalaman. Keamanan dan kenyamanan ibadah Anda adalah yang utama.</p>
             <ul class="list-group list-group-custom">
               <li class="list-group-item">Cek legalitas resmi PPIU / PIHK dan rekam jejak keberangkatan.</li>
-              <li class="list-group-item">Perhatikan detail paket akomodasi, hotel, dan jadwal penerbangan.</li>
+              <li class="list-group-item">Perhatikan detail paket akomodasi, hotel, and jadwal penerbangan.</li>
               <li class="list-group-item">Transparansi biaya total tanpa ada biaya tersembunyi.</li>
               <li class="list-group-item">Fasilitas manasik matang dan pendampingan petugas profesional selama di Arab Saudi.</li>
             </ul>
@@ -980,21 +1076,38 @@
     </div>
   </section>
 
-  <!-- Galeri Kegiatan (utama) -->
+  <!-- Galeri Kegiatan (utama) - REMADE TO CONTINUOUS MARQUEE -->
   <section id="galeri">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title">Dokumentasi Nyata Kegiatan Jamaah</h2>
-        <p class="lead text-muted">Momen-momen indah, khusyuk, dan kebersamaan para jamaah Samira Travel di Tanah Suci.</p>
+        <p class="lead text-muted">Momen-momen indah, khusyuk, dan kebersamaan para jamaah Samira Travel di Tanah Suci (Geser otomatis, dekati dengan kursor untuk menjeda).</p>
       </div>
-      <div class="gallery-grid">
-        <img src="image/20250106-075317_WhatsApp%20Image%202024-12-24%20at%2008.42.59(2).jpeg" alt="Galeri Kegiatan Samira Travel" loading="lazy">
-        <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.45.34(1).jpeg" alt="Pelayanan Jamaah Samira" loading="lazy">
-        <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.01(3).jpeg" alt="Keberangkatan Jamaah" loading="lazy">
-        <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.01(2).jpeg" alt="Ibadah di Masjidil Haram" loading="lazy">
-        <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.00(5).jpeg" alt="Ziarah Madinah" loading="lazy">
-        <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.00(4).jpeg" alt="Kebersamaan Jamaah Umroh" loading="lazy">
-        <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.00(3).jpeg" alt="Perjalanan Umroh Sukses" loading="lazy">
+    </div>
+    
+    <div class="mbs-marquee-outer">
+      <div class="mbs-marquee-track" id="track-galeri-1">
+        <div class="mbs-marquee-item">
+          <img src="image/20250106-075317_WhatsApp%20Image%202024-12-24%20at%2008.42.59(2).jpeg" alt="Galeri Kegiatan Samira Travel" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.45.34(1).jpeg" alt="Pelayanan Jamaah Samira" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.01(3).jpeg" alt="Keberangkatan Jamaah" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.01(2).jpeg" alt="Ibadah di Masjidil Haram" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.00(5).jpeg" alt="Ziarah Madinah" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.00(4).jpeg" alt="Kebersamaan Jamaah Umroh" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.00(3).jpeg" alt="Perjalanan Umroh Sukses" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
@@ -1133,60 +1246,114 @@
     </div>
   </section>
 
-  <!-- Rangkaian Video YouTube -->
+  <!-- Rangkaian Video YouTube - REMADE TO CONTINUOUS MARQUEE -->
   <section id="video" class="bg-light-premium">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title">Dokumentasi Video Kegiatan Akbar</h2>
-        <p class="lead text-muted">Saksikan keseruan, kemegahan, dan syahdunya pelaksanaan umroh akbar bersama ribuan jamaah Samira Travel.</p>
+        <p class="lead text-muted">Saksikan keseruan, kemegahan, dan syahdunya pelaksanaan umroh akbar bersama ribuan jamaah Samira Travel (Dekati video dengan kursor untuk menjeda putaran marquee).</p>
       </div>
-      <div class="row g-4">
-        <div class="col-lg-6">
-          <div class="ratio ratio-16x9 img-rounded overflow-hidden shadow"><iframe src="https://www.youtube.com/embed/Mw4Gd1koPk8" title="Seminar Inspirasi Umrohku" allowfullscreen></iframe></div>
+    </div>
+    
+    <div class="mbs-marquee-outer">
+      <div class="mbs-marquee-track" id="track-video">
+        <div class="mbs-marquee-item video-card-container">
+          <div class="ratio ratio-16x9 shadow">
+            <iframe src="https://www.youtube.com/embed/Mw4Gd1koPk8" title="Seminar Inspirasi Umrohku" allowfullscreen></iframe>
+          </div>
         </div>
-        <div class="col-lg-6">
-          <div class="ratio ratio-16x9 img-rounded overflow-hidden shadow"><iframe src="https://www.youtube.com/embed/Gx1UuT0uEsU" title="Manasik" allowfullscreen></iframe></div>
+        <div class="mbs-marquee-item video-card-container">
+          <div class="ratio ratio-16x9 shadow">
+            <iframe src="https://www.youtube.com/embed/Gx1UuT0uEsU" title="Manasik" allowfullscreen></iframe>
+          </div>
         </div>
-        <div class="col-lg-6">
-          <div class="ratio ratio-16x9 img-rounded overflow-hidden shadow"><iframe src="https://www.youtube.com/embed/NhbZMVGX1BA" title="Pasien cuci darah" allowfullscreen></iframe></div>
+        <div class="mbs-marquee-item video-card-container">
+          <div class="ratio ratio-16x9 shadow">
+            <iframe src="https://www.youtube.com/embed/NhbZMVGX1BA" title="Pasien cuci darah" allowfullscreen></iframe>
+          </div>
         </div>
-        <div class="col-lg-6">
-          <div class="ratio ratio-16x9 img-rounded overflow-hidden shadow"><iframe src="https://www.youtube.com/embed/q3OWDU271j4" title="UMROH BARENG SATU PESAWAT" allowfullscreen></iframe></div>
+        <div class="mbs-marquee-item video-card-container">
+          <div class="ratio ratio-16x9 shadow">
+            <iframe src="https://www.youtube.com/embed/q3OWDU271j4" title="UMROH BARENG SATU PESAWAT" allowfullscreen></iframe>
+          </div>
         </div>
-        <div class="col-12">
-          <div class="ratio ratio-16x9 img-rounded overflow-hidden shadow"><iframe src="https://www.youtube.com/embed/XRExnPvAWX8" title="Meraih Gelar Guiness World of Record" allowfullscreen></iframe></div>
+        <div class="mbs-marquee-item video-card-container">
+          <div class="ratio ratio-16x9 shadow">
+            <iframe src="https://www.youtube.com/embed/XRExnPvAWX8" title="Meraih Gelar Guiness World of Record" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Galeri Tambahan (sebelum Testimoni) -->
+  <!-- Galeri Tambahan (sebelum Testimoni) - REMADE TO CONTINUOUS MARQUEE -->
   <section id="galeri2">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title">Dokumentasi Tambahan Kegiatan Terkini</h2>
-        <p class="lead text-muted">Galeri foto aktivitas harian serta pelaksanaan manasik dan keberangkatan jamaah di berbagai bandara.</p>
+        <p class="lead text-muted">Galeri foto aktivitas harian serta pelaksanaan manasik dan keberangkatan jamaah di berbagai bandara (Geser otomatis, dekati dengan kursor untuk menjeda).</p>
       </div>
-      <div class="gallery-grid">
-        <img src="image/20251202-093117_WhatsApp%20Image%202025-12-02%20at%2009.30.17.jpeg" alt="Aktivitas Jamaah 1" loading="lazy">
-        <img src="image/20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.17%20(1).jpeg" alt="Aktivitas Jamaah 2" loading="lazy">
-        <img src="image/20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.17%20(2).jpeg" alt="Aktivitas Jamaah 3" loading="lazy">
-        <img src="image/20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.17%20(3).jpeg" alt="Aktivitas Jamaah 4" loading="lazy">
-        <img src="image/20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.18.jpeg" alt="Aktivitas Jamaah 5" loading="lazy">
-        <img src="image/20251202-093115_WhatsApp%20Image%202025-12-02%20at%2009.30.18%20(1).jpeg" alt="Aktivitas Jamaah 6" loading="lazy">
-        <img src="image/20251202-093115_WhatsApp%20Image%202025-12-02%20at%2009.30.18%20(2).jpeg" alt="Aktivitas Jamaah 7" loading="lazy">
-        <img src="image/20251202-093115_WhatsApp%20Image%202025-12-02%20at%2009.30.18%20(3).jpeg" alt="Aktivitas Jamaah 8" loading="lazy">
-        <img src="image/20251202-093114_WhatsApp%20Image%202025-12-02%20at%2009.30.19.jpeg" alt="Aktivitas Jamaah 9" loading="lazy">
-        <img src="image/20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.49.jpeg" alt="Manasik Akbar 1" loading="lazy">
-        <img src="image/20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.49%20(1).jpeg" alt="Manasik Akbar 2" loading="lazy">
-        <img src="image/20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.50.jpeg" alt="Manasik Akbar 3" loading="lazy">
-        <img src="image/20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.50%20(1).jpeg" alt="Keberangkatan Udara 1" loading="lazy">
-        <img src="image/20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.50%20(2).jpeg" alt="Keberangkatan Udara 2" loading="lazy">
-        <img src="image/20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.50%20(3).jpeg" alt="Keberangkatan Udara 3" loading="lazy">
-        <img src="image/20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.51.jpeg" alt="Keberangkatan Udara 4" loading="lazy">
-        <img src="image/20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.51%20(1).jpeg" alt="Keberangkatan Udara 5" loading="lazy">
-        <img src="image/20251202-093540_WhatsApp%20Image%202025-12-02%20at%2009.34.51%20(2).jpeg" alt="Keberangkatan Udara 6" loading="lazy">
-        <img src="image/20251202-093540_WhatsApp%20Image%202025-12-02%20at%2009.34.51%20(3).jpeg" alt="Keberangkatan Udara 7" loading="lazy">
+    </div>
+
+    <div class="mbs-marquee-outer">
+      <div class="mbs-marquee-track" id="track-galeri-2">
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093117_WhatsApp%20Image%202025-12-02%20at%2009.30.17.jpeg" alt="Aktivitas Jamaah 1" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.17%20(1).jpeg" alt="Aktivitas Jamaah 2" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.17%20(2).jpeg" alt="Aktivitas Jamaah 3" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.17%20(3).jpeg" alt="Aktivitas Jamaah 4" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.18.jpeg" alt="Aktivitas Jamaah 5" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093115_WhatsApp%20Image%202025-12-02%20at%2009.30.18%20(1).jpeg" alt="Aktivitas Jamaah 6" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093115_WhatsApp%20Image%202025-12-02%20at%2009.30.18%20(2).jpeg" alt="Aktivitas Jamaah 7" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093115_WhatsApp%20Image%202025-12-02%20at%2009.30.18%20(3).jpeg" alt="Aktivitas Jamaah 8" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093114_WhatsApp%20Image%202025-12-02%20at%2009.30.19.jpeg" alt="Aktivitas Jamaah 9" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.49.jpeg" alt="Manasik Akbar 1" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.49%20(1).jpeg" alt="Manasik Akbar 2" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.50.jpeg" alt="Manasik Akbar 3" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.50%20(1).jpeg" alt="Keberangkatan Udara 1" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.50%20(2).jpeg" alt="Keberangkatan Udara 2" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.50%20(3).jpeg" alt="Keberangkatan Udara 3" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.51.jpeg" alt="Keberangkatan Udara 4" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.51%20(1).jpeg" alt="Keberangkatan Udara 5" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093540_WhatsApp%20Image%202025-12-02%20at%2009.34.51%20(2).jpeg" alt="Keberangkatan Udara 6" loading="lazy">
+        </div>
+        <div class="mbs-marquee-item">
+          <img src="image/20251202-093540_WhatsApp%20Image%202025-12-02%20at%2009.34.51%20(3).jpeg" alt="Keberangkatan Udara 7" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
@@ -1427,6 +1594,33 @@
       
       const url = `https://wa.me/6287783073536?text=${body}`;
       window.open(url, '_blank');
+    });
+
+    // INFINITE MARQUEE CAROUSEL BUILDER FUNCTION
+    // Dynamically clone slides to guarantee a seamless wrap animation
+    function setupMarquee(trackId) {
+      const track = document.getElementById(trackId);
+      if (!track) return;
+      
+      // Clone the items twice to ensure the track width is larger than standard viewport
+      const originalItems = Array.from(track.children);
+      
+      originalItems.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+      });
+      
+      originalItems.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+      });
+    }
+
+    // Initialize all custom marquees on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      setupMarquee('track-galeri-1');
+      setupMarquee('track-video');
+      setupMarquee('track-galeri-2');
     });
 
     // SISTEM KEAMANAN (No Right-Click & No Inspector Shortcuts)
