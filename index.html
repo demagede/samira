@@ -34,19 +34,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://www.youtube.com">
-  <link rel="preconnect" href="https://i.ytimg.com">
 
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  <link rel="dns-prefetch" href="https://www.youtube.com">
-  <link rel="dns-prefetch" href="https://i.ytimg.com">
-
-  <link rel="preload" href="image/hajilands.webp" as="image" type="image/webp" fetchpriority="high">
+ 
+  <link rel="preload" href="image/hajilands-768.webp" as="image" type="image/webp" fetchpriority="high">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
 
   <script>
     tailwind.config = {
@@ -65,10 +63,6 @@
       }
     }
   </script>
-
-  <style>
-    .transition-premium{transition:all .3s cubic-bezier(.4,0,.2,1)}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}.no-scrollbar::-webkit-scrollbar{display:none}.wave-text{background:linear-gradient(90deg,#1e40af,#b45309,#1e40af);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:waveText 6s linear infinite}@keyframes waveText{to{background-position:200% center}}@keyframes marqueeScroll{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-50%,0,0)}}.testimonial-marquee-track{display:flex;width:max-content;animation:marqueeScroll 35s linear infinite;will-change:transform;backface-visibility:hidden}.testimonial-marquee-track:hover{animation-play-state:paused}.compact-timeline-item::before,.tips-timeline-item::before{content:'';position:absolute;bottom:-6px;width:2px;background-color:#e2e8f0}.compact-timeline-item::before{left:7px;top:18px}.tips-timeline-item::before{left:5px;top:16px;background-color:#d1d5db;width:1.5px}.compact-timeline-item:last-child::before,.tips-timeline-item:last-child::before{display:none}.nav-active{color:#d4af37!important;border-bottom:2px solid #d4af37}.mobile-nav-active{background-color:#f1f5f9;color:#1e40af!important;border-left:4px solid #1e40af}body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}input,textarea{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text}
-  </style>
 
   <script type="application/ld+json">
   {
@@ -282,7 +276,6 @@
             <!-- Profile Column (Col 5) -->
             <div class="lg:col-span-5 text-center flex flex-col items-center">
               <div class="relative mb-6">
-<!--                <img src="image/dedyfoto.webp" alt="Profil Dedy MBS - Mitra Resmi Samira Travel Cijantung" class="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover object-[center_15%] border-[5px] border-accent shadow-2xl transition-premium hover:scale-105" width="176" height="176" fetchpriority="high" decoding="async"> -->
                 <img
                   src="image/dedyfoto-176.webp"
                   srcset="
@@ -320,7 +313,6 @@
                     image/hajilands-1200.webp 1200w"
                   sizes="(max-width:768px) 100vw, 600px"
                   alt="Hajiland Samira Travel Official" class="w-full h-auto rounded-xl object-contain max-h-[420px] mx-auto block" width="600" height="420" fetchpriority="high" decoding="async" onerror="this.src='https://placehold.co/600x450/1e40af/ffffff?text=Hajiland+Samira+Travel'">
-           <!-- <img src="image/hajilands.webp" alt="Hajiland Samira Travel Official" class="w-full h-auto rounded-xl object-contain max-h-[420px] mx-auto block" width="600" height="420" fetchpriority="high" decoding="async" onerror="this.src='https://placehold.co/600x450/1e40af/ffffff?text=Hajiland+Samira+Travel'">  -->
               </div>
             </div>
           </div>
@@ -1174,7 +1166,7 @@
 
   <!-- Floating WhatsApp Button (Emerald) -->
   <a class="fixed z-[1030] right-5 bottom-[85px] bg-emerald-500 text-white rounded-full w-12 h-12 shadow-lg flex items-center justify-start p-3 overflow-hidden whitespace-nowrap transition-premium group hover:w-40 min-w-[48px] min-h-[48px]" href="https://wa.me/6287783073536?text=Assalaamualaikum%20Customer%20Service%20Samira%2C%20saya%20tertarik%20dengan%20info%20program%20Umroh%20Samira%20Travel.%20Mohon%20info%20selengkapnya." target="_blank" rel="noopener" aria-label="Hubungi Dedy MBS via WhatsApp">
-    <img src="image/logowa.webp" class="w-6 h-6 rounded-full shrink-0 object-cover" width="24" height="24" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/24x24/10b981/ffffff?text=WA'">
+    <img src="image/logowa.webp" alt="WhatsApp" class="w-6 h-6 rounded-full shrink-0 object-cover" width="24" height="24" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/24x24/10b981/ffffff?text=WA'">
     <span class="font-bold text-xs ml-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">Dedy MBS</span>
   </a>
 
