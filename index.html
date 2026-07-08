@@ -1250,6 +1250,36 @@
       };
     };
 
+/* ==========================================================
+   APPLICATION CONSTANTS
+========================================================== */
+
+const CLS = Object.freeze({
+  HIDDEN: 'hidden',
+  ACTIVE: 'active',
+  PRIMARY: 'bg-primary',
+  TEXT_WHITE: 'text-white',
+  SHADOW: 'shadow-md',
+  TEXT_DEFAULT: 'text-slate-600',
+  HOVER_PRIMARY: 'hover:text-primary',
+  HOVER_BG: 'hover:bg-white/50',
+  ROTATE: 'rotate-180',
+  FADE_IN: 'animate__fadeIn',
+  ANIMATE: 'animate__animated',
+  FAST: 'animate__faster'
+});
+
+const CONFIG = Object.freeze({
+  SCROLL_STEP: 340,
+  HEADER_OFFSET: -90,
+  SCROLL_DELAY: 150,
+  MUSIC_VOLUME: 40
+});
+
+const CONTACT = Object.freeze({
+  WHATSAPP: '6287783073536'
+});
+
     /* DOM CACHE */
     const DOM = {
       year: document.getElementById('year'),
@@ -1373,11 +1403,11 @@
         setTimeout(() => {
           const element = document.getElementById(scrollToSection);
           if (element) {
-            const yOffset = -90;
+            const yOffset = CONFIG.HEADER_OFFSET;
             const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
             window.scrollTo({ top: y, behavior: 'smooth' });
           }
-        }, 150);
+        }, CONFIG.SCROLL_DELAY);
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
@@ -1534,7 +1564,7 @@
     const scrollSlider = rAFThrottle((containerId, direction) => {
       const el = document.getElementById(containerId);
       if (!el) return;
-      const scrollStep = 340;
+      const scrollStep = CONFIG.SCROLL_STEP;
       el.scrollBy({
         left: direction === 'left' ? -scrollStep : scrollStep,
         behavior: 'smooth'
@@ -1598,7 +1628,7 @@
     };
 
     function onPlayerReady(event) {
-      event.target.setVolume(40);
+      event.target.setVolume(CONFIG.MUSIC_VOLUME);
       
       const attemptAutoPlay = () => {
         if (!musicPlayed && player && typeof player.playVideo === 'function') {
@@ -1660,7 +1690,7 @@
         const greet = 'Assalaamualaikum Pak Dedy MBS (M-DGI-9725), saya ingin bertanya tentang program umroh Samira Travel. Berikut data saya:';
         const body = `${greet}%0A%0ANama: ${encodeURIComponent(nama)}%0AWhatsApp: ${encodeURIComponent(wa)}%0ADomisili: ${encodeURIComponent(alamat)}%0APertanyaan: ${encodeURIComponent(pesan)}`;
         
-        const url = `https://wa.me/6287783073536?text=${body}`;
+        const url = `https://wa.me/${CONTACT.WHATSAPP}?text=${body}`;
         window.open(url, '_blank', 'noopener,noreferrer');
       });
     }
