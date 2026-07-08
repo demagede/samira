@@ -19,7 +19,7 @@
   <meta name="twitter:description" content="Program Umroh & Haji Resmi bersama Dedy MBS (M-DGI-9725)">
   <meta name="twitter:image" content="https://umrohku.my.id/image/logosamira.webp">
 
-  <link rel="canonical" href="https://umrohku.my.id/">
+  <link class="canonical" href="https://umrohku.my.id/">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://umrohku.my.id/">
@@ -33,7 +33,6 @@
   <!-- Connection Warmup -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://www.youtube.com">
   <link rel="preconnect" href="https://i.ytimg.com">
@@ -45,9 +44,7 @@
   <link rel="preload" href="image/dedyfoto.webp" as="image" type="image/webp" fetchpriority="high">
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preload"
-        as="style"
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 
@@ -104,7 +101,6 @@
 
 <body class="bg-white text-slate-900 antialiased pt-[40px] selection:bg-primary/10">
 
-  <!-- Top Sticky Promo Bar -->
   <section class="fixed top-0 left-0 right-0 h-[40px] bg-sky-100 flex items-center z-[1060] shadow-sm overflow-hidden" aria-label="Promo Terbatas">
     <div class="bg-red-600 text-white font-extrabold h-full flex items-center px-4 text-xs md:text-sm tracking-wide z-20 shadow-md shrink-0 whitespace-nowrap">
       PENTING
@@ -122,19 +118,16 @@
     </div>
   </section>
 
-  <!-- NAVBAR -->
   <nav class="sticky top-[40px] bg-white/95 backdrop-blur-md z-[1050] border-b border-slate-100 shadow-sm py-4">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-      
-      <!-- Brand Logo (Sisi Kiri) -->
       <button data-action="spa-nav" data-target="home" class="flex items-center gap-2" aria-label="Kembali ke beranda">
         <img src="image/logosamira.webp" alt="Samira Travel Logo" class="h-10 md:h-12 w-auto" width="120" height="44" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/150x55/1e40af/ffffff?text=Samira+Travel'">
         <img src="image/samira.webp?v=1.1" alt="Samira Travel" class="h-5 sm:h-6 md:h-8 w-auto block" width="112" height="32" loading="lazy" decoding="async" onerror="this.style.display='none'">
       </button>
 
-      <!-- Desktop Links dengan Kontrol SPA (Sisi Tengah - Hanya muncul di Desktop/Layar Lebar) -->
+      <!-- DESKTOP NAVIGATION -->
       <div class="hidden lg:flex items-center gap-6" id="desktopNav">
-        <!-- Menu 1: Home -->
+        <!-- Home Dropdown -->
         <div class="relative group">
           <button class="flex items-center gap-1 font-semibold text-slate-800 hover:text-accent transition-colors py-2 focus:outline-none" aria-expanded="false" aria-haspopup="menu">
             Home & Profil 
@@ -148,7 +141,7 @@
           </div>
         </div>
 
-        <!-- Menu 2: Edukasi -->
+        <!-- Edukasi Dropdown -->
         <div class="relative group">
           <button class="flex items-center gap-1 font-semibold text-slate-800 hover:text-accent transition-colors py-2 focus:outline-none" aria-expanded="false" aria-haspopup="menu">
             Edukasi & Legalitas 
@@ -168,7 +161,7 @@
           </div>
         </div>
 
-        <!-- Menu 3: Paket & Info -->
+        <!-- Paket & Info Dropdown -->
         <div class="relative group">
           <button class="flex items-center gap-1 font-semibold text-slate-800 hover:text-accent transition-colors py-2 focus:outline-none" aria-expanded="false" aria-haspopup="menu">
             Paket & Info
@@ -185,7 +178,7 @@
           </div>
         </div>
 
-        <!-- Menu 4: Dokumentasi -->
+        <!-- Dokumentasi Dropdown -->
         <div class="relative group">
           <button class="flex items-center gap-1 font-semibold text-slate-800 hover:text-accent transition-colors py-2 focus:outline-none" aria-expanded="false" aria-haspopup="menu">
             Dokumentasi
@@ -203,18 +196,15 @@
         <button data-action="spa-nav" data-target="form-pendaftaran" class="font-semibold text-slate-800 hover:text-accent transition-colors py-2 focus:outline-none">Pendaftaran</button>
       </div>
 
-      <!-- Mobile Hamburger Button (Sisi Kanan - Hanya muncul di Smartphone/Layar Kecil) -->
-      <button id="mobileMenuBtn" class="lg:hidden p-3 text-slate-800 hover:text-blue-800 focus:outline-none min-w-[48px] min-h-[48px] flex items-center justify-center transition-colors" aria-label="Buka Menu" aria-expanded="false" aria-controls="mobileMenu">
+      <button data-action="toggle-mobile-menu" class="lg:hidden p-3 text-slate-800 hover:text-blue-800 focus:outline-none min-w-[48px] min-h-[48px] flex items-center justify-center transition-colors" aria-label="Buka Menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
-      
     </div>
 
-    <!-- Mobile Dropdown Accordion Panel (Hanya muncul di Smartphone/Layar Kecil ketika aktif) -->
+    <!-- MOBILE ACCORDION NAVIGATION -->
     <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-slate-100 px-4 py-3 space-y-1 mt-2 transition-all">
-      <!-- Accordion 1: Home & Profil -->
       <div class="border-b border-slate-50 py-1">
         <button data-action="toggle-submenu" data-target="mob-sub-home" class="w-full flex justify-between items-center py-3 text-slate-800 hover:text-blue-800 font-bold text-sm min-h-[44px]">
           <span>Home & Profil</span>
@@ -226,7 +216,6 @@
         </div>
       </div>
 
-      <!-- Accordion 2: Edukasi & Legalitas -->
       <div class="border-b border-slate-50 py-1">
         <button data-action="toggle-submenu" data-target="mob-sub-edu" class="w-full flex justify-between items-center py-3 text-slate-800 hover:text-blue-800 font-bold text-sm min-h-[44px]">
           <span>Edukasi & Legalitas</span>
@@ -244,7 +233,6 @@
         </div>
       </div>
 
-      <!-- Accordion 3: Paket & Info -->
       <div class="border-b border-slate-50 py-1">
         <button data-action="toggle-submenu" data-target="mob-sub-paket" class="w-full flex justify-between items-center py-3 text-slate-800 hover:text-blue-800 font-bold text-sm min-h-[44px]">
           <span>Paket & Info</span>
@@ -259,7 +247,6 @@
         </div>
       </div>
 
-      <!-- Accordion 4: Dokumentasi -->
       <div class="border-b border-slate-50 py-1">
         <button data-action="toggle-submenu" data-target="mob-sub-doc" class="w-full flex justify-between items-center py-3 text-slate-800 hover:text-blue-800 font-bold text-sm min-h-[44px]">
           <span>Dokumentasi</span>
@@ -274,7 +261,6 @@
 
       <button data-action="spa-nav" data-target="form-pendaftaran" class="w-full text-left block text-sm font-bold text-slate-800 hover:text-blue-800 py-3 border-b border-slate-50">Pendaftaran</button>
 
-      <!-- Tombol WhatsApp Dedy MBS dalam dropdown menu mobile -->
       <a class="flex items-center justify-center gap-3 bg-emerald-500 text-white font-bold py-3.5 rounded-full mt-4 shadow" href="https://wa.me/6287783073536?text=Assalaamualaikum%20Customer%20Service%20Samira%2C%20saya%20tertarik%20dengan%20info%20program%20Umroh%20Samira%20Travel.%20Mohon%20info%20selengkapnya." target="_blank" rel="noopener">
         <img src="image/logowa.webp" class="w-6 h-6 rounded-full shrink-0 object-cover" width="24" height="24" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/24x24/10b981/ffffff?text=WA'">
         <span>Dedy MBS</span>
@@ -387,28 +373,28 @@
           <!-- Tab Segmented Controls -->
           <div class="bg-slate-200/60 p-1.5 rounded-3xl mb-8 max-w-full overflow-hidden">
             <div class="flex overflow-x-auto gap-1 no-scrollbar p-0.5" id="eduTabList" role="tablist" aria-label="Portal Edukasi">
-              <button class="edu-tab-btn active px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium bg-primary text-white shadow-md min-h-[44px]" role="tab" aria-selected="true" aria-controls="edu-tab-content-0" data-index="0">
+              <button data-action="edu-tab" data-index="0" class="edu-tab-btn active px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium bg-primary text-white shadow-md min-h-[44px]" role="tab" aria-selected="true" aria-controls="edu-tab-content-0">
                 1. Pengertian Umroh
               </button>
-              <button class="edu-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="edu-tab-content-1" data-index="1">
+              <button data-action="edu-tab" data-index="1" class="edu-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="edu-tab-content-1">
                 2. Sejarah & Keutamaan
               </button>
-              <button class="edu-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="edu-tab-content-2" data-index="2">
+              <button data-action="edu-tab" data-index="2" class="edu-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="edu-tab-content-2">
                 3. Tips Memilih Travel
               </button>
-              <button class="edu-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="edu-tab-content-3" data-index="3">
+              <button data-action="edu-tab" data-index="3" class="edu-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="edu-tab-content-3">
                 4. Pilihan Waktu Terbaik
               </button>
-              <button class="edu-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="edu-tab-content-4" data-index="4">
+              <button data-action="edu-tab" data-index="4" class="edu-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="edu-tab-content-4">
                 5. Profil Samira Travel
               </button>
-              <button class="edu-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="edu-tab-content-5" data-index="5">
+              <button data-action="edu-tab" data-index="5" class="edu-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="edu-tab-content-5">
                 6. Legalitas Kemenag
               </button>
-              <button class="edu-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="edu-tab-content-6" data-index="6">
+              <button data-action="edu-tab" data-index="6" class="edu-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="edu-tab-content-6">
                 7. Mengapa Samira
               </button>
-              <button class="edu-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="edu-tab-content-7" data-index="7">
+              <button data-action="edu-tab" data-index="7" class="edu-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="edu-tab-content-7">
                 8. Rangkaian Kegiatan
               </button>
             </div>
@@ -459,7 +445,7 @@
                     <h4 class="text-lg font-extrabold text-slate-900">Sejarah Ibadah Umroh</h4>
                   </div>
                   <p class="text-xs md:text-sm text-slate-500 leading-relaxed">
-                    Sejarah ibadah umroh berakar sangat erat dengan perjuangan dakwah para Nabi pilihan Allah, mulai dari Nabi Ibrahim AS, Nabi Ismail AS, ibunda Hajar, hingga Rasulullah Muhammad SAW. Syariat umroh dipantapkan setelah peristiwa penting Perjanjian Hudaibiyah dan peristiwa Fathu Makkah (penaklukan kota suci Makkah).
+                    Sejarah ibadah umroh berakar sangat erat dengan perjuangan dakwah para Nabi pilihan Allah, mulai dari Nabi Ibrahim AS, Nabi Ismail AS, ibunda Hajar, hingga Rasulullah Muhammad SAW. Syariat umroh dipantapkan setelah peristiwa penting Perjanjian Hudaibiyah and peristiwa Fathu Makkah (penaklukan kota suci Makkah).
                   </p>
                   <ul class="space-y-2">
                     <li class="flex items-start gap-2 text-xs text-slate-600">
@@ -726,19 +712,19 @@
           <!-- Tab Segmented Controls -->
           <div class="bg-slate-200/60 p-1.5 rounded-3xl mb-8 max-w-full overflow-hidden">
             <div class="flex overflow-x-auto gap-1 no-scrollbar p-0.5" id="paketTabList" role="tablist" aria-label="Informasi Paket">
-              <button class="paket-tab-btn active px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium bg-primary text-white shadow-md min-h-[44px]" role="tab" aria-selected="true" aria-controls="paket-tab-content-0" data-index="0">
+              <button data-action="paket-tab" data-index="0" class="paket-tab-btn active px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium bg-primary text-white shadow-md min-h-[44px]" role="tab" aria-selected="true" aria-controls="paket-tab-content-0">
                 1. Solusi Skema Syariah
               </button>
-              <button class="paket-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="paket-tab-content-1" data-index="1">
+              <button data-action="paket-tab" data-index="1" class="paket-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="paket-tab-content-1">
                 2. Persyaratan Dokumen
               </button>
-              <button class="paket-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="paket-tab-content-2" data-index="2">
+              <button data-action="paket-tab" data-index="2" class="paket-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="paket-tab-content-2">
                 3. Perlengkapan Premium
               </button>
-              <button class="paket-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="paket-tab-content-3" data-index="3">
+              <button data-action="paket-tab" data-index="3" class="paket-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="paket-tab-content-3">
                 4. Paket & Hotel Eksklusif
               </button>
-              <button class="paket-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="paket-tab-content-4" data-index="4">
+              <button data-action="paket-tab" data-index="4" class="paket-tab-btn px-5 py-3 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[44px]" role="tab" aria-selected="false" aria-controls="paket-tab-content-4">
                 5. Haji Furoda
               </button>
             </div>
@@ -769,7 +755,7 @@
               </div>
             </div>
 
-            <!-- Tab 1: Persyaratan Dokumen Jamaah Umroh (RESORED FULL VERSION) -->
+            <!-- Tab 1: Persyaratan Dokumen Jamaah Umroh -->
             <div id="paket-tab-content-1" class="paket-pane hidden space-y-6 text-left" role="tabpanel" aria-labelledby="paket-tab-content-1">
               <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <!-- Left List -->
@@ -891,7 +877,7 @@
               </div>
             </div>
 
-            <!-- Tab 4: Haji Furoda (RESTORED FULL VERSION WITH ALL DETAILS) -->
+            <!-- Tab 4: Haji Furoda -->
             <div id="paket-tab-content-4" class="paket-pane hidden space-y-6 text-left" role="tabpanel" aria-labelledby="paket-tab-content-4">
               <div class="text-center space-y-2 mb-6">
                 <span class="bg-amber-100 text-amber-800 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider inline-block">PROGRAM KHUSUS</span>
@@ -986,13 +972,13 @@
           <!-- Tab Segmented Controls -->
           <div class="bg-slate-200/60 p-1.5 rounded-3xl mb-8 max-w-md mx-auto">
             <div class="flex gap-1 no-scrollbar p-0.5 justify-center" id="docTabList">
-              <button class="doc-tab-btn active px-4 py-2.5 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 grow justify-center transition-premium bg-primary text-white shadow-md min-h-[40px]" data-index="0">
+              <button data-action="doc-tab" data-index="0" class="doc-tab-btn active px-4 py-2.5 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 grow justify-center transition-premium bg-primary text-white shadow-md min-h-[40px]">
                 Galeri Video
               </button>
-              <button class="doc-tab-btn px-4 py-2.5 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 grow justify-center transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[40px]" data-index="1">
+              <button data-action="doc-tab" data-index="1" class="doc-tab-btn px-4 py-2.5 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 grow justify-center transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[40px]">
                 Galeri Foto
               </button>
-              <button class="doc-tab-btn px-4 py-2.5 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 grow justify-center transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[40px]" data-index="2">
+              <button data-action="doc-tab" data-index="2" class="doc-tab-btn px-4 py-2.5 rounded-2xl text-xs md:text-sm font-bold whitespace-nowrap flex items-center gap-2 grow justify-center transition-premium text-slate-600 hover:text-primary hover:bg-white/50 min-h-[40px]">
                 Testimoni
               </button>
             </div>
@@ -1017,97 +1003,14 @@
                   &#10095;
                 </button>
 
-                <!-- Video Track Container (ALL 6 Videos RESTORED) -->
+                <!-- Video Track Container -->
                 <div id="video-container" class="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar py-3">
-                  <!-- Video 1 -->
-                  <div class="bg-slate-50 p-2 rounded-2xl border border-slate-100 shadow-sm shrink-0 w-[280px] md:w-[320px]">
-                    <div class="aspect-[16/9] overflow-hidden rounded-xl relative bg-slate-200">
-                      <div class="w-full h-full cursor-pointer group" data-action="lazy-iframe" data-id="W6CFhcArx_I" data-title="Zero to Hero Samira">
-                        <img src="https://img.youtube.com/vi/W6CFhcArx_I/0.jpg" alt="Zero to Hero Samira Video" class="w-full h-full object-cover" loading="lazy" decoding="async">
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-premium">
-                          <div class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform group-hover:scale-110 transition-premium">
-                            <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.512 1.512a1 1 0 0 1 1.025-.03l11.4 6.6a1 1 0 0 1 0 1.736l-11.4 6.6a1 1 0 0 1-1.512-.868V2.38a1 1 0 0 1 .487-.868z"/></svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <p class="text-[11px] font-bold text-center text-slate-600 uppercase tracking-wide mt-2 mb-0">Zero to Hero Samira</p>
-                  </div>
-                  <!-- Video 2 -->
-                  <div class="bg-slate-50 p-2 rounded-2xl border border-slate-100 shadow-sm shrink-0 w-[280px] md:w-[320px]">
-                    <div class="aspect-[16/9] overflow-hidden rounded-xl relative bg-slate-200">
-                      <div class="w-full h-full cursor-pointer group" data-action="lazy-iframe" data-id="Mw4Gd1koPk8" data-title="Seminar Inspirasi Umrohku">
-                        <img src="https://img.youtube.com/vi/Mw4Gd1koPk8/0.jpg" alt="Seminar Inspirasi" class="w-full h-full object-cover" loading="lazy" decoding="async">
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-premium">
-                          <div class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform group-hover:scale-110 transition-premium">
-                            <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.512 1.512a1 1 0 0 1 1.025-.03l11.4 6.6a1 1 0 0 1 0 1.736l-11.4 6.6a1 1 0 0 1-1.512-.868V2.38a1 1 0 0 1 .487-.868z"/></svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <p class="text-[11px] font-bold text-center text-slate-600 uppercase tracking-wide mt-2 mb-0">Seminar Inspirasi Umrohku</p>
-                  </div>
-                  <!-- Video 3 -->
-                  <div class="bg-slate-50 p-2 rounded-2xl border border-slate-100 shadow-sm shrink-0 w-[280px] md:w-[320px]">
-                    <div class="aspect-[16/9] overflow-hidden rounded-xl relative bg-slate-200">
-                      <div class="w-full h-full cursor-pointer group" data-action="lazy-iframe" data-id="Gx1UuT0uEsU" data-title="Manasik">
-                        <img src="https://img.youtube.com/vi/Gx1UuT0uEsU/0.jpg" alt="Manasik Akbar" class="w-full h-full object-cover" loading="lazy" decoding="async">
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-premium">
-                          <div class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform group-hover:scale-110 transition-premium">
-                            <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.512 1.512a1 1 0 0 1 1.025-.03l11.4 6.6a1 1 0 0 1 0 1.736l-11.4 6.6a1 1 0 0 1-1.512-.868V2.38a1 1 0 0 1 .487-.868z"/></svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <p class="text-[11px] font-bold text-center text-slate-600 uppercase tracking-wide mt-2 mb-0">Manasik Akbar</p>
-                  </div>
-                  <!-- Video 4 -->
-                  <div class="bg-slate-50 p-2 rounded-2xl border border-slate-100 shadow-sm shrink-0 w-[280px] md:w-[320px]">
-                    <div class="aspect-[16/9] overflow-hidden rounded-xl relative bg-slate-200">
-                      <div class="w-full h-full cursor-pointer group" data-action="lazy-iframe" data-id="NhbZMVGX1BA" data-title="Pasien cuci darah">
-                        <img src="https://img.youtube.com/vi/NhbZMVGX1BA/0.jpg" alt="Kisah Pasien Cuci Darah" class="w-full h-full object-cover" loading="lazy" decoding="async">
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-premium">
-                          <div class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform group-hover:scale-110 transition-premium">
-                            <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.512 1.512a1 1 0 0 1 1.025-.03l11.4 6.6a1 1 0 0 1 0 1.736l-11.4 6.6a1 1 0 0 1-1.512-.868V2.38a1 1 0 0 1 .487-.868z"/></svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <p class="text-[11px] font-bold text-center text-slate-600 uppercase tracking-wide mt-2 mb-0">Kisah Pasien Cuci Darah</p>
-                  </div>
-                  <!-- Video 5 -->
-                  <div class="bg-slate-50 p-2 rounded-2xl border border-slate-100 shadow-sm shrink-0 w-[280px] md:w-[320px]">
-                    <div class="aspect-[16/9] overflow-hidden rounded-xl relative bg-slate-200">
-                      <div class="w-full h-full cursor-pointer group" data-action="lazy-iframe" data-id="q3OWDU271j4" data-title="UMROH BARENG SATU PESAWAT">
-                        <img src="https://img.youtube.com/vi/q3OWDU271j4/0.jpg" alt="Satu Pesawat" class="w-full h-full object-cover" loading="lazy" decoding="async">
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-premium">
-                          <div class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform group-hover:scale-110 transition-premium">
-                            <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.512 1.512a1 1 0 0 1 1.025-.03l11.4 6.6a1 1 0 0 1 0 1.736l-11.4 6.6a1 1 0 0 1-1.512-.868V2.38a1 1 0 0 1 .487-.868z"/></svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <p class="text-[11px] font-bold text-center text-slate-600 uppercase tracking-wide mt-2 mb-0">Umroh Bareng Satu Pesawat</p>
-                  </div>
-                  <!-- Video 6 -->
-                  <div class="bg-slate-50 p-2 rounded-2xl border border-slate-100 shadow-sm shrink-0 w-[280px] md:w-[320px]">
-                    <div class="aspect-[16/9] overflow-hidden rounded-xl relative bg-slate-200">
-                      <div class="w-full h-full cursor-pointer group" data-action="lazy-iframe" data-id="XRExnPvAWX8" data-title="Meraih Gelar Guiness World of Record">
-                        <img src="https://img.youtube.com/vi/XRExnPvAWX8/0.jpg" alt="Guiness World Record" class="w-full h-full object-cover" loading="lazy" decoding="async">
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-premium">
-                          <div class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform group-hover:scale-110 transition-premium">
-                            <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.512 1.512a1 1 0 0 1 1.025-.03l11.4 6.6a1 1 0 0 1 0 1.736l-11.4 6.6a1 1 0 0 1-1.512-.868V2.38a1 1 0 0 1 .487-.868z"/></svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <p class="text-[11px] font-bold text-center text-slate-600 uppercase tracking-wide mt-2 mb-0">Gelar Guiness World Record</p>
-                  </div>
+                  <!-- JS will dynamically populate all 6 videos here -->
                 </div>
               </div>
             </div>
 
-            <!-- Tab 1: Galeri Foto (ALL 25 PHOTOS RESTORED) -->
+            <!-- Tab 1: Galeri Foto -->
             <div id="doc-tab-content-1" class="doc-pane hidden space-y-6">
               <div class="text-center space-y-2 mb-4">
                 <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Dokumentasi Foto Kegiatan</h3>
@@ -1123,83 +1026,9 @@
                   &#10095;
                 </button>
 
-                <!-- Foto Track Container (25 unique photos) -->
+                <!-- Foto Track Container -->
                 <div id="photo-container" class="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar py-3">
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20250106-075317_WhatsApp%20Image%202024-12-24%20at%2008.42.59(2).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Galeri" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+1'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.45.34(1).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Pelayanan" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+2'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.01(3).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Keberangkatan" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+3'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.01(2).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Masjidil Haram" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+4'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.00(5).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Madinah" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+5'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.00(4).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Kebersamaan" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+6'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.00(3).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Sukses" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+7'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093117_WhatsApp%20Image%202025-12-02%20at%2009.30.17.webp?v=1.1" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Aktivitas 1" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+8'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.17%20(1).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Aktivitas 2" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+9'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.17%20(2).webp?v=1.1" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Aktivitas 3" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+10'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.18.webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Aktivitas 4" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+11'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093115_WhatsApp Image 2025-12-02 at 09.30.18 (1).webp?v=1.1" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Aktivitas 5" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+12'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093115_WhatsApp%20Image%202025-12-02%20at%2009.30.18%20(2).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Aktivitas 6" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+13'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093115_WhatsApp%20Image%202025-12-02%20at%2009.30.18%20(3).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Aktivitas 7" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+14'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093114_WhatsApp%20Image%202025-12-02%20at%2009.30.19.webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Aktivitas 8" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+15'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.49.webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Manasik 1" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+17'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.49%20(1).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Manasik 2" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+18'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.50.webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Manasik 3" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+19'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.50%20(1).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Terbang 1" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+20'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.50%20(2).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Terbang 2" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+21'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.50%20(3).webp?v=1.1" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Terbang 3" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+22'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.51.webp?v=1.1" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Terbang 4" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+23'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.51%20(1).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Terbang 5" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+24'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093540_WhatsApp%20Image%202025-12-02%20at%2009.34.51%20(2).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Terbang 6" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+25'">
-                  </div>
-                  <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src="image/20251202-093540_WhatsApp%20Image%202025-12-02%20at%2009.34.51%20(3).webp" loading="lazy" decoding="async" class="w-full h-full object-cover" width="240" height="160" alt="Terbang 7" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+26'">
-                  </div>
+                  <!-- JS will dynamically populate all 25 photos here -->
                 </div>
               </div>
             </div>
@@ -1215,53 +1044,8 @@
                 <div class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
                 <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
 
-                <div class="testimonial-marquee-track">
-                  <!-- Item 1 -->
-                  <div class="w-[280px] shrink-0 mx-3 bg-white p-5 rounded-2xl border border-slate-100 shadow-sm text-center">
-                    <img class="w-16 h-16 rounded-full mx-auto object-cover mb-3 border-2 border-accent" src="image/20250623-073943_WhatsApp%20Image%202025-06-22%20at%2014.58.05.webp" alt="Testimoni Bu Siti" loading="lazy" decoding="async" width="64" height="64" onerror="this.src='https://placehold.co/90x90/1e40af/ffffff?text=Siti'">
-                    <h6 class="font-extrabold text-sm text-slate-900 mb-1">Bu Siti</h6>
-                    <p class="text-[11px] text-slate-500 leading-relaxed italic mb-0">“Pelayanan sangat ramah, ibadah kami sekeluarga menjadi tenang dan khusyuk. Terima kasih Samira!”</p>
-                  </div>
-                  <!-- Item 2 -->
-                  <div class="w-[280px] shrink-0 mx-3 bg-white p-5 rounded-2xl border border-slate-100 shadow-sm text-center">
-                    <img class="w-16 h-16 rounded-full mx-auto object-cover mb-3 border-2 border-accent" src="image/20250708-015010_WhatsApp%20Image%202025-07-07%20at%2011.35.44.webp?v=1.1" alt="Testimoni Pak Ahmad" loading="lazy" decoding="async" width="64" height="64" onerror="this.src='https://placehold.co/90x90/1e40af/ffffff?text=Ahmad'">
-                    <h6 class="font-extrabold text-sm text-slate-900 mb-1">Pak Ahmad</h6>
-                    <p class="text-[11px] text-slate-500 leading-relaxed italic mb-0">“Hotel yang disediakan sangat nyaman and dekat ke masjid. Mutawwif/pembimbing sabar membimbing kami.”</p>
-                  </div>
-                  <!-- Item 3 -->
-                  <div class="w-[280px] shrink-0 mx-3 bg-white p-5 rounded-2xl border border-slate-100 shadow-sm text-center">
-                    <img class="w-16 h-16 rounded-full mx-auto object-cover mb-3 border-2 border-accent" src="image/20250525-111617_WhatsApp%20Image%202025-05-25%20at%2005.50.23%20(1).webp" alt="Testimoni Bu Wulan" loading="lazy" decoding="async" width="64" height="64" onerror="this.src='https://placehold.co/90x90/1e40af/ffffff?text=Wulan'">
-                    <h6 class="font-extrabold text-sm text-slate-900 mb-1">Bu Wulan</h6>
-                    <p class="text-[11px] text-slate-500 leading-relaxed italic mb-0">“Proses pendaftaran sangat rapi dan dipandu sejak manasik hingga kami pulang kembali to tanah air. Luar biasa!”</p>
-                  </div>
-                  <!-- Item 4 -->
-                  <div class="w-[280px] shrink-0 mx-3 bg-white p-5 rounded-2xl border border-slate-100 shadow-sm text-center">
-                    <img class="w-16 h-16 rounded-full mx-auto object-cover mb-3 border-2 border-accent" src="image/20250524-040937_WhatsApp%20Image%202025-05-24%20at%2015.49.52.webp" alt="Testimoni Pak Rudi" loading="lazy" decoding="async" width="64" height="64" onerror="this.src='https://placehold.co/90x90/1e40af/ffffff?text=Rudi'">
-                    <h6 class="font-extrabold text-sm text-slate-900 mb-1">Pak Rudi</h6>
-                    <p class="text-[11px] text-slate-500 leading-relaxed italic mb-0">“Tim operasional sangat responsif membantu 24 jam penuh di Tanah Suci. Jamaah benar-benar terurus dengan baik.”</p>
-                  </div>
-
-                  <!-- Duplicate Set for Seamless Loop -->
-                  <div class="w-[280px] shrink-0 mx-3 bg-white p-5 rounded-2xl border border-slate-100 shadow-sm text-center" aria-hidden="true">
-                    <img class="w-16 h-16 rounded-full mx-auto object-cover mb-3 border-2 border-accent" src="image/20250623-073943_WhatsApp%20Image%202025-06-22%20at%2014.58.05.webp" alt="" loading="lazy" decoding="async" width="64" height="64">
-                    <h6 class="font-extrabold text-sm text-slate-900 mb-1">Bu Siti</h6>
-                    <p class="text-[11px] text-slate-500 leading-relaxed italic mb-0">“Pelayanan sangat ramah, ibadah kami sekeluarga menjadi tenang dan khusyuk. Terima kasih Samira!”</p>
-                  </div>
-                  <div class="w-[280px] shrink-0 mx-3 bg-white p-5 rounded-2xl border border-slate-100 shadow-sm text-center" aria-hidden="true">
-                    <img class="w-16 h-16 rounded-full mx-auto object-cover mb-3 border-2 border-accent" src="image/20250708-015010_WhatsApp%20Image%202025-07-07%20at%2011.35.44.webp?v=1.1" alt="" loading="lazy" decoding="async" width="64" height="64">
-                    <h6 class="font-extrabold text-sm text-slate-900 mb-1">Pak Ahmad</h6>
-                    <p class="text-[11px] text-slate-500 leading-relaxed italic mb-0">“Hotel yang disediakan sangat nyaman and dekat ke masjid. Mutawwif/pembimbing sabar membimbing kami.”</p>
-                  </div>
-                  <div class="w-[280px] shrink-0 mx-3 bg-white p-5 rounded-2xl border border-slate-100 shadow-sm text-center" aria-hidden="true">
-                    <img class="w-16 h-16 rounded-full mx-auto object-cover mb-3 border-2 border-accent" src="image/20250525-111617_WhatsApp%20Image%202025-05-25%20at%2005.50.23%20(1).webp" alt="" loading="lazy" decoding="async" width="64" height="64">
-                    <h6 class="font-extrabold text-sm text-slate-900 mb-1">Bu Wulan</h6>
-                    <p class="text-[11px] text-slate-500 leading-relaxed italic mb-0">“Proses pendaftaran sangat rapi dan dipandu sejak manasik hingga kami pulang kembali to tanah air. Luar biasa!”</p>
-                  </div>
-                  <div class="w-[280px] shrink-0 mx-3 bg-white p-5 rounded-2xl border border-slate-100 shadow-sm text-center" aria-hidden="true">
-                    <img class="w-16 h-16 rounded-full mx-auto object-cover mb-3 border-2 border-accent" src="image/20250524-040937_WhatsApp%20Image%202025-05-24%20at%2015.49.52.webp" alt="" loading="lazy" decoding="async" width="64" height="64">
-                    <h6 class="font-extrabold text-sm text-slate-900 mb-1">Pak Rudi</h6>
-                    <p class="text-[11px] text-slate-500 leading-relaxed italic mb-0">“Tim operasional sangat responsif membantu 24 jam penuh di Tanah Suci. Jamaah benar-benar terurus dengan baik.”</p>
-                  </div>
+                <div class="testimonial-marquee-track" id="testimonial-container">
+                  <!-- JS will dynamically populate the repeating testimonials here -->
                 </div>
               </div>
             </div>
@@ -1375,7 +1159,7 @@
   </a>
 
   <!-- Floating Music Toggle Switch -->
-  <button id="musicToggle" class="fixed z-[1030] left-5 bottom-[150px] bg-slate-900 text-white border-2 border-accent rounded-full w-12 h-12 shadow-lg flex items-center justify-center hover:bg-blue-800 transition-premium group min-w-[48px] min-h-[48px]" aria-label="Nyalakan Musik Latar">
+  <button id="musicToggle" data-action="toggle-music" class="fixed z-[1030] left-5 bottom-[150px] bg-slate-900 text-white border-2 border-accent rounded-full w-12 h-12 shadow-lg flex items-center justify-center hover:bg-blue-800 transition-premium group min-w-[48px] min-h-[48px]" aria-label="Nyalakan Musik Latar">
     <!-- Play Icon -->
     <svg id="icon-play" class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M8 5v14l11-7z"/>
@@ -1390,6 +1174,70 @@
 
   <!-- JAVASCRIPT APP CONTROLLERS -->
   <script>
+    
+    // 25 Gambar Kegiatan Asli Tanpa Ada yang Terpotong/Hilang
+    const PHOTO_GALLERY_ASSETS = [
+      "20250106-075317_WhatsApp%20Image%202024-12-24%20at%2008.42.59(2).webp",
+      "20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.45.34(1).webp",
+      "20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.01(3).webp",
+      "20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.01(2).webp",
+      "20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.00(5).webp",
+      "20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.00(4).webp",
+      "20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.00(3).webp",
+      "20251202-093117_WhatsApp%20Image%202025-12-02%20at%2009.30.17.webp?v=1.1",
+      "20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.17%20(1).webp",
+      "20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.17%20(2).webp?v=1.1",
+      "20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.18.webp",
+      "20251202-093115_WhatsApp Image 2025-12-02 at 09.30.18 (1).webp?v=1.1",
+      "20251202-093115_WhatsApp%20Image%202025-12-02%20at%2009.30.18%20(2).webp",
+      "20251202-093115_WhatsApp%20Image%202025-12-02%20at%2009.30.18%20(3).webp",
+      "20251202-093114_WhatsApp%20Image%202025-12-02%20at%2009.30.19.webp",
+      "20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.49.webp",
+      "20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.49%20(1).webp",
+      "20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.50.webp",
+      "20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.50%20(1).webp",
+      "20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.50%20(2).webp",
+      "20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.50%20(3).webp?v=1.1",
+      "20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.51.webp?v=1.1",
+      "20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.51%20(1).webp",
+      "20251202-093540_WhatsApp%20Image%202025-12-02%20at%2009.34.51%20(2).webp",
+      "20251202-093540_WhatsApp%20Image%202025-12-02%20at%2009.34.51%20(3).webp"
+    ];
+
+    // 6 Video Youtube Asli Beserta Judulnya
+    const VIDEO_GALLERY_ASSETS = [
+      { id: "W6CFhcArx_I", title: "Zero to Hero Samira" },
+      { id: "Mw4Gd1koPk8", title: "Seminar Inspirasi Umrohku" },
+      { id: "Gx1UuT0uEsU", title: "Manasik Akbar" },
+      { id: "NhbZMVGX1BA", title: "Kisah Pasien Cuci Darah" },
+      { id: "q3OWDU271j4", title: "Umroh Bareng Satu Pesawat" },
+      { id: "XRExnPvAWX8", title: "Gelar Guiness World Record" }
+    ];
+
+    // Testimoni Real Jamaah
+    const TESTIMONIAL_DATA = [
+      {
+        name: "Bu Siti",
+        img: "image/20250623-073943_WhatsApp%20Image%202025-06-22%20at%2014.58.05.webp",
+        text: "“Pelayanan sangat ramah, ibadah kami sekeluarga menjadi tenang dan khusyuk. Terima kasih Samira!”"
+      },
+      {
+        name: "Pak Ahmad",
+        img: "image/20250708-015010_WhatsApp%20Image%202025-07-07%20at%2011.35.44.webp?v=1.1",
+        text: "“Hotel yang disediakan sangat nyaman and dekat ke masjid. Mutawwif/pembimbing sabar membimbing kami.”"
+      },
+      {
+        name: "Bu Wulan",
+        img: "image/20250525-111617_WhatsApp%20Image%202025-05-25%20at%2005.50.23%20(1).webp",
+        text: "“Proses pendaftaran sangat rapi dan dipandu sejak manasik hingga kami pulang kembali to tanah air. Luar biasa!”"
+      },
+      {
+        name: "Pak Rudi",
+        img: "image/20250524-040937_WhatsApp%20Image%202025-05-24%20at%2015.49.52.webp",
+        text: "“Tim operasional sangat responsif membantu 24 jam penuh di Tanah Suci. Jamaah benar-benar terurus dengan baik.”"
+      }
+    ];
+
     const rAFThrottle = (callback) => {
       let active = false;
       return (...args) => {
@@ -1405,7 +1253,6 @@
     /* DOM CACHE */
     const DOM = {
       year: document.getElementById('year'),
-      mobileMenuBtn: document.getElementById('mobileMenuBtn'),
       mobileMenu: document.getElementById('mobileMenu'),
       waForm: document.getElementById('waForm'),
       musicToggle: document.getElementById('musicToggle'),
@@ -1413,12 +1260,66 @@
       iconPause: document.getElementById('icon-pause'),
       videoContainer: document.getElementById('video-container'),
       photoContainer: document.getElementById('photo-container'),
+      testimonialContainer: document.getElementById('testimonial-container'),
       eduTabList: document.getElementById('eduTabList'),
       paketTabList: document.getElementById('paketTabList'),
       docTabList: document.querySelector('.doc-tab-btn')?.parentElement
     };
 
     if (DOM.year) DOM.year.textContent = new Date().getFullYear();
+
+    window.addEventListener('DOMContentLoaded', () => {
+      // 1. Render Galeri Foto
+      if (DOM.photoContainer) {
+        let photoHTML = '';
+        PHOTO_GALLERY_ASSETS.forEach((imgSrc, idx) => {
+          photoHTML += `
+            <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+              <img src="image/${imgSrc}" loading="lazy" decoding="async" class="w-full h-full object-cover transition-all duration-300 hover:scale-105" width="240" height="160" alt="Galeri Samira ${idx + 1}" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+${idx + 1}'">
+            </div>
+          `;
+        });
+        DOM.photoContainer.innerHTML = photoHTML;
+      }
+
+      // 2. Render Galeri Video
+      if (DOM.videoContainer) {
+        let videoHTML = '';
+        VIDEO_GALLERY_ASSETS.forEach((vid) => {
+          videoHTML += `
+            <div class="bg-slate-50 p-2 rounded-2xl border border-slate-100 shadow-sm shrink-0 w-[280px] md:w-[320px]">
+              <div class="aspect-[16/9] overflow-hidden rounded-xl relative bg-slate-200">
+                <div class="w-full h-full cursor-pointer group" data-action="lazy-iframe" data-id="${vid.id}" data-title="${vid.title}">
+                  <img src="https://img.youtube.com/vi/${vid.id}/0.jpg" alt="${vid.title}" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-premium">
+                    <div class="bg-primary/90 text-white rounded-full p-3 shadow-lg transform group-hover:scale-110 transition-premium">
+                      <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.512 1.512a1 1 0 0 1 1.025-.03l11.4 6.6a1 1 0 0 1 0 1.736l-11.4 6.6a1 1 0 0 1-1.512-.868V2.38a1 1 0 0 1 .487-.868z"/></svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="text-[11px] font-bold text-center text-slate-600 uppercase tracking-wide mt-2 mb-0">${vid.title}</p>
+            </div>
+          `;
+        });
+        DOM.videoContainer.innerHTML = videoHTML;
+      }
+
+      // 3. Render Testimoni & Set Duplikasi Untuk Infinite Marquee Loop
+      if (DOM.testimonialContainer) {
+        let testimonialHTML = '';
+        TESTIMONIAL_DATA.forEach(t => {
+          testimonialHTML += `
+            <div class="w-[280px] shrink-0 mx-3 bg-white p-5 rounded-2xl border border-slate-100 shadow-sm text-center">
+              <img class="w-16 h-16 rounded-full mx-auto object-cover mb-3 border-2 border-accent" src="${t.img}" alt="Testimoni ${t.name}" loading="lazy" decoding="async" width="64" height="64" onerror="this.src='https://placehold.co/90x90/1e40af/ffffff?text=${t.name}'">
+              <h6 class="font-extrabold text-sm text-slate-900 mb-1">${t.name}</h6>
+              <p class="text-[11px] text-slate-500 leading-relaxed italic mb-0">${t.text}</p>
+            </div>
+          `;
+        });
+        DOM.testimonialContainer.innerHTML = testimonialHTML + testimonialHTML;
+      }
+    });
 
     /* ================= SINGLE PAGE CONTENT SWITCHING SYSTEM ================= */
     const allPages = {
@@ -1512,44 +1413,33 @@
           loadTabYoutubeIframe(target);
           break;
         }
+        case 'toggle-mobile-menu': {
+          if (DOM.mobileMenu) {
+            DOM.mobileMenu.classList.toggle('hidden');
+          }
+          break;
+        }
+        case 'edu-tab': {
+          const idx = parseInt(target.getAttribute('data-index'), 10);
+          showEduTab(idx, target);
+          break;
+        }
+        case 'paket-tab': {
+          const idx = parseInt(target.getAttribute('data-index'), 10);
+          showPaketTab(idx, target);
+          break;
+        }
+        case 'doc-tab': {
+          const idx = parseInt(target.getAttribute('data-index'), 10);
+          showDocTab(idx, target);
+          break;
+        }
+        case 'toggle-music': {
+          toggleMusic();
+          break;
+        }
       }
     });
-
-    if (DOM.eduTabList) {
-      DOM.eduTabList.addEventListener('click', (e) => {
-        const btn = e.target.closest('.edu-tab-btn');
-        if (btn) {
-          const idx = parseInt(btn.getAttribute('data-index'), 10);
-          showEduTab(idx, btn);
-        }
-      });
-    }
-
-    if (DOM.paketTabList) {
-      DOM.paketTabList.addEventListener('click', (e) => {
-        const btn = e.target.closest('.paket-tab-btn');
-        if (btn) {
-          const idx = parseInt(btn.getAttribute('data-index'), 10);
-          showPaketTab(idx, btn);
-        }
-      });
-    }
-
-    if (DOM.docTabList) {
-      DOM.docTabList.addEventListener('click', (e) => {
-        const btn = e.target.closest('.doc-tab-btn');
-        if (btn) {
-          const idx = parseInt(btn.getAttribute('data-index'), 10);
-          showDocTab(idx, btn);
-        }
-      });
-    }
-
-    if (DOM.mobileMenuBtn) {
-      DOM.mobileMenuBtn.addEventListener('click', () => {
-        DOM.mobileMenu.classList.toggle('hidden');
-      });
-    }
 
     function toggleMobileSubmenu(submenuId) {
       const submenu = document.getElementById(submenuId);
@@ -1758,10 +1648,6 @@
       }
     }
 
-    if (DOM.musicToggle) {
-      DOM.musicToggle.addEventListener('click', toggleMusic);
-    }
-
     /* WHATSAPP FORM HANDLER */
     if (DOM.waForm) {
       DOM.waForm.addEventListener('submit', function(e) {
@@ -1793,7 +1679,7 @@
         event.preventDefault();
         return false;
       }
-      if (event.ctrlKey && event.shiftKey && (event.key === 'J' || event.key === 'j' || event.keyCode === 74)) {
+      if (event.ctrlKey && event.shiftKey && (event.key === 'Menu' || event.key === 'j' || event.keyCode === 74)) {
         event.preventDefault();
         return false;
       }
