@@ -37,7 +37,19 @@
 
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
  
-  <link rel="preload" href="image/hajilands-768.webp" as="image" type="image/webp" fetchpriority="high">
+  <link
+    rel="preload"
+    as="image"
+    href="image/hajilands-480.webp"
+    imagesrcset="
+        image/hajilands-352.webp 352w,
+        image/hajilands-480.webp 480w,
+        image/hajilands-768.webp 768w,
+        image/hajilands-1200.webp 1200w"
+    imagesizes="(max-width:640px) 352px,
+                (max-width:1024px) 480px,
+                600px"
+    type="image/webp" fetchpriority="high">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap">
@@ -115,8 +127,34 @@
   <nav class="sticky top-[40px] bg-white/95 backdrop-blur-md z-[1050] border-b border-slate-100 shadow-sm py-4">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
       <button data-action="spa-nav" data-target="home" class="flex items-center gap-2" aria-label="Kembali ke beranda">
-        <img src="image/logosamira.webp" alt="Samira Travel Logo" class="h-10 md:h-12 w-auto" width="120" height="44" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/150x55/1e40af/ffffff?text=Samira+Travel'">
-        <img src="image/samira.webp?v=1.1" alt="Samira Travel" class="h-5 sm:h-6 md:h-8 w-auto block" width="112" height="32" loading="lazy" decoding="async" onerror="this.style.display='none'">
+<img
+  src="image/logosamira-80.webp"
+  srcset="
+    image/logosamira-40.webp 40w,
+    image/logosamira-80.webp 80w,
+    image/logosamira-160.webp 160w"
+  sizes="48px"
+  alt="Samira Travel Logo"
+  class="h-10 md:h-12 w-auto"
+  width="40"
+  height="51"
+  fetchpriority="high"
+  decoding="async"
+  onerror="this.src='https://placehold.co/150x55/1e40af/ffffff?text=Samira+Travel'">
+<img
+  src="image/samira-80.webp"
+  srcset="
+    image/samira-40.webp 40w,
+    image/samira-80.webp 80w,
+    image/samira-160.webp 160w"
+  sizes="112px"
+  alt="Samira Travel"
+  class="h-5 sm:h-6 md:h-8 w-auto block"
+  width="160"
+  height="53"
+  fetchpriority="high"
+  decoding="async"
+  onerror="this.style.display='none'">
       </button>
 
       <!-- DESKTOP NAVIGATION -->
@@ -281,7 +319,7 @@
                   srcset="
                     image/dedyfoto-176.webp 176w,
                     image/dedyfoto-352.webp 352w"
-                  sizes="176px"
+                  sizes="(max-width:640px) 144px, 176px"
                   alt="Profil Dedy MBS - Mitra Resmi Samira Travel Cijantung"
                   class="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover object-[center_15%] border-[5px] border-accent shadow-2xl transition-premium hover:scale-105"
                   width="176"
