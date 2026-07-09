@@ -45,18 +45,38 @@ const CLS = Object.freeze({
      DOM CACHE 
 ========================================================== */
     const DOM = {
+    /* ======================
+       LAYOUT
+    ====================== */
       year: document.getElementById('year'),
+
+    /* ======================
+       NAVIGATION
+    ====================== */
       mobileMenu: document.getElementById('mobileMenu'),
-      waForm: document.getElementById('waForm'),
       musicToggle: document.getElementById('musicToggle'),
       iconPlay: document.getElementById('icon-play'),
       iconPause: document.getElementById('icon-pause'),
+
+    /* ======================
+       GALLERY
+    ====================== */
       videoContainer: document.getElementById('video-container'),
       photoContainer: document.getElementById('photo-container'),
       testimonialContainer: document.getElementById('testimonial-container'),
+
+    /* ======================
+       TABS
+    ====================== */
       eduTabList: document.getElementById('eduTabList'),
       paketTabList: document.getElementById('paketTabList'),
-      docTabList: document.querySelector('.doc-tab-btn')?.parentElement
+      docTabList: document.querySelector('.doc-tab-btn')?.parentElement,
+
+    /* ======================
+       FORM
+    ====================== */
+      waForm: document.getElementById('waForm')
+
     };
     
 /* ==========================================================
