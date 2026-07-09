@@ -1,4 +1,68 @@
-    // 25 Gambar Kegiatan Asli Tanpa Ada yang Terpotong/Hilang
+/*=========================================================
+  SAMIRA TRAVEL LANDING PAGE
+
+  Version : 1.1
+  Branch  : develop
+  Sprint  : 4.2.1
+
+  JavaScript Architecture Refactor
+
+  NOTE
+  Jangan mengubah logic tanpa testing.
+=========================================================*/
+
+/* ==========================================================
+   CONFIGURATION
+========================================================== */
+
+const CONFIG = Object.freeze({
+  SCROLL_STEP: 340,
+  HEADER_OFFSET: -90,
+  SCROLL_DELAY: 150,
+  MUSIC_VOLUME: 40
+});
+
+const CONTACT = Object.freeze({
+  WHATSAPP: '6287783073536'
+});
+
+const CLS = Object.freeze({
+  HIDDEN: 'hidden',
+  ACTIVE: 'active',
+  PRIMARY: 'bg-primary',
+  TEXT_WHITE: 'text-white',
+  SHADOW: 'shadow-md',
+  TEXT_DEFAULT: 'text-slate-600',
+  HOVER_PRIMARY: 'hover:text-primary',
+  HOVER_BG: 'hover:bg-white/50',
+  ROTATE: 'rotate-180',
+  FADE_IN: 'animate__fadeIn',
+  ANIMATE: 'animate__animated',
+  FAST: 'animate__faster'
+});
+
+/* ==========================================================
+     DOM CACHE 
+========================================================== */
+    const DOM = {
+      year: document.getElementById('year'),
+      mobileMenu: document.getElementById('mobileMenu'),
+      waForm: document.getElementById('waForm'),
+      musicToggle: document.getElementById('musicToggle'),
+      iconPlay: document.getElementById('icon-play'),
+      iconPause: document.getElementById('icon-pause'),
+      videoContainer: document.getElementById('video-container'),
+      photoContainer: document.getElementById('photo-container'),
+      testimonialContainer: document.getElementById('testimonial-container'),
+      eduTabList: document.getElementById('eduTabList'),
+      paketTabList: document.getElementById('paketTabList'),
+      docTabList: document.querySelector('.doc-tab-btn')?.parentElement
+    };
+    
+/* ==========================================================
+     STATIC DATA 
+========================================================== */
+// 25 Gambar Kegiatan Asli Tanpa Ada yang Terpotong/Hilang
     const PHOTO_GALLERY_ASSETS = [
       "20250106-075317_WhatsApp%20Image%202024-12-24%20at%2008.42.59(2).webp",
       "20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.45.34(1).webp",
@@ -61,6 +125,9 @@
       }
     ];
 
+/* ==========================================================
+     HELPERS 
+========================================================== */
     const rAFThrottle = (callback) => {
       let active = false;
       return (...args) => {
@@ -74,56 +141,11 @@
     };
 
 /* ==========================================================
-   APPLICATION CONSTANTS
+     RENDER FUNCTIONS
 ========================================================== */
-
-const CLS = Object.freeze({
-  HIDDEN: 'hidden',
-  ACTIVE: 'active',
-  PRIMARY: 'bg-primary',
-  TEXT_WHITE: 'text-white',
-  SHADOW: 'shadow-md',
-  TEXT_DEFAULT: 'text-slate-600',
-  HOVER_PRIMARY: 'hover:text-primary',
-  HOVER_BG: 'hover:bg-white/50',
-  ROTATE: 'rotate-180',
-  FADE_IN: 'animate__fadeIn',
-  ANIMATE: 'animate__animated',
-  FAST: 'animate__faster'
-});
-
-const CONFIG = Object.freeze({
-  SCROLL_STEP: 340,
-  HEADER_OFFSET: -90,
-  SCROLL_DELAY: 150,
-  MUSIC_VOLUME: 40
-});
-
-const CONTACT = Object.freeze({
-  WHATSAPP: '6287783073536'
-});
-
-    /* DOM CACHE */
-    const DOM = {
-      year: document.getElementById('year'),
-      mobileMenu: document.getElementById('mobileMenu'),
-      waForm: document.getElementById('waForm'),
-      musicToggle: document.getElementById('musicToggle'),
-      iconPlay: document.getElementById('icon-play'),
-      iconPause: document.getElementById('icon-pause'),
-      videoContainer: document.getElementById('video-container'),
-      photoContainer: document.getElementById('photo-container'),
-      testimonialContainer: document.getElementById('testimonial-container'),
-      eduTabList: document.getElementById('eduTabList'),
-      paketTabList: document.getElementById('paketTabList'),
-      docTabList: document.querySelector('.doc-tab-btn')?.parentElement
-    };
-
-    if (DOM.year) DOM.year.textContent = new Date().getFullYear();
-
-    window.addEventListener('DOMContentLoaded', () => {
       // 1. Render Galeri Foto
-      if (DOM.photoContainer) {
+      function renderPhotoGallery() {
+        if (!DOM.photoContainer) return;
         let photoHTML = '';
         PHOTO_GALLERY_ASSETS.forEach((imgSrc, idx) => {
           photoHTML += `
@@ -136,7 +158,8 @@ const CONTACT = Object.freeze({
       }
 
       // 2. Render Galeri Video
-      if (DOM.videoContainer) {
+      function renderVideoGallery() {
+        if (!DOM.videoContainer) return;
         let videoHTML = '';
         VIDEO_GALLERY_ASSETS.forEach((vid) => {
           videoHTML += `
@@ -159,7 +182,8 @@ const CONTACT = Object.freeze({
       }
 
       // 3. Render Testimoni & Set Duplikasi Untuk Infinite Marquee Loop
-      if (DOM.testimonialContainer) {
+      function renderTestimonials() {
+        if (!DOM.testimonialContainer) return;
         let testimonialHTML = '';
         TESTIMONIAL_DATA.forEach(t => {
           testimonialHTML += `
@@ -171,10 +195,11 @@ const CONTACT = Object.freeze({
           `;
         });
         DOM.testimonialContainer.innerHTML = testimonialHTML + testimonialHTML;
-      }
-    });
+      };
 
-    /* ================= SINGLE PAGE CONTENT SWITCHING SYSTEM ================= */
+/* ==========================================================
+     SPA (SINGLE PAGE CONTENT SWITCHING SYSTEM)
+========================================================== */
     const allPages = {
       'home': document.getElementById('spa-home'),
       'edukasi': document.getElementById('spa-edukasi'),
@@ -187,11 +212,11 @@ const CONTACT = Object.freeze({
       Object.keys(allPages).forEach(key => {
         if (allPages[key]) {
           if (key === pageId) {
-            allPages[key].classList.remove('hidden');
-            allPages[key].classList.add('animate__animated', 'animate__fadeIn', 'animate__faster');
+            allPages[key].classList.remove(CLS.HIDDEN);
+            allPages[key].classList.add(CLS.ANIMATE, CLS.FADE_IN, CLS.FAST);
           } else {
-            allPages[key].classList.add('hidden');
-            allPages[key].classList.remove('animate__animated', 'animate__fadeIn', 'animate__faster');
+            allPages[key].classList.add(CLS.HIDDEN);
+            allPages[key].classList.remove(CLS.ANIMATE, CLS.FADE_IN, CLS.FAST);
           }
         }
       });
@@ -219,7 +244,7 @@ const CONTACT = Object.freeze({
       }
 
       if (DOM.mobileMenu) {
-        DOM.mobileMenu.classList.add('hidden');
+        DOM.mobileMenu.classList.add(CLS.HIDDEN);
       }
 
       if (scrollToSection) {
@@ -236,64 +261,9 @@ const CONTACT = Object.freeze({
       }
     }
 
-    /* GLOBAL DELEGATED EVENTS */
-    document.addEventListener('click', (e) => {
-      const target = e.target.closest('[data-action]');
-      if (!target) return;
-
-      const action = target.getAttribute('data-action');
-      
-      switch (action) {
-        case 'spa-nav': {
-          const pageId = target.getAttribute('data-target');
-          const subIndex = target.getAttribute('data-index') !== null ? parseInt(target.getAttribute('data-index'), 10) : null;
-          const scrollTarget = target.getAttribute('data-scroll') || null;
-          selectSPAPage(pageId, subIndex, scrollTarget);
-          break;
-        }
-        case 'toggle-submenu': {
-          const targetId = target.getAttribute('data-target');
-          toggleMobileSubmenu(targetId);
-          break;
-        }
-        case 'slide': {
-          const containerId = target.getAttribute('data-target');
-          const direction = target.getAttribute('data-direction');
-          scrollSlider(containerId, direction);
-          break;
-        }
-        case 'lazy-iframe': {
-          loadTabYoutubeIframe(target);
-          break;
-        }
-        case 'toggle-mobile-menu': {
-          if (DOM.mobileMenu) {
-            DOM.mobileMenu.classList.toggle('hidden');
-          }
-          break;
-        }
-        case 'edu-tab': {
-          const idx = parseInt(target.getAttribute('data-index'), 10);
-          showEduTab(idx, target);
-          break;
-        }
-        case 'paket-tab': {
-          const idx = parseInt(target.getAttribute('data-index'), 10);
-          showPaketTab(idx, target);
-          break;
-        }
-        case 'doc-tab': {
-          const idx = parseInt(target.getAttribute('data-index'), 10);
-          showDocTab(idx, target);
-          break;
-        }
-        case 'toggle-music': {
-          toggleMusic();
-          break;
-        }
-      }
-    });
-
+/* ==========================================================
+     NAVIGATION
+========================================================== */
     function toggleMobileSubmenu(submenuId) {
       const submenu = document.getElementById(submenuId);
       const arrowMap = {
@@ -309,38 +279,41 @@ const CONTACT = Object.freeze({
       allSubmenus.forEach(id => {
         if (id !== submenuId) {
           const targetSub = document.getElementById(id);
-          if (targetSub) targetSub.classList.add('hidden');
+          if (targetSub) targetSub.classList.add(CLS.HIDDEN);
           const otherArrow = document.getElementById(arrowMap[id]);
-          if (otherArrow) otherArrow.classList.remove('rotate-180');
+          if (otherArrow) otherArrow.classList.remove(CLS.ROTATE);
         }
       });
 
       if (submenu) {
-        const isHidden = submenu.classList.contains('hidden');
+        const isHidden = submenu.classList.contains(CLS.HIDDEN);
         if (isHidden) {
-          submenu.classList.remove('hidden');
-          if (arrow) arrow.classList.add('rotate-180');
+          submenu.classList.remove(CLS.HIDDEN);
+          if (arrow) arrow.classList.add(CLS.ROTATE);
         } else {
-          submenu.classList.add('hidden');
-          if (arrow) arrow.classList.remove('rotate-180');
+          submenu.classList.add(CLS.HIDDEN);
+          if (arrow) arrow.classList.remove(CLS.ROTATE);
         }
       }
     }
 
+/* ==========================================================
+     TAB COMPONENTS
+========================================================== */
     function showEduTab(index, btnEl) {
       const panes = document.querySelectorAll('.edu-pane');
-      panes.forEach(pane => pane.classList.add('hidden'));
+      panes.forEach(pane => pane.classList.add(CLS.HIDDEN));
 
       const buttons = document.querySelectorAll('.edu-tab-btn');
       buttons.forEach(btn => {
-        btn.classList.remove('active', 'bg-primary', 'text-white', 'shadow-md');
+        btn.classList.remove(CLS.ACTIVE, 'bg-primary', 'text-white', 'shadow-md');
         btn.classList.add('text-slate-600', 'hover:text-primary', 'hover:bg-white/50');
       });
 
       const activePane = document.getElementById(`edu-tab-content-${index}`);
-      if (activePane) activePane.classList.remove('hidden');
+      if (activePane) activePane.classList.remove(CLS.HIDDEN);
 
-      btnEl.classList.add('active', 'bg-primary', 'text-white', 'shadow-md');
+      btnEl.classList.add(CLS.ACTIVE, 'bg-primary', 'text-white', 'shadow-md');
       btnEl.classList.remove('text-slate-600', 'hover:text-primary', 'hover:bg-white/50');
 
       btnEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
@@ -348,18 +321,18 @@ const CONTACT = Object.freeze({
 
     function showPaketTab(index, btnEl) {
       const panes = document.querySelectorAll('.paket-pane');
-      panes.forEach(pane => pane.classList.add('hidden'));
+      panes.forEach(pane => pane.classList.add(CLS.HIDDEN));
 
       const buttons = document.querySelectorAll('.paket-tab-btn');
       buttons.forEach(btn => {
-        btn.classList.remove('active', 'bg-primary', 'text-white', 'shadow-md');
+        btn.classList.remove(CLS.ACTIVE, 'bg-primary', 'text-white', 'shadow-md');
         btn.classList.add('text-slate-600', 'hover:text-primary', 'hover:bg-white/50');
       });
 
       const activePane = document.getElementById(`paket-tab-content-${index}`);
-      if (activePane) activePane.classList.remove('hidden');
+      if (activePane) activePane.classList.remove(CLS.HIDDEN);
 
-      btnEl.classList.add('active', 'bg-primary', 'text-white', 'shadow-md');
+      btnEl.classList.add(CLS.ACTIVE, 'bg-primary', 'text-white', 'shadow-md');
       btnEl.classList.remove('text-slate-600', 'hover:text-primary', 'hover:bg-white/50');
 
       btnEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
@@ -367,23 +340,26 @@ const CONTACT = Object.freeze({
 
     function showDocTab(index, btnEl) {
       const panes = document.querySelectorAll('.doc-pane');
-      panes.forEach(pane => pane.classList.add('hidden'));
+      panes.forEach(pane => pane.classList.add(CLS.HIDDEN));
 
       const buttons = document.querySelectorAll('.doc-tab-btn');
       buttons.forEach(btn => {
-        btn.classList.remove('active', 'bg-primary', 'text-white', 'shadow-md');
+        btn.classList.remove(CLS.ACTIVE, 'bg-primary', 'text-white', 'shadow-md');
         btn.classList.add('text-slate-600', 'hover:text-primary', 'hover:bg-white/50');
       });
 
       const activePane = document.getElementById(`doc-tab-content-${index}`);
-      if (activePane) activePane.classList.remove('hidden');
+      if (activePane) activePane.classList.remove(CLS.HIDDEN);
 
-      btnEl.classList.add('active', 'bg-primary', 'text-white', 'shadow-md');
+      btnEl.classList.add(CLS.ACTIVE, 'bg-primary', 'text-white', 'shadow-md');
       btnEl.classList.remove('text-slate-600', 'hover:text-primary', 'hover:bg-white/50');
 
       btnEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
 
+/* ==========================================================
+     SLIDER
+========================================================== */
     const scrollSlider = rAFThrottle((containerId, direction) => {
       const el = document.getElementById(containerId);
       if (!el) return;
@@ -394,6 +370,9 @@ const CONTACT = Object.freeze({
       });
     });
 
+/* ==========================================================
+     VIDEO
+========================================================== */
     function loadTabYoutubeIframe(container) {
         const videoId = container.dataset.id;
         const title = container.dataset.title;
@@ -414,7 +393,9 @@ const CONTACT = Object.freeze({
 
         container.parentElement?.replaceChildren(iframe);
     }
-    /* ================= MUSIC BACKGROUND SYSTEM ================= */
+/* ==========================================================
+     MUSIC SYSTEM
+========================================================== */
     var player;
     var musicPlayed = false;
     var youtubeApiLoaded = false;
@@ -475,12 +456,12 @@ const CONTACT = Object.freeze({
       var iconPlay = document.getElementById('icon-play');
       var iconPause = document.getElementById('icon-pause');
       if (event.data == YT.PlayerState.PLAYING) {
-        if (iconPlay) iconPlay.classList.add('hidden');
-        if (iconPause) iconPause.classList.remove('hidden');
+        if (iconPlay) iconPlay.classList.add(CLS.HIDDEN);
+        if (iconPause) iconPause.classList.remove(CLS.HIDDEN);
         musicPlayed = true;
       } else {
-        if (iconPlay) iconPlay.classList.remove('hidden');
-        if (iconPause) iconPause.classList.add('hidden');
+        if (iconPlay) iconPlay.classList.remove(CLS.HIDDEN);
+        if (iconPause) iconPause.classList.add(CLS.HIDDEN);
       }
     }
 
@@ -502,7 +483,69 @@ const CONTACT = Object.freeze({
       }
     }
 
-    /* WHATSAPP FORM HANDLER */
+/* ==========================================================
+     GLOBAL EVENTS
+========================================================== */
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('[data-action]');
+      if (!target) return;
+
+      const action = target.getAttribute('data-action');
+      
+      switch (action) {
+        case 'spa-nav': {
+          const pageId = target.getAttribute('data-target');
+          const subIndex = target.getAttribute('data-index') !== null ? parseInt(target.getAttribute('data-index'), 10) : null;
+          const scrollTarget = target.getAttribute('data-scroll') || null;
+          selectSPAPage(pageId, subIndex, scrollTarget);
+          break;
+        }
+        case 'toggle-submenu': {
+          const targetId = target.getAttribute('data-target');
+          toggleMobileSubmenu(targetId);
+          break;
+        }
+        case 'slide': {
+          const containerId = target.getAttribute('data-target');
+          const direction = target.getAttribute('data-direction');
+          scrollSlider(containerId, direction);
+          break;
+        }
+        case 'lazy-iframe': {
+          loadTabYoutubeIframe(target);
+          break;
+        }
+        case 'toggle-mobile-menu': {
+          if (DOM.mobileMenu) {
+            DOM.mobileMenu.classList.toggle(CLS.HIDDEN);
+          }
+          break;
+        }
+        case 'edu-tab': {
+          const idx = parseInt(target.getAttribute('data-index'), 10);
+          showEduTab(idx, target);
+          break;
+        }
+        case 'paket-tab': {
+          const idx = parseInt(target.getAttribute('data-index'), 10);
+          showPaketTab(idx, target);
+          break;
+        }
+        case 'doc-tab': {
+          const idx = parseInt(target.getAttribute('data-index'), 10);
+          showDocTab(idx, target);
+          break;
+        }
+        case 'toggle-music': {
+          toggleMusic();
+          break;
+        }
+      }
+    });
+
+/* ==========================================================
+     FORM HANDLER
+========================================================== */
     if (DOM.waForm) {
       DOM.waForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -519,6 +562,22 @@ const CONTACT = Object.freeze({
       });
     }
 
+/* ==========================================================
+     INITIALIZATION
+========================================================== */
+    window.addEventListener('DOMContentLoaded', () => {
+        if (DOM.year) {
+            DOM.year.textContent = new Date().getFullYear();
+        }
+        renderPhotoGallery();
+        renderVideoGallery();
+        renderTestimonials();
+
+      });
+
+/* ==========================================================
+   SECURITY
+========================================================== */
     /* SAFETY & PROTECTION SECURITY PROTOCOLS */
     document.addEventListener('contextmenu', function(event) {
       event.preventDefault();
