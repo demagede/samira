@@ -141,6 +141,58 @@ const CLS = Object.freeze({
     };
 
 /* ==========================================================
+     TAB HELPERS
+========================================================== */
+
+/*** Menonaktifkan seluruh tombol tab. */
+function resetTabButtons(buttons) {
+    buttons.forEach((btn) => {
+        btn.classList.remove(CLS.ACTIVE);
+        btn.classList.remove(CLS.PRIMARY);
+        btn.classList.remove(CLS.TEXT_WHITE);
+        btn.classList.remove(CLS.SHADOW);
+
+        btn.classList.add(CLS.TEXT_DEFAULT);
+        btn.classList.add(CLS.HOVER_PRIMARY);
+        btn.classList.add(CLS.HOVER_BG);
+    });
+}
+
+/*** Menyembunyikan seluruh panel tab. */
+function hideTabPanels(panels) {
+    panels.forEach((panel) => {
+        panel.classList.add(CLS.HIDDEN);
+    });
+}
+
+/*** Mengaktifkan tombol yang dipilih. */
+function activateTabButton(button) {
+
+    if (!button) return;
+
+    button.classList.add(
+        CLS.ACTIVE,
+        CLS.PRIMARY,
+        CLS.TEXT_WHITE,
+        CLS.SHADOW
+    );
+
+    button.classList.remove(
+        CLS.TEXT_DEFAULT,
+        CLS.HOVER_PRIMARY,
+        CLS.HOVER_BG
+    );
+}
+
+/*** Menampilkan panel yang dipilih.*/
+function showTabPanel(panel) {
+
+    if (!panel) return;
+
+    panel.classList.remove(CLS.HIDDEN);
+}
+
+/* ==========================================================
      RENDER FUNCTIONS
 ========================================================== */
       // 1. Render Galeri Foto
@@ -301,43 +353,32 @@ const CLS = Object.freeze({
      TAB COMPONENTS
 ========================================================== */
     function showEduTab(index, btnEl) {
-      const panes = document.querySelectorAll('.edu-pane');
-      panes.forEach(pane => pane.classList.add(CLS.HIDDEN));
 
-      const buttons = document.querySelectorAll('.edu-tab-btn');
-      buttons.forEach(btn => {
-        btn.classList.remove(CLS.ACTIVE, 'bg-primary', 'text-white', 'shadow-md');
-        btn.classList.add('text-slate-600', 'hover:text-primary', 'hover:bg-white/50');
-      });
+        const panes = document.querySelectorAll('.edu-pane');
+        const buttons = document.querySelectorAll('.edu-tab-btn');
 
-      const activePane = document.getElementById(`edu-tab-content-${index}`);
-      if (activePane) activePane.classList.remove(CLS.HIDDEN);
+        resetTabButtons(buttons);
+        hideTabPanels(panes);
 
-      btnEl.classList.add(CLS.ACTIVE, 'bg-primary', 'text-white', 'shadow-md');
-      btnEl.classList.remove('text-slate-600', 'hover:text-primary', 'hover:bg-white/50');
+        const activePane = document.getElementById(`edu-tab-content-${index}`);
 
-      btnEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        showTabPanel(activePane);
+        /*** Scroll tombol aktif ke tengah container. */
+        function scrollActiveTab(button) {
+
+        if (!button) return;
+
+        button.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center'
+        });
+
     }
+        activateTabButton(btnEl);
+        scrollActiveTab(btnEl);
 
-    function showPaketTab(index, btnEl) {
-      const panes = document.querySelectorAll('.paket-pane');
-      panes.forEach(pane => pane.classList.add(CLS.HIDDEN));
-
-      const buttons = document.querySelectorAll('.paket-tab-btn');
-      buttons.forEach(btn => {
-        btn.classList.remove(CLS.ACTIVE, 'bg-primary', 'text-white', 'shadow-md');
-        btn.classList.add('text-slate-600', 'hover:text-primary', 'hover:bg-white/50');
-      });
-
-      const activePane = document.getElementById(`paket-tab-content-${index}`);
-      if (activePane) activePane.classList.remove(CLS.HIDDEN);
-
-      btnEl.classList.add(CLS.ACTIVE, 'bg-primary', 'text-white', 'shadow-md');
-      btnEl.classList.remove('text-slate-600', 'hover:text-primary', 'hover:bg-white/50');
-
-      btnEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    }
-
+}
     function showDocTab(index, btnEl) {
       const panes = document.querySelectorAll('.doc-pane');
       panes.forEach(pane => pane.classList.add(CLS.HIDDEN));
