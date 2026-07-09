@@ -191,6 +191,18 @@ function showTabPanel(panel) {
 
     panel.classList.remove(CLS.HIDDEN);
 }
+/*** Scroll tombol aktif ke tengah container. */
+    function scrollActiveTab(button) {
+
+    if (!button) return;
+
+    button.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+        });
+
+    }
 
 /* ==========================================================
      RENDER FUNCTIONS
@@ -350,7 +362,7 @@ function showTabPanel(panel) {
     }
 
 /* ==========================================================
-     TAB COMPONENTS
+     TAB COMPONENT UTILITIES
 ========================================================== */
     function showEduTab(index, btnEl) {
 
@@ -363,40 +375,42 @@ function showTabPanel(panel) {
         const activePane = document.getElementById(`edu-tab-content-${index}`);
 
         showTabPanel(activePane);
-        /*** Scroll tombol aktif ke tengah container. */
-        function scrollActiveTab(button) {
-
-        if (!button) return;
-
-        button.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-            inline: 'center'
-        });
-
-    }
         activateTabButton(btnEl);
         scrollActiveTab(btnEl);
-
-}
-    function showDocTab(index, btnEl) {
-      const panes = document.querySelectorAll('.doc-pane');
-      panes.forEach(pane => pane.classList.add(CLS.HIDDEN));
-
-      const buttons = document.querySelectorAll('.doc-tab-btn');
-      buttons.forEach(btn => {
-        btn.classList.remove(CLS.ACTIVE, 'bg-primary', 'text-white', 'shadow-md');
-        btn.classList.add('text-slate-600', 'hover:text-primary', 'hover:bg-white/50');
-      });
-
-      const activePane = document.getElementById(`doc-tab-content-${index}`);
-      if (activePane) activePane.classList.remove(CLS.HIDDEN);
-
-      btnEl.classList.add(CLS.ACTIVE, 'bg-primary', 'text-white', 'shadow-md');
-      btnEl.classList.remove('text-slate-600', 'hover:text-primary', 'hover:bg-white/50');
-
-      btnEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
+
+    function showPaketTab(index, btnEl) {
+
+        const panes = document.querySelectorAll('.paket-pane');
+        const buttons = document.querySelectorAll('.paket-tab-btn');
+
+        resetTabButtons(buttons);
+        hideTabPanels(panes);
+
+        const activePane =
+            document.getElementById(`paket-tab-content-${index}`);
+
+        showTabPanel(activePane);
+        activateTabButton(btnEl);
+        scrollActiveTab(btnEl);
+    }
+
+function showDocTab(index, btnEl) {
+
+    const panes = document.querySelectorAll('.doc-pane');
+    const buttons = document.querySelectorAll('.doc-tab-btn');
+
+    resetTabButtons(buttons);
+
+    hideTabPanels(panes);
+
+    const activePane =
+        document.getElementById(`doc-tab-content-${index}`);
+
+    showTabPanel(activePane);
+    activateTabButton(btnEl);
+    scrollActiveTab(btnEl);
+}
 
 /* ==========================================================
      SLIDER
