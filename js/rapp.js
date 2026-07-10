@@ -1,21 +1,21 @@
 const USER_CONFIG = {
   // Profil & Kemitraan
-  name: "Dedy MBS (M-DGI-9725)",
+  name: "Dina MBS (M-DGI-9725)",
   id: "M-DGI-9725",
   phone: "6287783073536",
-  runningText: "Promo Musim ini & Kuota Terbatas! Amankan Seat Anda Sekarang • Selamat datang di Samira Travel, bersama Dedy MBS kami menyediakan layanan Umroh, Tour Halal, Haji Khusus, dan Haji Furodha • Nikmati kemudahan beribadah bersama tim profesional kami ...... <strong class=\"text-red-800\">Landing Page Replika Umroh menarik seperti ini hanya Rp 350.000,- sekali bayar selamanya! Komen \"Mau Webreplika Umroh\" kirim ke WA kami......</strong> • Dapatkan komisi Rp 50.000,- menawarkan web ini ke mitra lainnya •",
+  runningText: "Promo Musim ini & Kuota Terbatas! Amankan Seat Anda Sekarang • Selamat datang di Samira Travel, bersama Dina MBS kami menyediakan layanan Umroh, Tour Halal, Haji Khusus, dan Haji Furodha • Nikmati kemudahan beribadah bersama tim profesional kami ...... <strong class=\"text-red-800\">Landing Page Replika Umroh menarik seperti ini hanya Rp 350.000,- sekali bayar selamanya! Komen \"Mau Webreplika Umroh\" kirim ke WA kami......</strong> • Dapatkan komisi Rp 50.000,- menawarkan web ini ke mitra lainnya •",
   
   // Konfigurasi SEO
   seo: {
-    title: "Mitra Resmi Samira Travel — Pendaftaran Umroh & Haji Dedy MBS (M-DGI-9725)",
-    description: "Wujudkan niat suci Umroh & Haji Anda bersama Dedy MBS (M-DGI-9725) Mitra Resmi Samira Travel. Solusi umroh aman, nyaman, resmi Kemenag RI dengan skema tabungan syariah & program berangkat dulu bayar belakangan.",
-    keywords: "samira travel cijantung, umroh samira travel, dedy mbs samira, agen umroh terpercaya, daftar umroh cijantung, paket umroh syariah, daftar umroh jakarta, travel umroh resmi, paket umroh terpercaya 2026, biaya umroh samira travel, tabungan umroh syariah, berangkat umroh dulu bayar belakangan"
+    title: "Mitra Resmi Samira Travel — Pendaftaran Umroh & Haji Dina MBS (M-DGI-9725)",
+    description: "Wujudkan niat suci Umroh & Haji Anda bersama Dina MBS (M-DGI-9725) Mitra Resmi Samira Travel. Solusi umroh aman, nyaman, resmi Kemenag RI dengan skema tabungan syariah & program berangkat dulu bayar belakangan.",
+    keywords: "samira travel cijantung, umroh samira travel, Dina mbs samira, agen umroh terpercaya, daftar umroh cijantung, paket umroh syariah, daftar umroh jakarta, travel umroh resmi, paket umroh terpercaya 2026, biaya umroh samira travel, tabungan umroh syariah, berangkat umroh dulu bayar belakangan"
   },
   
   // Konten Hero & Storytelling
-  profileImage: "image/dedyfoto-176.webp",
-  profileImageAlt: "Profil Dedy MBS - Mitra Resmi Samira Travel Cijantung",
-  heroTitle: "Samira Travel Umroh",
+  profileImage: "image/dinafoto.webp",
+  profileImageAlt: "Profil Dina MBS - Mitra Resmi Samira Travel Cijantung",
+  heroTitle: "Dina MBS (M-DGI-9725)",
   heroCta: "Wujudkan Niat Suci Sekarang",
   storyHeading: "Apakah Ini yang Selama Ini Anda Rasakan?",
   storyCta: "Wujudkan Impian Umroh Anda",
@@ -27,7 +27,7 @@ const USER_CONFIG = {
   formHeading: "Konsultasi & Pendaftaran Seat",
   
   // Footer
-  footerName: "Dedy MBS (M-DGI-9725)",
+  footerName: "Dina MBS (M-DGI-9725)",
   
   // Format Pesan / Sapaan Awal WhatsApp
   waMessages: {
