@@ -297,6 +297,7 @@
       input:where([type="reset"]),
       input:where([type="submit"]) {
         -webkit-appearance: button;
+        appearance: button;
         background-color: transparent;
         background-image: none;
       }
@@ -315,6 +316,7 @@
       }
       [type="search"] {
         -webkit-appearance: textfield;
+        appearance: textfield;
         outline-offset: -2px;
       }
       ::-webkit-search-decoration {
@@ -388,7 +390,6 @@
       svg,
       video {
         display: block;
-        vertical-align: middle;
       }
       img,
       video {
@@ -842,7 +843,7 @@
       .gap-1 {
         gap: 0.25rem;
       }
-      .gap-1.5 {
+      .gap-1.\5 {
         gap: 0.375rem;
       }
       .gap-12 {
@@ -1750,8 +1751,9 @@
         box-shadow:
           var(--tw-ring-offset-shadow, 0 0 #0000),
           var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+
       }
-      .hover\:\[animation-play-state\:paused\]:hover {
+      .hover\:pause-marquee:hover {
         animation-play-state: paused;
       }
       .focus\:bg-white:focus {
@@ -2020,7 +2022,7 @@ box-shadow:0 4px 12px rgba(15,23,42,.05);
           rel="noopener noreferrer"
         >
           <div
-            class="flex whitespace-nowrap animate-[marqueeScroll_50s_linear_infinite] hover:[animation-play-state:paused] will-change-transform"
+            class="flex whitespace-nowrap animate-[marqueeScroll_50s_linear_infinite] hover:pause-marquee will-change-transform"
           >
             <span class="pr-16 text-xs md:text-sm font-bold"
               ><strong class="text-red-800"
@@ -2771,7 +2773,7 @@ box-shadow:0 4px 12px rgba(15,23,42,.05);
                 </div>
 
                 <h1
-                  class="wave-text text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-wide mb-3 block w-full text-center"
+                  class="text-slate-900 text-3xl md:text-5xl font-extrabold leading-tight"
                 >
                   Berangkat Umroh dengan Tenang Bersama Mitra Resmi Samira Travel
                 </h1>
@@ -2781,6 +2783,25 @@ box-shadow:0 4px 12px rgba(15,23,42,.05);
                 >
                   Didampingi langsung oleh Dedy MBS untuk membantu Anda memilih program Umroh, Haji Khusus, atau Tour Halal yang sesuai dengan kebutuhan dan kemampuan Anda. Konsultasi tanpa biaya dan tanpa kewajiban mendaftar.
                 </p>
+                <!-- Trust Bar -->
+                <div class="w-full max-w-sm mb-2 p-4 bg-slate-50 rounded-2xl border border-slate-100 text-left space-y-2.5 shadow-inner">
+                  <div class="flex items-center gap-2.5 text-xs md:text-sm text-slate-700 font-bold">
+                    <span>🛡️</span> <span>Resmi Kemenag RI</span>
+                  </div>
+                  <div class="flex items-center gap-2.5 text-xs md:text-sm text-slate-700 font-bold">
+                    <span>💳</span> <span>Tabungan Umroh Syariah</span>
+                  </div>
+                  <div class="flex items-center gap-2.5 text-xs md:text-sm text-slate-700 font-bold">
+                    <span>🕋</span> <span>Berangkat Dulu, Bayar Belakangan*</span>
+                  </div>
+                  <div class="flex items-center gap-2.5 text-xs md:text-sm text-slate-700 font-bold">
+                    <span>🤝</span> <span>Pendampingan Sampai Pulang</span>
+                  </div>
+                  <div class="flex items-center gap-2.5 text-xs md:text-sm text-slate-700 font-bold">
+                    <span>✔️</span> <span> Melayani Jamaah Seluruh Indonesia</span>
+                  </div>
+                  <p class="text-[10px] text-slate-400 italic pt-1.5 border-t border-slate-200/60">*Sesuai syarat & ketentuan program.</p>
+                </div>
 
               </div>
 
@@ -2810,6 +2831,31 @@ box-shadow:0 4px 12px rgba(15,23,42,.05);
                     "
                   />
                 </div>
+
+            <!-- Action Buttons Row -->
+            <div
+              class="mt-12 text-center flex flex-wrap justify-center items-center gap-4"
+            >
+              <a
+                href="https://wa.me/6287783073536?text=Assalaamualaikum%20Customer%20Service%20Samira%2C%20saya%20tertarik%20tanya-tanya%20santai%20mengenai%20program%20Umroh%20Samira%20Travel.%20Bisa%20dibantu%3F"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Konsultasi Gratis via WhatsApp"
+                class="bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-premium transform hover:-translate-y-1 text-sm md:text-base flex items-center justify-center gap-2 animate-pulse"
+              >
+                <span>💬 Konsultasi Gratis via WhatsApp</span>
+              </a>
+              <a
+                href="https://drive.google.com/drive/folders/1nMtd0VE93RHl_HB_qydxKcoZvqFkNloI?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer" 
+                aria-label="Lihat Paket Umroh di Google Drive"
+                class="bg-white border border-slate-300 text-slate-900 font-bold px-8 py-4 rounded-full shadow hover:bg-slate-100 transition-premium transform hover:-translate-y-1 text-sm md:text-base flex items-center justify-center gap-2"
+              >
+                <span>📖 Lihat Paket Umroh</span>
+              </a>
+            </div>
+
               </div>
             </div>
 
@@ -2881,45 +2927,6 @@ box-shadow:0 4px 12px rgba(15,23,42,.05);
                   </p>
                 </div>
               </div>
-            </div>
-            <!-- Action Buttons Row -->
-            <div
-              class="mt-12 text-center flex flex-wrap justify-center items-center gap-4"
-            >
-                <!-- Trust Bar -->
-                <div class="w-full max-w-sm mb-2 p-4 bg-slate-50 rounded-2xl border border-slate-100 text-left space-y-2.5 shadow-inner">
-                  <div class="flex items-center gap-2.5 text-xs md:text-sm text-slate-700 font-bold">
-                    <span>🛡️</span> <span>Resmi Kemenag RI</span>
-                  </div>
-                  <div class="flex items-center gap-2.5 text-xs md:text-sm text-slate-700 font-bold">
-                    <span>💳</span> <span>Tabungan Umroh Syariah</span>
-                  </div>
-                  <div class="flex items-center gap-2.5 text-xs md:text-sm text-slate-700 font-bold">
-                    <span>🕋</span> <span>Berangkat Dulu, Bayar Belakangan*</span>
-                  </div>
-                  <div class="flex items-center gap-2.5 text-xs md:text-sm text-slate-700 font-bold">
-                    <span>🤝</span> <span>Pendampingan Sampai Pulang</span>
-                  </div>
-                  <p class="text-[10px] text-slate-400 italic pt-1.5 border-t border-slate-200/60">*Sesuai syarat & ketentuan program.</p>
-                </div>
-              <a
-                href="https://wa.me/6287783073536?text=Assalaamualaikum%20Customer%20Service%20Samira%2C%20saya%20tertarik%20tanya-tanya%20santai%20mengenai%20program%20Umroh%20Samira%20Travel.%20Bisa%20dibantu%3F"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Konsultasi Gratis via WhatsApp"
-                class="bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-premium transform hover:-translate-y-1 text-sm md:text-base flex items-center justify-center gap-2 animate-pulse"
-              >
-                <span>💬 Konsultasi Gratis via WhatsApp</span>
-              </a>
-              <a
-                href="https://drive.google.com/drive/folders/1nMtd0VE93RHl_HB_qydxKcoZvqFkNloI?usp=drive_link"
-                target="_blank"
-                rel="noopener noreferrer" 
-                aria-label="Lihat Paket Umroh di Google Drive"
-                class="bg-white border border-slate-300 text-slate-900 font-bold px-8 py-4 rounded-full shadow hover:bg-slate-100 transition-premium transform hover:-translate-y-1 text-sm md:text-base flex items-center justify-center gap-2"
-              >
-                <span>📖 Lihat Paket Umroh</span>
-              </a>
             </div>
           </div>
         </section>
