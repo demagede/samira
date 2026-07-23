@@ -1,0 +1,24 @@
+{
+    "default": {
+        "nama": "Dedy MBS",
+        "idMitra": "M-DGI-9725",
+        "whatsapp": "6287783073536",
+        "email": "dedymbs@example.com",
+        "facebook": "https://facebook.com/dedymbs",
+        "tiktok": "https://tiktok.com/@dedymbs",
+        "domisili": "Cijantung",
+        "fotoDedy": "image/dedyfoto-176.webp",
+        "linkDrive": "https://drive.google.com/drive/folders/1nMtd0VE93RHl_HB_qydxKcoZvqFkNloI?usp=drive_link"
+    },
+    "ahmad": {
+        "nama": "Ahmad Fauzi",
+        "idMitra": "M-DGI-1022",
+        "whatsapp": "6281234567890",
+        "email": "ahmad.fauzi@example.com",
+        "facebook": "https://facebook.com/ahmadfauzi",
+        "tiktok": "https://tiktok.com/@ahmadfauzi",
+        "domisili": "Bandung",
+        "fotoDedy": "image/mitra/ahmad.webp",
+        "linkDrive": "https://drive.google.com/drive/folders/1nMtd0VE93RHl_HB_qydxKcoZvqFkNloI?usp=drive_link"
+    }
+}
