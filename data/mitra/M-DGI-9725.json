@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+
+  "metadata": {
+    "createdAt": "2026-07-22",
+    "updatedAt": "2026-07-22"
+  },
+
+  "identity": {
+    "id": "M-DGI-9725",
+    "subdomain": "inspirasi"
+  },
+
+  "profile": {
+    "nama": "Dedy Priyady",
+    "headline": "Mitra Resmi Samira Travel",
+    "bio": "Siap membantu perjalanan Umroh dan Haji Anda dengan pelayanan yang amanah, nyaman, dan terpercaya."
+  },
+
+  "contact": {
+    "wa": "6287783073536",
+    "email": "",
+    "alamat": ""
+  },
+
+  "social": {
+    "instagram": "@samira.cijantung",
+    "facebook": "",
+    "youtube": "",
+    "tiktok": ""
+  },
+
+  "media": {
+    "foto": "/assets/images/mitra/M-DGI-9725.webp"
+  },
+
+  "settings": {
+    "aktif": true,
+    "template": "default",
+    "theme": "light",
+    "language": "id"
+  }
+}
