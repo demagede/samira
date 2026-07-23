@@ -3001,58 +3001,38 @@ transform:translateY(-3px);
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <!-- Profile Column (Col 5) -->
-              <div class="lg:col-span-5 text-center flex flex-col items-center">
-                <div class="relative mb-6">
-                  <!-- Optimized Profile Image with Strict dimensions -->
-                  <img
-                    src="image/dedyfoto-176.webp"
-                    srcset="
-                      image/dedyfoto-176.webp 176w,
-                      image/dedyfoto-288.webp 288w,
-                      image/dedyfoto-352.webp 352w
-                    "
-                    sizes="(max-width: 768px) 144px, 288px, 176px"
-                    alt="Profil Dedy MBS - Pendamping Perjalanan Ibadah Resmi Samira Travel Cijantung"
-                    class="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover object-[center_15%] border-[5px] border-accent shadow-2xl transition-premium hover:scale-105"
-                    style="aspect-ratio: 1/1"
-                    width="176"
-                    height="176"
-                    fetchpriority="high"
-                    decoding="async"
-                  />
-                  <span
-                    class="absolute bottom-1 right-2 bg-blue-800 text-white text-[10px] px-2.5 py-1 rounded-full font-bold shadow-md"
-                    >🛡️ Mitra Resmi Samira Travel • (M-DGI-9725)</span
-                  >
-                </div>
+<div class="lg:col-span-5 text-center flex flex-col items-center">
+  <div class="relative mb-6">
+    <!-- Tag foto profil disederhanakan tanpa srcset agar gambar gampang berganti -->
+    <img
+      id="foto-mitra"
+      src="image/dedyfoto-176.webp"
+      alt="Profil Mitra Samira Travel"
+      class="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover object-[center_15%] border-[5px] border-accent shadow-2xl transition-premium hover:scale-105"
+      style="aspect-ratio: 1/1"
+      width="176"
+      height="176"
+    />
+    <span id="badge-mitra-id" class="absolute bottom-1 right-2 bg-blue-800 text-white text-[10px] px-2.5 py-1 rounded-full font-bold shadow-md">
+      🛡️ Mitra Resmi Samira Travel • (<span class="mitra-id">M-DGI-9725</span>)
+    </span>
+  </div>
 
-                <!-- Human Touch Message -->
-                <div
-                  class="bg-amber-50/80 border border-amber-200/50 rounded-2xl p-4 mb-6 max-w-sm text-center shadow-sm"
-                >
-                  <p class="text-xs text-amber-900 leading-relaxed font-medium">
-                    <strong>Assalamu'alaikum Warahmatullahi Wabarakatuh, </strong><br />
-                    <strong>Saya Dedy MBS.</strong> Saya siap membantu Anda memahami pilihan program Umroh
-                    dengan jelas sehingga Anda dapat mengambil keputusan dengan
-                    tenang.
-                  </p>
-                </div>
+  <!-- Human Touch Message -->
+  <div class="bg-amber-50/80 border border-amber-200/50 rounded-2xl p-4 mb-6 max-w-sm text-center shadow-sm">
+    <p class="text-xs text-amber-900 leading-relaxed font-medium">
+      <strong>Assalamu'alaikum Warahmatullahi Wabarakatuh, </strong><br />
+      <strong>Saya <span class="mitra-nama">Dedy MBS</span>.</strong> Saya siap membantu Anda memahami pilihan program Umroh dengan jelas sehingga Anda dapat mengambil keputusan dengan tenang.
+    </p>
+  </div>
 
-                <h1
-                  class="text-slate-900 text-3xl md:text-5xl font-extrabold leading-tight"
-                >
-                  Berangkat Umroh dengan Tenang Bersama Mitra Resmi Samira
-                  Travel
-                </h1>
+  <h1 class="text-slate-900 text-3xl md:text-5xl font-extrabold leading-tight">
+    Berangkat Umroh dengan Tenang Bersama Mitra Resmi Samira Travel
+  </h1>
 
-                <p
-                  class="text-xs md:text-sm text-slate-600 font-normal leading-relaxed max-w-sm mb-6"
-                >
-                  Didampingi langsung oleh Dedy MBS untuk membantu Anda memilih
-                  program Umroh, Haji Khusus, atau Tour Halal yang sesuai dengan
-                  kebutuhan dan kemampuan Anda. Konsultasi tanpa biaya dan tanpa
-                  kewajiban mendaftar.
-                </p>
+  <p class="text-xs md:text-sm text-slate-600 font-normal leading-relaxed max-w-sm mb-6">
+    Didampingi langsung oleh <strong class="mitra-nama">Dedy MBS</strong> untuk membantu Anda memilih program Umroh, Haji Khusus, atau Tour Halal yang sesuai dengan kebutuhan dan kemampuan Anda.
+  </p>
                 <!-- Trust Bar -->
                 <div
                   class="w-full max-w-sm mb-2 p-4 bg-slate-50 rounded-2xl border border-slate-100 text-left space-y-2.5 shadow-inner"
@@ -3195,16 +3175,15 @@ transform:translateY(-3px);
                 <div
                   class="p-5 bg-sky-50/50 rounded-2xl border-l-[5px] border-primary shadow-sm space-y-2"
                 >
-                  <h3 class="font-extrabold text-primary text-lg">
-                    Mengapa Banyak Calon Jamaah Nyaman Berkonsultasi dengan Dedy
-                    MBS?
-                  </h3>
-                  <div
-                    class="inline-flex items-center gap-2 mt-2 mb-4 text-xs font-semibold bg-blue-100 text-blue-700 px-3 py-1 rounded-full"
-                  >
-                    🛡️ Mitra Resmi Samira Travel • (M-DGI-9725)
-                  </div>
-                  <p class="text-slate-700 leading-relaxed mb-5">
+                <h3 class="font-extrabold text-primary text-lg">
+                  Mengapa Banyak Calon Jamaah Nyaman Berkonsultasi dengan <span class="mitra-nama">Dedy MBS</span>?
+                </h3>
+                <div
+                  class="inline-flex items-center gap-2 mt-2 mb-4 text-xs font-semibold bg-blue-100 text-blue-700 px-3 py-1 rounded-full"
+                >
+                  🛡️ Mitra Resmi Samira Travel • (<span class="mitra-id">M-DGI-9725</span>)
+                </div>
+                                  <p class="text-slate-700 leading-relaxed mb-5">
                     Tidak perlu terburu-buru mengambil keputusan. Mari mulai
                     dengan berkonsultasi terlebih dahulu. Saya akan membantu
                     menjelaskan seluruh pilihan program secara terbuka agar Anda
@@ -5995,12 +5974,11 @@ transform:translateY(-3px);
                   <h4 class="text-lg sm:text-xl font-extrabold">
                     Konsultasi Langsung
                   </h4>
-                  <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
-                    Layanan konsultasi perjalanan ibadah Umroh & Haji Khusus
-                    dipandu langsung oleh Dedy MBS (M-DGI-9725) secara ramah,
-                    amanah, dan terpercaya.
-                  </p>
-                  <div>
+                <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+                  Layanan konsultasi perjalanan ibadah Umroh & Haji Khusus
+                  dipandu langsung oleh <span class="mitra-nama">Dedy MBS</span> (<span class="mitra-id">M-DGI-9725</span>) secara ramah,
+                  amanah, dan terpercaya.
+                </p>                  <div>
                     <a
                       class="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20 py-3 rounded-2xl text-xs md:text-sm font-bold flex items-center justify-center gap-2 transition-premium min-h-[44px]"
                       target="_blank"
@@ -6050,10 +6028,10 @@ transform:translateY(-3px);
     <!-- FOOTER -->
     <footer class="bg-slate-900 text-white py-10 border-t border-slate-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-        <div class="text-xs md:text-sm text-slate-400">
-          &copy; <span id="year"></span> Samira Travel •
-          <strong>Dedy MBS (M-DGI-9725)</strong>.
-        </div>
+      <div class="text-xs md:text-sm text-slate-400">
+        &copy; <span id="year"></span> Samira Travel •
+        <strong><span class="mitra-nama">Dedy MBS</span> (<span class="mitra-id">M-DGI-9725</span>)</strong>.
+      </div>
         <div class="text-xs text-slate-400">All Rights Reserved.</div>
         <h2
           class="wave-text text-xs md:text-sm font-bold whitespace-nowrap inline-block tracking-widest uppercase"
@@ -6141,6 +6119,7 @@ transform:translateY(-3px);
     <div id="yt-bg-player" class="hidden w-0 h-0 invisible"></div>
 
     <!-- Inline Core Scripts for Performance -->
+<!-- Inline Core Scripts for Performance & Replica System -->
     <script>
       const CONFIG = Object.freeze({
         SCROLL_STEP: 340,
@@ -6149,9 +6128,110 @@ transform:translateY(-3px);
         MUSIC_VOLUME: 40,
       });
 
-      const CONTACT = Object.freeze({
-        WHATSAPP: "6287783073536",
-      });
+      // Dibuat variabel biasa (bukan const/freeze) agar nomor WA mitra bisa di-update
+      let CONTACT = { WHATSAPP: "6287783073536" };
+
+      // --- 🚀 FUNGSI UTAMA WEBPAGE REPLIKA MITRA --- //
+      async function loadMitraReplica() {
+        // 1. Deteksi Kata Kunci Mitra dari Subdomain (contoh: inspirasi.umrohku.my.id)
+        const hostname = window.location.hostname;
+        const parts = hostname.split('.');
+        let subdomainKey = '';
+
+        if (parts.length >= 3) {
+          const sub = parts[0].toLowerCase();
+          if (sub !== 'www' && sub !== 'umrohku') {
+            subdomainKey = sub;
+          }
+        }
+
+        // 2. Deteksi Kata Kunci Mitra dari Query Param (?mitra=ahmad) atau Hash (#ahmad)
+        const urlParams = new URLSearchParams(window.location.search);
+        let queryKey = urlParams.get('mitra') || window.location.hash.replace('#', '').toLowerCase();
+
+        // Urutan Prioritas: Subdomain -> Query Param / Hash -> default
+        let mitraKey = subdomainKey || queryKey || 'default';
+
+        try {
+          // Membaca file dari folder data/mitra.json
+          const response = await fetch('data/mitra.json');
+          if (!response.ok) return;
+          const dataMitra = await response.json();
+
+          // Gunakan data mitra jika kunci ditemukan, jika tidak gunakan 'default'
+          const currentMitra = dataMitra[mitraKey] || dataMitra['default'];
+          if (!currentMitra) return;
+
+          // 1. Update Title Dokumen
+          if (currentMitra.nama && currentMitra.idMitra) {
+            document.title = `Mitra Resmi Samira Travel — Pendaftaran Umroh & Haji ${currentMitra.nama} (${currentMitra.idMitra})`;
+          }
+
+          // 2. Update Semua Nama Mitra di Halaman Web (.mitra-nama)
+          document.querySelectorAll('.mitra-nama').forEach(el => {
+            el.textContent = currentMitra.nama;
+          });
+
+          // 3. Update Semua ID Mitra (.mitra-id)
+          document.querySelectorAll('.mitra-id').forEach(el => {
+            el.textContent = currentMitra.idMitra;
+          });
+
+          // 4. Update Foto Profil Mitra (#foto-mitra)
+          const fotoEl = document.getElementById('foto-mitra');
+          if (fotoEl && currentMitra.fotoDedy) {
+            fotoEl.src = currentMitra.fotoDedy;
+            // Penting: Hapus srcset agar browser tidak memaksa tampilkan foto lama
+            fotoEl.removeAttribute('srcset');
+          }
+
+          // 5. Update Nomor WhatsApp Global & Semua Link WA
+          if (currentMitra.whatsapp) {
+            CONTACT.WHATSAPP = currentMitra.whatsapp;
+
+            const pesanWA = encodeURIComponent(`Assalaamualaikum Customer Service Samira, saya tertarik dengan info program Umroh Samira Travel dari website ${currentMitra.nama}. Mohon info selengkapnya.`);
+
+            document.querySelectorAll('a.wa-link, a[href*="wa.me"]').forEach(link => {
+              link.href = `https://wa.me/${currentMitra.whatsapp}?text=${pesanWA}`;
+            });
+          }
+
+          // 6. Update Link Drive jika mitra memiliki folder khusus
+          if (currentMitra.linkDrive) {
+            document.querySelectorAll('a.drive-link, a[href*="drive.google.com"]').forEach(link => {
+              link.href = currentMitra.linkDrive;
+            });
+          }
+
+          // 7. Update Media Sosial Mitra (opsional jika diisi di JSON)
+          if (currentMitra.email) {
+            document.querySelectorAll('.email-link, .mitra-email').forEach(el => {
+              if (el.tagName === 'A') el.href = `mailto:${currentMitra.email}`;
+              el.textContent = currentMitra.email;
+              el.classList.remove('hidden');
+            });
+          }
+
+          if (currentMitra.facebook) {
+            document.querySelectorAll('a.fb-link').forEach(link => {
+              link.href = currentMitra.facebook;
+              link.classList.remove('hidden');
+            });
+          }
+
+          if (currentMitra.tiktok) {
+            document.querySelectorAll('a.tiktok-link').forEach(link => {
+              link.href = currentMitra.tiktok;
+              link.classList.remove('hidden');
+            });
+          }
+
+          console.log(`[REPLIKA] Berhasil memuat data mitra (${mitraKey}): ${currentMitra.nama}`);
+
+        } catch (err) {
+          console.warn('[REPLIKA] Menggunakan tampilan standar default.', err);
+        }
+      }
 
       const CLS = Object.freeze({
         HIDDEN: "hidden",
@@ -6189,8 +6269,7 @@ transform:translateY(-3px);
           this.iconPause = document.getElementById("icon-pause");
           this.videoContainer = document.getElementById("video-container");
           this.photoContainer = document.getElementById("photo-container");
-          this.testimonialContainer = document.getElementById("testimonial-container",
-          );
+          this.testimonialContainer = document.getElementById("testimonial-container");
           this.proTabList = document.getElementById("proTabList");
           this.eduTabList = document.getElementById("eduTabList");
           this.paketTabList = document.getElementById("paketTabList");
@@ -6271,12 +6350,7 @@ transform:translateY(-3px);
 
       function resetTabButtons(buttons) {
         buttons.forEach((btn) => {
-          btn.classList.remove(
-            CLS.ACTIVE,
-            CLS.PRIMARY,
-            CLS.TEXT_WHITE,
-            CLS.SHADOW,
-          );
+          btn.classList.remove(CLS.ACTIVE, CLS.PRIMARY, CLS.TEXT_WHITE, CLS.SHADOW);
           btn.classList.add(CLS.TEXT_DEFAULT, CLS.HOVER_PRIMARY, CLS.HOVER_BG);
           btn.setAttribute("aria-selected", "false");
         });
@@ -6290,17 +6364,8 @@ transform:translateY(-3px);
 
       function activateTabButton(button) {
         if (!button) return;
-        button.classList.add(
-          CLS.ACTIVE,
-          CLS.PRIMARY,
-          CLS.TEXT_WHITE,
-          CLS.SHADOW,
-        );
-        button.classList.remove(
-          CLS.TEXT_DEFAULT,
-          CLS.HOVER_PRIMARY,
-          CLS.HOVER_BG,
-        );
+        button.classList.add(CLS.ACTIVE, CLS.PRIMARY, CLS.TEXT_WHITE, CLS.SHADOW);
+        button.classList.remove(CLS.TEXT_DEFAULT, CLS.HOVER_PRIMARY, CLS.HOVER_BG);
         button.setAttribute("aria-selected", "true");
       }
 
@@ -6311,11 +6376,7 @@ transform:translateY(-3px);
 
       function scrollActiveTab(button) {
         if (!button) return;
-        button.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center",
-        });
+        button.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
       }
 
       function renderPhotoGallery() {
@@ -6376,6 +6437,7 @@ transform:translateY(-3px);
         "paket-info": null,
         dokumentasi: null,
         "form-pendaftaran": null,
+        "program-mitra": null,
       };
 
       function initSPAPages() {
@@ -6385,8 +6447,7 @@ transform:translateY(-3px);
         allPages["paket-info"] = document.getElementById("spa-paket-info");
         allPages.dokumentasi = document.getElementById("spa-dokumentasi");
         allPages["form-pendaftaran"] = document.getElementById("spa-form-pendaftaran");
-        allPages["program-mitra"] = document.getElementById("spa-program-mitra",
-        );
+        allPages["program-mitra"] = document.getElementById("spa-program-mitra");
       }
 
       function selectSPAPage(pageId, subIndex = null, scrollToSection = null) {
@@ -6397,41 +6458,29 @@ transform:translateY(-3px);
               allPages[key].classList.add(CLS.ANIMATE, CLS.FADE_IN, CLS.FAST);
             } else {
               allPages[key].classList.add(CLS.HIDDEN);
-              allPages[key].classList.remove(
-                CLS.ANIMATE,
-                CLS.FADE_IN,
-                CLS.FAST,
-              );
+              allPages[key].classList.remove(CLS.ANIMATE, CLS.FADE_IN, CLS.FAST);
             }
           }
         });
 
-        document
-          .querySelectorAll("#desktopNav button, #desktopNav a")
-          .forEach((btn) => {
-            const target = btn.getAttribute("data-target");
-            if (target === pageId) {
-              btn.classList.add("nav-active");
-            } else {
-              btn.classList.remove("nav-active");
-            }
-          });
+        document.querySelectorAll("#desktopNav button, #desktopNav a").forEach((btn) => {
+          const target = btn.getAttribute("data-target");
+          if (target === pageId) {
+            btn.classList.add("nav-active");
+          } else {
+            btn.classList.remove("nav-active");
+          }
+        });
 
         if (subIndex !== null) {
           if (pageId === "profil") {
-            const btn = document.querySelectorAll("#proTabList .pro-tab-btn")[
-              subIndex
-            ];
+            const btn = document.querySelectorAll("#proTabList .pro-tab-btn")[subIndex];
             if (btn) showProTab(subIndex, btn);
           } else if (pageId === "edukasi") {
-            const btn = document.querySelectorAll("#eduTabList .edu-tab-btn")[
-              subIndex
-            ];
+            const btn = document.querySelectorAll("#eduTabList .edu-tab-btn")[subIndex];
             if (btn) showEduTab(subIndex, btn);
           } else if (pageId === "paket-info") {
-            const btn = document.querySelectorAll(
-              "#paketTabList .paket-tab-btn",
-            )[subIndex];
+            const btn = document.querySelectorAll("#paketTabList .paket-tab-btn")[subIndex];
             if (btn) showPaketTab(subIndex, btn);
           } else if (pageId === "dokumentasi") {
             const btn = document.querySelectorAll(".doc-tab-btn")[subIndex];
@@ -6466,12 +6515,7 @@ transform:translateY(-3px);
         };
 
         const arrow = document.getElementById(arrowMap[submenuId]);
-        const allSubmenus = [
-          "mob-sub-pro",
-          "mob-sub-edu",
-          "mob-sub-paket",
-          "mob-sub-doc",
-        ];
+        const allSubmenus = ["mob-sub-pro", "mob-sub-edu", "mob-sub-paket", "mob-sub-doc"];
 
         allSubmenus.forEach((id) => {
           if (id !== submenuId) {
@@ -6486,9 +6530,7 @@ transform:translateY(-3px);
 
         if (submenu) {
           const isHidden = submenu.classList.contains(CLS.HIDDEN);
-          const triggerBtn = document.querySelector(
-            `[data-target="${submenuId}"]`,
-          );
+          const triggerBtn = document.querySelector(`[data-target="${submenuId}"]`);
           if (isHidden) {
             submenu.classList.remove(CLS.HIDDEN);
             if (arrow) arrow.classList.add(CLS.ROTATE);
@@ -6504,10 +6546,8 @@ transform:translateY(-3px);
       function showProTab(index, btnEl) {
         const panels = document.querySelectorAll(".pro-pane");
         const buttons = document.querySelectorAll(".pro-tab-btn");
-
         resetTabButtons(buttons);
         hideTabPanels(panels);
-
         const activePane = document.getElementById(`pro-tab-content-${index}`);
         showTabPanel(activePane);
         activateTabButton(btnEl);
@@ -6517,10 +6557,8 @@ transform:translateY(-3px);
       function showEduTab(index, btnEl) {
         const panels = document.querySelectorAll(".edu-pane");
         const buttons = document.querySelectorAll(".edu-tab-btn");
-
         resetTabButtons(buttons);
         hideTabPanels(panels);
-
         const activePane = document.getElementById(`edu-tab-content-${index}`);
         showTabPanel(activePane);
         activateTabButton(btnEl);
@@ -6530,13 +6568,9 @@ transform:translateY(-3px);
       function showPaketTab(index, btnEl) {
         const panels = document.querySelectorAll(".paket-pane");
         const buttons = document.querySelectorAll(".paket-tab-btn");
-
         resetTabButtons(buttons);
         hideTabPanels(panels);
-
-        const activePane = document.getElementById(
-          `paket-tab-content-${index}`,
-        );
+        const activePane = document.getElementById(`paket-tab-content-${index}`);
         showTabPanel(activePane);
         activateTabButton(btnEl);
         scrollActiveTab(btnEl);
@@ -6545,10 +6579,8 @@ transform:translateY(-3px);
       function showDocTab(index, btnEl) {
         const panels = document.querySelectorAll(".doc-pane");
         const buttons = document.querySelectorAll(".doc-tab-btn");
-
         resetTabButtons(buttons);
         hideTabPanels(panels);
-
         const activePane = document.getElementById(`doc-tab-content-${index}`);
         showTabPanel(activePane);
         activateTabButton(btnEl);
@@ -6567,15 +6599,13 @@ transform:translateY(-3px);
       function loadTabYoutubeIframe(container) {
         const videoId = container.dataset.id;
         const title = container.dataset.title;
-
         if (!videoId) return;
 
         const iframe = document.createElement("iframe");
         iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
         iframe.title = title || "Video";
         iframe.className = "w-full h-full border-0";
-        iframe.allow =
-          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
         iframe.allowFullscreen = true;
 
         container.parentElement?.replaceChildren(iframe);
@@ -6617,13 +6647,8 @@ transform:translateY(-3px);
 
       function onPlayerReady(event) {
         event.target.setVolume(CONFIG.MUSIC_VOLUME);
-
         const attemptAutoPlay = () => {
-          if (
-            !musicPlayed &&
-            player &&
-            typeof player.playVideo === "function"
-          ) {
+          if (!musicPlayed && player && typeof player.playVideo === "function") {
             player.playVideo();
             musicPlayed = true;
             removePlayTriggers();
@@ -6635,13 +6660,8 @@ transform:translateY(-3px);
           document.body.removeEventListener("touchstart", attemptAutoPlay);
         };
 
-        document.body.addEventListener("click", attemptAutoPlay, {
-          once: true,
-        });
-        document.body.addEventListener("touchstart", attemptAutoPlay, {
-          once: true,
-          passive: true,
-        });
+        document.body.addEventListener("click", attemptAutoPlay, { once: true });
+        document.body.addEventListener("touchstart", attemptAutoPlay, { once: true, passive: true });
       }
 
       function onPlayerStateChange(event) {
@@ -6684,10 +6704,7 @@ transform:translateY(-3px);
         switch (action) {
           case "spa-nav": {
             const pageId = target.getAttribute("data-target");
-            const subIndex =
-              target.getAttribute("data-index") !== null
-                ? parseInt(target.getAttribute("data-index"), 10)
-                : null;
+            const subIndex = target.getAttribute("data-index") !== null ? parseInt(target.getAttribute("data-index"), 10) : null;
             const scrollTarget = target.getAttribute("data-scroll") || null;
             selectSPAPage(pageId, subIndex, scrollTarget);
             break;
@@ -6751,8 +6768,7 @@ transform:translateY(-3px);
             const alamat = document.getElementById("alamat").value.trim();
             const pesan = document.getElementById("pesan").value.trim();
 
-            const greet =
-              "Assalaamualaikum Customer Service Samira, saya ingin bertanya tentang program umroh Samira Travel. Berikut data saya:";
+            const greet = "Assalaamualaikum Customer Service Samira, saya ingin bertanya tentang program umroh Samira Travel. Berikut data saya:";
             const body = `${greet}%0A%0ANama: ${encodeURIComponent(nama)}%0AWhatsApp: ${encodeURIComponent(wa)}%0ADomisili: ${encodeURIComponent(alamat)}%0APertanyaan: ${encodeURIComponent(pesan)}`;
 
             const url = `https://wa.me/${CONTACT.WHATSAPP}?text=${body}`;
@@ -6761,10 +6777,14 @@ transform:translateY(-3px);
         }
       }
 
+      // --- EXECUTE ON LOAD --- //
       window.addEventListener("DOMContentLoaded", () => {
         DOM.init();
         initSPAPages();
         initFormHandler();
+        
+        // Memuat sistem replika mitra otomatis
+        loadMitraReplica();
 
         if (DOM.year) {
           DOM.year.textContent = new Date().getFullYear();
@@ -6775,62 +6795,6 @@ transform:translateY(-3px);
           renderVideoGallery();
           renderTestimonials();
         }, 50);
-      });
-
-      document.addEventListener("contextmenu", function (event) {
-        event.preventDefault();
-      });
-
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "F12" || event.keyCode === 123) {
-          event.preventDefault();
-          return false;
-        }
-        if (
-          event.ctrlKey &&
-          event.shiftKey &&
-          (event.key === "I" || event.key === "i" || event.keyCode === 73)
-        ) {
-          event.preventDefault();
-          return false;
-        }
-        if (
-          event.ctrlKey &&
-          event.shiftKey &&
-          (event.key === "Menu" || event.key === "j" || event.keyCode === 74)
-        ) {
-          event.preventDefault();
-          return false;
-        }
-        if (
-          event.ctrlKey &&
-          event.shiftKey &&
-          (event.key === "C" || event.key === "c" || event.keyCode === 67)
-        ) {
-          event.preventDefault();
-          return false;
-        }
-        if (
-          event.ctrlKey &&
-          (event.key === "U" || event.key === "u" || event.keyCode === 85)
-        ) {
-          event.preventDefault();
-          return false;
-        }
-        if (
-          event.ctrlKey &&
-          (event.key === "S" || event.key === "s" || event.keyCode === 83)
-        ) {
-          event.preventDefault();
-          return false;
-        }
-        if (
-          event.ctrlKey &&
-          (event.key === "P" || event.key === "p" || event.keyCode === 80)
-        ) {
-          event.preventDefault();
-          return false;
-        }
       });
     </script>
   </body>
