@@ -1,5 +1,27 @@
 {
-    "default": {
+  "globalBanners": [
+    "image/hajilands-450.webp",
+    "image/banner/banner-1.webp",
+    "image/banner/banner-2.webp",
+    "image/banner/banner-3.webp",
+    "image/banner/banner-4.webp",
+    "image/banner/banner-5.webp",
+    "image/banner/banner-6.webp",
+    "image/banner/banner-7.webp",
+    "image/banner/banner-8.webp"
+  ],
+  "default": {
+        "nama": "Dedy MBS",
+        "idMitra": "M-DGI-9725",
+        "whatsapp": "6287783073536",
+        "email": "dedymbs@example.com",
+        "facebook": "https://facebook.com/dedymbs",
+        "tiktok": "https://tiktok.com/@dedymbs",
+        "domisili": "Cijantung",
+        "fotoDedy": "image/dedyfoto-176.webp",
+        "linkDrive": "https://drive.google.com/drive/folders/1nMtd0VE93RHl_HB_qydxKcoZvqFkNloI?usp=drive_link"
+    },
+    "inspirasi": {
         "nama": "Dedy MBS",
         "idMitra": "M-DGI-9725",
         "whatsapp": "6287783073536",
@@ -18,6 +40,17 @@
         "facebook": "https://facebook.com/ahmadfauzi",
         "tiktok": "https://tiktok.com/@ahmadfauzi",
         "domisili": "Bandung",
+        "fotoDedy": "image/mitra/ahmad.webp",
+        "linkDrive": "https://drive.google.com/drive/folders/1nMtd0VE93RHl_HB_qydxKcoZvqFkNloI?usp=drive_link"
+    },
+    "rina": {
+        "nama": "Rina Rosdiana",
+        "idMitra": "M-DGI-1022",
+        "whatsapp": "6281234567890",
+        "email": "rinarosdiana@gmail.com",
+        "facebook": "https://facebook.com/rinarosdiana",
+        "tiktok": "https://tiktok.com/@rinarosdiana",
+        "domisili": "Krukut",
         "fotoDedy": "image/mitra/ahmad.webp",
         "linkDrive": "https://drive.google.com/drive/folders/1nMtd0VE93RHl_HB_qydxKcoZvqFkNloI?usp=drive_link"
     }
