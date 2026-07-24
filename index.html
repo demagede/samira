@@ -19,7 +19,8 @@
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Dedy MBS (M-DGI-9725)" />
     <meta name="application-name" content="Samira Travel" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -34,8 +35,6 @@
     />
 
     <link rel="canonical" href="https://umrohku.my.id/" />
-<!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://umrohku.my.id/" />
@@ -62,19 +61,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- LCP Image Preloading (Mobile-Optimized Sizes to Prevent Large Downloads) -->
-    <link
-      rel="preload"
-      as="image"
-      href="image/hajilands-352.webp"
-      imagesrcset="
-        image/hajilands-352.webp 352w,
-        image/hajilands-480.webp 480w,
-        image/hajilands-768.webp 768w"
-      imagesizes="(max-width: 640px) 320px, 600px"
-      type="image/webp"
-      fetchpriority="high"
-    />
+    <!-- PERBAIKAN: Arahkan ke banner utama yang memang pasti langsung tampil -->
+    <link rel="preload" href="image/banner/hajilands-450.webp" as="image" type="image/webp">
 
     <!-- Inline Critical CSS for PageSpeed 100 Score (Removes Render-Blocking) -->
     <style>
@@ -2296,6 +2284,147 @@ transform:translateY(-3px);
   height: 100% !important;
   width: auto !important;
 }
+
+/* Custom Slider Pure CSS (Tinggi Seimbang dengan Kolom Sebelah & Full Width Portrait) */
+.custom-slider-container {
+  position: relative !important;
+  width: 100% !important;
+  height: 520px !important; /* Tinggi di Layar HP/Tablet */
+  background-color: #f1f5f9 !important;
+  border-radius: 0.75rem !important;
+  overflow: hidden !important;
+}
+
+@media (min-width: 1024px) {
+  .custom-slider-container {
+    height: 680px !important; /* 💡 DIPERPANJANG: Menyesuaikan tinggi kolom hero sebelah di Desktop */
+  }
+}
+
+.custom-slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.custom-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.custom-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 🖼️ Gambar Portrait: Auto-fit Utuh 100% Tanpa Terpotong (Atas-Bawah Utuh) */
+.custom-slide img.portrait-img {
+  height: 100% !important;
+  width: auto !important;
+  max-width: 100% !important;
+  object-fit: contain !important; /* KUNCI: Menjamin gambar utuh 100% tanpa kepotong */
+  object-position: center !important;
+  margin: auto !important;
+  border-radius: 0.5rem !important;
+}
+
+/* 🖼️ Gambar Landscape: Lebar 100% Kiri-Kanan & Vertical Center */
+.custom-slide img.landscape-img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  margin: auto !important;
+  border-radius: 0.5rem !important;
+}
+
+/* Dots Navigasi */
+.slider-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+  background-color: #1e3a8a;
+  width: 24px;
+  border-radius: 999px;
+}
+
+/* --- PURE CSS SLIDER PAKET (SWIPE HORIZONTAL TANPA TAILWIND) --- */
+.pure-paket-slider {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 16px !important;
+  overflow-x: auto !important;
+  scroll-behavior: smooth !important;
+  padding: 12px 4px !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Sembunyikan scrollbar jelek browser tapi tetap bisa di-swipe/digeser */
+.pure-paket-slider::-webkit-scrollbar {
+  display: none !important;
+}
+.pure-paket-slider {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Kartu Pembungkus Brosur Paket */
+.pure-paket-card {
+  flex: 0 0 280px !important; /* Lebar di HP */
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  padding: 8px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  box-sizing: border-box !important;
+}
+
+@media (min-width: 640px) {
+  .pure-paket-card {
+    flex: 0 0 380px !important; /* Lebar di Tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .pure-paket-card {
+    flex: 0 0 460px !important; /* Lebar di Desktop (Brosur Jelas & Besar) */
+  }
+}
+
+.pure-paket-card img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  border-radius: 12px !important;
+  object-fit: contain !important;
+}
+
     </style>
 
     <!-- Non-blocking stylesheet loading for Fonts & Animation -->
@@ -2730,12 +2859,15 @@ transform:translateY(-3px);
             </div>
           </div>
 
+<!-- Menu Program Mitra Menonjol (Gold Button + Badge) -->
           <button
             data-action="spa-nav"
             data-target="program-mitra"
-            class="flex items-center gap-1 font-semibold text-slate-800 hover:text-primary transition-colors py-2 focus:outline-none"
-            >
-            Program Mitra
+            class="bg-gradient-to-r from-amber-400 to-amber-500 animate-pulse hover:from-amber-500 hover:to-amber-600 text-slate-900 font-extrabold text-xs px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-premium flex items-center gap-1.5 transform hover:-translate-y-0.5 border border-amber-300"
+          >
+            <span>🚀</span>
+            <span>Program Mitra</span>
+            <span class="bg-red-800 gap-2 text-white text-[9px] px-2 py-0.5 rounded-full font-bold">Hot!</span>
           </button>
         </div>
 
@@ -3027,12 +3159,15 @@ transform:translateY(-3px);
           </div>
         </div>
 
+<!-- Menu Program Mitra Mobile Menonjol -->
         <button
           data-action="spa-nav"
           data-target="program-mitra"
-          class="w-full text-left block text-sm font-bold text-slate-800 hover:text-blue-800 py-3 border-b border-slate-50"
+          class="w-full flex items-center animate-pulse justify-center gap-2 text-xs font-extrabold text-slate-900 bg-amber-400 hover:bg-amber-500 py-3 rounded-xl shadow-md my-3 transition-premium"
         >
-          Program Mitra
+          <span>🚀</span>
+          <span>Program Mitra</span>
+          <span class="bg-red-800 text-white text-[9px] px-2 py-0.5 rounded-full font-bold">Hot!</span>
         </button>
       </div>
     </nav>
@@ -3125,14 +3260,14 @@ transform:translateY(-3px);
                 </div>
               </div>
 
-<!-- Hajiland / Banner Media Column -->
+<!-- Hajiland / Banner Media Column (Pure JS Slider) -->
 <div class="lg:col-span-7">
   <div class="bg-white p-3 rounded-2xl shadow-xl border-2 border-amber-400 overflow-hidden transition-premium hover:scale-[1.01]">
     
-    <!-- Wadah Swiper: Diberi h-[420px] md:h-[500px] & bg-slate-100/80 -->
-    <div class="swiper heroSwiper rounded-xl overflow-hidden h-[420px] md:h-[500px] bg-slate-100/80 relative">
-      <div class="swiper-wrapper" id="hero-swiper-wrapper"></div>
-      <div class="swiper-pagination"></div>
+    <!-- Wadah Slider Baru (Pure CSS/JS) -->
+    <div class="custom-slider-container" id="customSlider">
+      <div class="custom-slider-wrapper" id="hero-swiper-wrapper"></div>
+      <div class="slider-dots" id="sliderDots"></div>
     </div>
 
   </div>
@@ -4825,50 +4960,265 @@ transform:translateY(-3px);
                 </div>
               </div>
 
-              <!-- Tab 3: Pilihan Paket & Hotel Eksklusif -->
-              <div
-                id="paket-tab-content-3"
-                class="paket-pane hidden space-y-6"
-                role="tabpanel"
-                aria-labelledby="paket-tab-content-3"
-              >
-                <div class="space-y-2 mb-6">
-                  <span
-                    class="bg-blue-100 text-primary px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider inline-block"
-                    >AKOMODASI</span
+<!-- Tab 3: Pilihan Paket & Hotel Eksklusif (Dinamis dari mitra.json) -->
+<div
+  id="paket-tab-content-3"
+  class="paket-pane hidden space-y-6"
+  role="tabpanel"
+  aria-labelledby="paket-tab-content-3"
+>
+  <div class="space-y-2 mb-4 text-center">
+    <span
+      class="bg-blue-100 text-primary px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider inline-block"
+      >AKOMODASI & BROSUR PAKET</span
+    >
+    <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">
+      Pilihan Paket & Hotel Eksklusif
+    </h3>
+    <p class="text-xs md:text-sm text-slate-500 max-w-xl mx-auto">
+      Geser / Swipe ke kanan & kiri untuk melihat ragam brosur paket Umroh terbaru kami.
+    </p>
+  </div>
+
+  <!-- Tombol Drive & Navigasi -->
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-5xl mx-auto px-2">
+    <a
+      href="https://drive.google.com/drive/folders/1nMtd0VE93RHl_HB_qydxKcoZvqFkNloI?usp=drive_link"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Lihat Paket Umroh di Google Drive"
+      class="bg-primary hover:bg-blue-900 text-white font-bold px-6 py-3 rounded-full shadow transition-premium text-xs md:text-sm flex items-center gap-2"
+    >
+      <span>📖 Download Brosur</span>
+    </a>
+
+    <!-- Tombol Panah Navigasi Manual -->
+    <div class="flex items-center gap-2">
+      <button
+        data-action="slide"
+        data-target="paket-slider"
+        data-direction="left"
+        class="w-10 h-10 rounded-full bg-white border border-slate-300 shadow-md flex items-center justify-center hover:bg-primary hover:text-white transition-premium"
+        aria-label="Slide paket sebelumnya"
+      >
+        &#10094;
+      </button>
+      <button
+        data-action="slide"
+        data-target="paket-slider"
+        data-direction="right"
+        class="w-10 h-10 rounded-full bg-white border border-slate-300 shadow-md flex items-center justify-center hover:bg-primary hover:text-white transition-premium"
+        aria-label="Slide paket selanjutnya"
+      >
+        &#10095;
+      </button>
+    </div>
+  </div>
+  <!-- Container Slider Dinamis (Disuntik via JavaScript) -->
+  <div class="max-w-5xl mx-auto">
+    <div id="paket-slider" class="pure-paket-slider"></div>
+  </div>
+  <!-- Itenary, Syarat dan Ketentuan, Harga Belum Termasuk) -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <!-- Itenary Column -->
+                  <div
+                    class="p-5 bg-white rounded-2xl shadow-sm border-t-4 border-emerald-500 border border-slate-100 space-y-3"
                   >
-                  <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">
-                    Pilihan Paket & Hotel Eksklusif
-                  </h3>
-                </div>
-                <div
-                  class="bg-slate-50 p-3 rounded-2xl border border-slate-100 shadow-sm max-w-4xl mx-auto"
-                >
-                  <a
-                    href="https://drive.google.com/drive/folders/1nMtd0VE93RHl_HB_qydxKcoZvqFkNloI?usp=drive_link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Lihat Paket Umroh di Google Drive"
-                    class="bg-white border border-slate-300 text-slate-900 font-bold px-8 py-4 rounded-full shadow hover:bg-slate-100 transition-premium transform hover:-translate-y-1 text-sm md:text-base flex items-center justify-center gap-2"
+                    <h4
+                      class="font-extrabold text-emerald-600 text-sm flex items-center gap-2"
+                    >
+                      <svg
+                        class="w-4 h-4 text-emerald-500 fill-current"
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
+                        />
+                      </svg>
+                      Itenary
+                    </h4>
+                    <ul class="space-y-2 text-xs text-slate-600 leading-relaxed">
+                    <p><b>Hari 1: Kedatangan di Jeddah & Menuju Madinah</b></p>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Tiba di Bandara King Abdulaziz (JED) Jeddah, proses imigrasi.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Langsung menuju Madinah dengan bus, check-in hotel, istirahat.</span>
+                        </li>
+                    <p><b>Hari 2: Madinah (Masjid Nabawi & Ziarah)</b></p>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Sholat Subuh di Masjid Nabawi.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Sarapan, acara bebas memperbanyak ibadah di Masjid Nabawi (Raudhah, dll.).</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                        <span>Ziarah Kota Madinah: Masjid Quba, Jabal Uhud, Masjid Qiblatain, Kebun Kurma.</span>
+                        </li>
+                    <p><b>Hari 3: Madinah (Ibadah & Persiapan)</b></p>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Sholat Subuh di Masjid Nabawi, sarapan.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                        <span>Acara bebas, memperbanyak ibadah di Masjid Nabawi atau City Tour.</span>
+                        </li>
+                    <p><b>Hari 4: Menuju Makkah (Miqat Bir Ali)</b></p>
+                        <li class="flex"><span>&bull;</span>
+                        <span>Check-out hotel Madinah.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Menuju Makkah dengan bus, mengambil miqat di Bir Ali (niat umroh).</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Tiba di Makkah, check-in hotel, makan malam, langsung melaksanakan umroh wajib (Tawaf, Sa'i, Tahallul).</span>
+                        </li>
+                    <p><b>Hari 5: Makkah (Masjidil Haram & Ibadah)</b></p>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Sholat Subuh di Masjidil Haram, sarapan.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Acara bebas, memperbanyak ibadah di Masjidil Haram (Tawaf sunnah, dzikir, dll.).</span>
+                        </li>
+                    <p><b>Hari 6: Makkah (Ziarah & Umroh Kedua)</b></p>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Sholat Subuh di Masjid Nabawi.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Ziarah Kota Makkah (Jabal Nur, Jabal Tsur, Jabal Rahmah, Arafah, Mina, Muzdalifah).</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                        <span>Persiapan umroh kedua (bisa ambil miqat di Tan'im untuk umroh ke-2/3).</span>
+                        </li>
+                    <p><b>Hari 7: Makkah (Ibadah Bebas)</b></p>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Memperbanyak ibadah di Masjidil Haram.</span>
+                        </li>
+                    <p><b>Hari 8: Menuju Jeddah (City Tour & Persiapan Pulang)</b></p>
+                        <li class="flex"><span>&bull;</span>
+                        <span>Sholat Subuh dan Tawaf Wada'.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Menuju Makkah dengan bus, mengambil miqat di Bir Ali (niat umroh).</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>City Tour Jeddah: Masjid Terapung, Masjid Qisos, Maqam Siti Hawa, shopping di Balad.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Menuju bandara Jeddah, persiapan penerbangan pulang.</span>
+                        </li>
+                    <p><b>Hari 9: Tiba di Tanah Air</b></p>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Penerbangan dari Jeddah ke Jakarta (tiba di hari yang sama atau keesokan harinya tergantung jadwal pesawat).</span>
+                        </li>
+                    <p><b>Catatan Penting:</b></p>
+                        <li class="flex"><span>&bull;</span>
+                        <span>Jadwal bisa berbeda tergantung travel dan kebijakan pemerintah Saudi.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Waktu ibadah sangat fleksibel di luar jadwal kegiatan kelompok.</span>
+                        </li>
+                    </ul>
+                  </div>
+
+                  <!-- Syarat dan Ketentuan Column -->
+                  <div
+                    class="p-5 bg-white rounded-2xl shadow-sm border-t-4 border-emerald-500 border border-slate-100 space-y-3"
                   >
-                    <span>📖 Lihat Paket Umroh</span>
-                  </a>
-                  <img
-                    src="image/s111.webp"
-                    loading="lazy"
-                    decoding="async"
-                    class="w-full h-auto max-h-[500px] object-contain rounded-xl mx-auto block"
-                    style="aspect-ratio: 5/4"
-                    width="600"
-                    height="480"
-                    alt="Varian Paket & Hotel Samira Travel"
-                    onerror="
-                      this.src =
-                        'https://placehold.co/600x480/1e40af/ffffff?text=Paket+Hotel'
-                    "
-                  />
-                </div>
-              </div>
+                    <h4
+                      class="font-extrabold text-amber-700 text-sm flex items-center gap-2"
+                    >
+                      <svg
+                        class="w-4 h-4 text-amber-500 fill-current"
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                        />
+                      </svg>
+                      Syarat dan Ketentuan
+                    </h4>
+                    <ul class="space-y-2 text-xs text-slate-600 leading-relaxed">
+                    <p><b>Persyaratan Dokumen Umroh</b></p>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Paspor dengan nama minimal 2 kata yang masih berlaku minimal 8 bulan sebelum tanggal keberangkatan.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>FC KTP & Kartu Keluarga.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>DP Rp. 1.500.000, tidak dapat dikembalikan (Non Refunable).</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Booking Seat Rp. 10.000.000.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                        <span>Dokumen dan Pelunasan 1,5 bulan sebelum tanggal keberangkatan.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Foto berwarna dengan latar belakang putih posisi muka/kepala 80% dan untuk wanita berjilbab tidak memakai warna putih.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                        <span>Ukuran 3x4 = 2 lembar & Softcopy Foto.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                        <span>Copy sertifikat vaksin covid-19 (dosis 1 & 2).</span>
+                        </li>
+                    </ul>
+                    <p>--------------------------------</p>
+                    <h4
+                      class="font-extrabold text-red-600 text-sm flex items-center gap-2"
+                    >
+                      <svg
+                        class="w-4 h-4 text-red-500 fill-current"
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z"
+                        />
+                      </svg>
+                      Harga Belum Termasuk
+                    </h4>
+                    <ul class="space-y-2 text-xs text-slate-600 leading-relaxed">
+                        <li class="flex"><span>&bull;</span>
+                          <span>Biaya Pembuatan Passport.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Biaya Vaksin Meningitis.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Handling dan Perlengkapan Umroh Rp. 1.500.000.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Akomodasi /Hotel transit (jika diperlukan).</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                        <span>Tiket Pesawat / Biaya Perjalanan Domestik.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                          <span>Kelebihan Bagasi sesuai Ketentuan Penerbangan.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                        <span>Tour/Makan/Minum tambahan diluar program.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                        <span>Telephone Bill Payview TV, Mini Bar, dan semua pemakaian fasilitas/layanan di hotel.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                        <span>Biaya-biaya yang bersifat pribadi, dan atau yang bukan merupakan fasilitas program.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                        <span>Biaya Tambahan (apabila ada) yang dikeluarkan oleh Pemerintah KSA (Kerajaan Saudi Arabia) untuk penerbitan Visa Umroh.</span>
+                        </li>
+                        <li class="flex"><span>&bull;</span>
+                        <span>Biaya surat Kesehatan baru (Apabila ada) sebagai syarat untuk penerbitan Visa Umroh.</span>
+                        </li>
+                    </ul>
+                  </div>               
+                  </div>
+</div>
 
               <!-- Tab 4: Haji Furoda -->
               <div
@@ -4881,7 +5231,23 @@ transform:translateY(-3px);
                   <span
                     class="bg-amber-100 text-amber-800 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider inline-block"
                     >PROGRAM KHUSUS</span
+                  <div
+                    class="bg-slate-50 p-4 rounded-2xl border border-slate-100 shadow-sm"
                   >
+                    <img
+                      class="w-full max-h-[480px] object-contain rounded-xl mx-auto"
+                      style="aspect-ratio: 17/24"
+                      src="image/banner/hajifuroda-450.webp"
+                      alt="Izin PPIU Samira Travel Resmi"
+                      loading="lazy"
+                      decoding="async"
+                      width="340"
+                      height="480"
+                      onerror="
+                        this.src =
+                          'https://placehold.co/400x550/1e40af/ffffff?text=Izin+PPIU'
+                      "
+                    />
                   <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">
                     Haji Furoda 2025
                   </h3>
@@ -4891,6 +5257,7 @@ transform:translateY(-3px);
                   <p class="text-slate-400 font-semibold text-xs">
                     Keb Kloter Akhir Musim Haji • Pendaftaran & Syarat Termasuk
                   </p>
+                  </div>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -5781,9 +6148,14 @@ transform:translateY(-3px);
             Apakah saya harus membeli domain sendiri?
           </h3>
 
-          <p class="c-body">
+          <p style="max-width: 800px; overflow-wrap: break-word;">
             Tidak. Website dapat langsung menggunakan
-            subdomain yang saya sediakan.
+            alamat URL seperti ini:<b>https://umrohku.my.id/#username</b>
+            atau <b>https://umrohku.my.id/?mitra=username</b> 
+            contoh username anda <b>dedy</b> 
+            maka: <b>https://umrohku.my.id/#dedy </b>
+            atau <b>https://umrohku.my.id/?mitra=dedy </b>yang anda pilih 
+            jika masih tersedia atau belum terpakai mitra lain.
           </p>
         </div>
 
@@ -6059,13 +6431,14 @@ transform:translateY(-3px);
     </footer>
 
     <!-- FLOATING WIDGETS -->
-    <!-- Floating Price List Button (Gold) -->
-    <a
+<!-- Floating Price List Button (Gold) -->
+    <button
+      type="button"
+      data-action="spa-nav"
+      data-target="paket-info"
+      data-index="3"
       class="fixed z-[1030] right-5 bottom-[150px] bg-accent text-slate-900 rounded-full w-12 h-12 shadow-lg flex items-center justify-start p-3 overflow-hidden whitespace-nowrap transition-premium group hover:w-56 min-w-[48px] min-h-[48px]"
-      href="https://drive.google.com/drive/folders/1nMtd0VE93RHl_HB_qydxKcoZvqFkNloI?usp=drive_link"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Lihat Daftar Harga Samira Travel"
+      aria-label="Lihat Paket & Hotel Eksklusif"
     >
       <svg
         class="w-6 h-6 shrink-0 fill-current"
@@ -6080,11 +6453,11 @@ transform:translateY(-3px);
         class="font-bold text-xs ml-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
         >Daftar Harga Terbaru</span
       >
-    </a>
+    </button>
 
     <!-- Floating WhatsApp Button (Emerald) -->
     <a
-      class="fixed z-[1030] right-5 bottom-[85px] bg-emerald-500 text-white rounded-full w-12 h-12 shadow-lg flex items-center justify-start p-3 overflow-hidden whitespace-nowrap transition-premium group hover:w-40 min-w-[48px] min-h-[48px]"
+      class="fixed z-[1030] right-5 animate-pulse bottom-[85px] bg-emerald-500 text-white rounded-full w-12 h-12 shadow-lg flex items-center justify-start p-3 overflow-hidden whitespace-nowrap transition-premium group hover:w-40 min-w-[48px] min-h-[48px]"
       href="https://wa.me/6287783073536?text=Assalaamualaikum%20Customer%20Service%20Samira%2C%20saya%20tertarik%20dengan%20info%20program%20Umroh%20Samira%20Travel.%20Mohon%20info%20selengkapnya."
       target="_blank"
       rel="noopener noreferrer"
@@ -6135,7 +6508,6 @@ transform:translateY(-3px);
 
     <div id="yt-bg-player" class="hidden w-0 h-0 invisible"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Inline Core Scripts for Performance -->
 <!-- Inline Core Scripts for Performance & Replica System -->
     <script>
@@ -6149,175 +6521,187 @@ transform:translateY(-3px);
       // Dibuat variabel biasa (bukan const/freeze) agar nomor WA mitra bisa di-update
       let CONTACT = { WHATSAPP: "6287783073536" };
 
-// --- 🚀 FUNGSI UTAMA WEBPAGE REPLIKA MITRA (FULL AUTOMATIC UPDATE) --- //
-      async function loadMitraReplica() {
-        // 1. Deteksi Kata Kunci Mitra dari Query Param (?mitra=ahmad) atau Hash (#ahmad)
-        const urlParams = new URLSearchParams(window.location.search);
-        let queryKey = urlParams.get('mitra') || window.location.hash.replace('#', '').toLowerCase();
+// --- 🚀 FUNGSI UTAMA WEBPAGE REPLIKA MITRA (Membaca mitra.json) --- //
+async function loadMitraReplica() {
+  try {
+    // 1. Fetch data json
+    const response = await fetch('data/mitra.json');
+    const dataMitra = await response.json();
 
-        // 2. Deteksi Subdomain (Abaikan jika local, ip address, atau pages.dev)
-        const hostname = window.location.hostname;
-        const parts = hostname.split('.');
-        let subdomainKey = '';
+    // 2. FUNGSI ROUTING MITRA (Presisi dengan Struktur mitra.json)
+    function handleMitraRouting() {
+      // A. Ambil parameter dari URL (?mitra=ahmad) atau Hashtag (#ahmad)
+      const urlParams = new URLSearchParams(window.location.search);
+      let mitraKey = urlParams.get('mitra');
 
-        const isCloudflareDev = hostname.includes('pages.dev');
-        // Memastikan 127.0.0.1 dan localhost dianggap SERVER LOKAL (diabaikan sebagai subdomain)
-        const isLocal = hostname.includes('localhost') || hostname.includes('127.0.0.1') || /^\d+\.\d+\.\d+\.\d+$/.test(hostname);
+      if (!mitraKey && window.location.hash) {
+        mitraKey = window.location.hash.replace('#', '').trim();
+      }
 
-        if (!isCloudflareDev && !isLocal && parts.length >= 3) {
-          const sub = parts[0].toLowerCase();
-          if (sub !== 'www' && sub !== 'umrohku') {
-            subdomainKey = sub;
-          }
+      // B. Jika tidak ada parameter di URL, gunakan default 'default'
+      if (!mitraKey) {
+        mitraKey = 'default';
+      }
+
+      mitraKey = mitraKey.toLowerCase();
+
+      // C. Ambil data mitra berdasarkan key (misal: dataMitra['ahmad'])
+      const currentMitra = dataMitra[mitraKey] || dataMitra['default'];
+
+      if (currentMitra) {
+        // Update No WhatsApp Global
+        if (currentMitra.whatsapp) {
+          CONTACT.WHATSAPP = currentMitra.whatsapp;
         }
 
-        // Urutan Prioritas: Hash / Query Param DAHULU -> Subdomain -> default
-        let mitraKey = queryKey || subdomainKey || 'default';
+        // Update Nama Mitra di Seluruh Teks Website
+        document.querySelectorAll('.mitra-nama').forEach(el => {
+          el.textContent = currentMitra.nama || "Mitra Samira";
+        });
 
-        try {
-          const response = await fetch('data/mitra.json');
-          if (!response.ok) return;
-          const dataMitra = await response.json();
+        // Update ID Mitra di Seluruh Teks Website
+        document.querySelectorAll('.mitra-id').forEach(el => {
+          el.textContent = currentMitra.idMitra || "M-DGI-9725";
+        });
 
-          const currentMitra = dataMitra[mitraKey] || dataMitra['default'];
-          if (!currentMitra) return;
+        // Update Foto Profil Mitra
+        const fotoElem = document.getElementById('foto-mitra');
+        if (fotoElem && currentMitra.fotoDedy) {
+          fotoElem.src = currentMitra.fotoDedy;
+        }
 
-          // 1. Update Document Title
-          if (currentMitra.nama && currentMitra.idMitra) {
-            document.title = `Mitra Resmi Samira Travel — Pendaftaran Umroh & Haji ${currentMitra.nama} (${currentMitra.idMitra})`;
-          }
-
-          // 2. Update SEMUA Teks Nama Mitra (.mitra-nama)
-          document.querySelectorAll('.mitra-nama').forEach(el => {
-            el.textContent = currentMitra.nama;
+        // Update Link Google Drive Paket (jika ada)
+        if (currentMitra.linkDrive) {
+          document.querySelectorAll('a[href*="drive.google.com"]').forEach(link => {
+            link.href = currentMitra.linkDrive;
           });
+        }
 
-          // 3. Update SEMUA ID Mitra (.mitra-id)
-          document.querySelectorAll('.mitra-id').forEach(el => {
-            el.textContent = currentMitra.idMitra;
-          });
+           // Update Link WhatsApp di Seluruh Tombol
+           document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+             const oldUrl = link.href;
+             // Ganti nomor lama dengan nomor WhatsApp mitra yang aktif
+             const newUrl = oldUrl.replace(/wa\.me\/\d+/, `wa.me/${currentMitra.whatsapp}`);
+             link.href = newUrl;
+           });
 
-          // 4. Update Foto Profil Mitra (#foto-mitra)
-          const fotoEl = document.getElementById('foto-mitra');
-          if (fotoEl && currentMitra.fotoDedy) {
-            fotoEl.src = currentMitra.fotoDedy;
-            fotoEl.removeAttribute('srcset');
-          }
+// ✅ GANTI DENGAN KODE BARU INI (LOGIKA 3 OPSI FOTO GALERI)
+        const globalPhotos = dataMitra.globalPhotos || [];
+        const mitraPhotos = (currentMitra && currentMitra.fotoGaleri) ? currentMitra.fotoGaleri : [];
+        const isExclusive = (currentMitra && currentMitra.hanyaFotoSendiri === true);
 
-          // 5. Update WhatsApp, Link Pesan, dan Tooltip/Title
-          if (currentMitra.whatsapp) {
-            if (typeof CONTACT !== 'undefined') CONTACT.WHATSAPP = currentMitra.whatsapp;
+        let activePhotos = [];
 
-            const pesanWA = encodeURIComponent(`Assalaamualaikum Customer Service Samira, saya tertarik dengan info program Umroh Samira Travel dari website ${currentMitra.nama}. Mohon info selengkapnya.`);
+        if (isExclusive) {
+          // OPSI 3: Hanya foto milik mitra sendiri
+          activePhotos = (mitraPhotos.length > 0) ? mitraPhotos : globalPhotos;
+        } else if (mitraPhotos.length > 0) {
+          // OPSI 2: Foto mitra di awal + foto global di belakang
+          activePhotos = [...mitraPhotos, ...globalPhotos];
+        } else {
+          // OPSI 1: Hanya foto global saja
+          activePhotos = globalPhotos;
+        }
 
-            document.querySelectorAll('a.wa-link, a[href*="wa.me"]').forEach(link => {
-              link.href = `https://wa.me/${currentMitra.whatsapp}?text=${pesanWA}`;
-              
-              if (link.hasAttribute('title')) {
-                link.setAttribute('title', `Konsultasi WhatsApp bersama ${currentMitra.nama}`);
-              }
-              if (link.hasAttribute('data-tooltip')) {
-                link.setAttribute('data-tooltip', `Hubungi ${currentMitra.nama}`);
-              }
-            });
-          }
-
-          // 6. Update Link Drive
-          if (currentMitra.linkDrive) {
-            document.querySelectorAll('a.drive-link, a[href*="drive.google.com"]').forEach(link => {
-              link.href = currentMitra.linkDrive;
-            });
-          }
-
-          // 7. Update Email & Medsos Mitra
-          if (currentMitra.email) {
-            document.querySelectorAll('.email-link, .mitra-email').forEach(el => {
-              if (el.tagName === 'A') el.href = `mailto:${currentMitra.email}`;
-              el.textContent = currentMitra.email;
-              el.classList.remove('hidden');
-            });
-          }
-
-          if (currentMitra.facebook) {
-            document.querySelectorAll('a.fb-link').forEach(link => {
-              link.href = currentMitra.facebook;
-              link.classList.remove('hidden');
-            });
-          }
-
-          if (currentMitra.tiktok) {
-            document.querySelectorAll('a.tiktok-link').forEach(link => {
-              link.href = currentMitra.tiktok;
-              link.classList.remove('hidden');
-            });
-          }
-
-          console.log(`[REPLIKA] Berhasil memuat data mitra (${mitraKey}): ${currentMitra.nama}`);
-
-          // 8. Render Banner Global Dinamis (Berlaku untuk SEMUA Mitra)
-          const bannerWrapper = document.getElementById('hero-swiper-wrapper');
-          const banners = dataMitra.globalBanners || [];
-
-          if (bannerWrapper && banners.length > 0) {
-            let bannerHTML = '';
-            
-banners.forEach((bannerUrl, idx) => {
-  const isFirst = idx === 0;
+        renderPhotoGallery(activePhotos);
+         }
+       }
   
-  // Deteksi otomatis jika nama file mengandung kata 'lanscape' / 'landscape'
-  const isLandscape = bannerUrl.toLowerCase().includes('lanscape') || bannerUrl.toLowerCase().includes('landscape');
-  const imgClass = isLandscape ? 'landscape-img' : 'portrait-img';
+    // Jalankan routing mitra
+    handleMitraRouting();
 
-  bannerHTML += `
-    <div class="swiper-slide">
-      <img 
-        src="${bannerUrl}" 
-        alt="Banner Promo ${idx + 1}" 
-        class="${imgClass}"
-        ${isFirst ? 'fetchpriority="high" decoding="async"' : 'loading="lazy"'}
-      />
-    </div>
-  `;
-});
+    // 3. Render Custom Slider Banner Global (Pure JS)
+    const bannerWrapper = document.getElementById('hero-swiper-wrapper');
+    const dotsWrapper = document.getElementById('sliderDots');
+    const banners = dataMitra.globalBanners || [];
 
-            bannerWrapper.innerHTML = bannerHTML;
+    if (bannerWrapper && banners.length > 0) {
+      let bannerHTML = '';
+      let dotsHTML = '';
 
-            // Bersihkan instance Swiper lama jika ada
-// Inisialisasi Swiper Banner Global
-if (window.heroSwiperInstance) {
-  window.heroSwiperInstance.destroy(true, true);
+      banners.forEach((bannerUrl, idx) => {
+        const isFirst = idx === 0;
+        const isLandscape = bannerUrl.toLowerCase().includes('lanscape') || bannerUrl.toLowerCase().includes('landscape');
+        const imgClass = isLandscape ? 'landscape-img' : 'portrait-img';
+
+        bannerHTML += `
+          <div class="custom-slide ${isFirst ? 'active' : ''}" data-index="${idx}">
+            <img 
+              src="${bannerUrl}" 
+              alt="Banner Promo ${idx + 1}" 
+              class="${imgClass}"
+              ${isFirst ? 'fetchpriority="high" decoding="async"' : 'loading="lazy"'}
+            />
+          </div>
+        `;
+
+        dotsHTML += `<div class="slider-dot ${isFirst ? 'active' : ''}" data-slide="${idx}"></div>`;
+      });
+
+      bannerWrapper.innerHTML = bannerHTML;
+      if (dotsWrapper) dotsWrapper.innerHTML = dotsHTML;
+
+      // Autoplay & Navigasi Slider
+      if (window.customSliderInterval) clearInterval(window.customSliderInterval);
+
+      let currentIndex = 0;
+      const slides = bannerWrapper.querySelectorAll('.custom-slide');
+      const dots = dotsWrapper ? dotsWrapper.querySelectorAll('.slider-dot') : [];
+
+      function goToSlide(index) {
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+        currentIndex = index;
+      }
+
+      function nextSlide() {
+        let nextIndex = (currentIndex + 1) % slides.length;
+        goToSlide(nextIndex);
+      }
+
+if (slides.length > 1) {
+          window.customSliderInterval = setInterval(nextSlide, 3500);
+
+          const container = document.getElementById('customSlider');
+          if (container) {
+            container.addEventListener('mouseenter', () => clearInterval(window.customSliderInterval));
+            container.addEventListener('mouseleave', () => {
+              clearInterval(window.customSliderInterval);
+              window.customSliderInterval = setInterval(nextSlide, 3500);
+            });
+          }
+
+          dots.forEach((dot, i) => dot.addEventListener('click', () => goToSlide(i)));
+        }
+      } // <-- Penutup banner wrapper
+
+      // 4. Render Slider Brosur Paket Dinamis Global
+// ✅ KODE JAVASCRIPT REVISION (PURE CSS CLASS)
+const paketContainer = document.getElementById('paket-slider');
+const pakets = dataMitra.globalPaket || [];
+
+if (paketContainer && pakets.length > 0) {
+  let paketHTML = '';
+  pakets.forEach((paketUrl, idx) => {
+    paketHTML += `
+      <div class="pure-paket-card">
+        <img 
+          src="${paketUrl}" 
+          alt="Brosur Paket Umroh ${idx + 1}" 
+          loading="lazy" 
+          decoding="async" 
+          onerror="this.onerror=null; this.parentElement.style.display='none';"
+        />
+      </div>
+    `;
+  });
+  paketContainer.innerHTML = paketHTML;
 }
 
-window.heroSwiperInstance = new Swiper('.heroSwiper', {
-  loop: banners.length > 1,
-  autoHeight: false,
-  
-  // 🔑 KUNCI PERBAIKAN: Memaksa Swiper mendeteksi SELURUH slide baru dari JSON
-  observer: true,
-  observeParents: true,
-  
-  autoplay: banners.length > 1 ? {
-    delay: 3000,
-    disableOnInteraction: false, // Autoplay terus berjalan meski diklik/diswipe
-    pauseOnMouseEnter: true,     // Tetap berhenti otomatis saat kursor hover
-  } : false,
-
-  pagination: {
-    el: '.heroSwiper .swiper-pagination',
-    clickable: true,
-  },
-
-  effect: 'fade',
-  fadeEffect: {
-    crossFade: true
+    } catch (error) {
+      console.error('Gagal memuat data mitra/routing:', error);
+    }
   }
-});
-          }
-
-        } catch (err) {
-          console.warn('[REPLIKA] Menggunakan tampilan standar default.', err);
-        }
-      }
 
       const CLS = Object.freeze({
         HIDDEN: "hidden",
@@ -6363,32 +6747,8 @@ window.heroSwiperInstance = new Swiper('.heroSwiper', {
         },
       };
 
-      const PHOTO_GALLERY_ASSETS = [
-        "20250106-075317_WhatsApp%20Image%202024-12-24%20at%2008.42.59(2).webp",
-        "20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.45.34(1).webp",
-        "20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.01(3).webp",
-        "20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.01(2).webp",
-        "20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.00(5).webp",
-        "20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.00(4).webp",
-        "20250106-075316_WhatsApp%20Image%202024-12-24%20at%2008.43.00(3).webp",
-        "20251202-093117_WhatsApp%20Image%202025-12-02%20at%2009.30.17.webp",
-        "20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.17%20(1).webp",
-        "20251202-093116_WhatsApp%20Image%202025-12-02%20at%2009.30.18.webp",
-        "20251202-093115_WhatsApp Image 2025-12-02 at 09.30.18 (1).webp",
-        "20251202-093115_WhatsApp%20Image%202025-12-02%20at%2009.30.18%20(2).webp",
-        "20251202-093115_WhatsApp%20Image%202025-12-02%20at%2009.30.18%20(3).webp",
-        "20251202-093114_WhatsApp%20Image%202025-12-02%20at%2009.30.19.webp",
-        "20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.49.webp",
-        "20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.49%20(1).webp",
-        "20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.50.webp",
-        "20251202-093542_WhatsApp%20Image%202025-12-02%20at%2009.34.50%20(1).webp",
-        "20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.50%20(2).webp",
-        "20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.50%20(3).webp",
-        "20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.51.webp",
-        "20251202-093541_WhatsApp%20Image%202025-12-02%20at%2009.34.51%20(1).webp",
-        "20251202-093540_WhatsApp%20Image%202025-12-02%20at%2009.34.51%20(2).webp",
-        "20251202-093540_WhatsApp%20Image%202025-12-02%20at%2009.34.51%20(3).webp",
-      ];
+// ✅ KODE BARU (Dikosongkan karena data diatur via mitra.json)
+      const PHOTO_GALLERY_ASSETS = [];
 
       const VIDEO_GALLERY_ASSETS = [
         { id: "W6CFhcArx_I", title: "Zero to Hero Samira" },
@@ -6465,18 +6825,21 @@ window.heroSwiperInstance = new Swiper('.heroSwiper', {
         button.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
       }
 
-      function renderPhotoGallery() {
-        if (!DOM.photoContainer) return;
-        let photoHTML = "";
-        PHOTO_GALLERY_ASSETS.forEach((imgSrc, idx) => {
-          photoHTML += `
-          <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-            <img src="image/${imgSrc}" loading="lazy" decoding="async" class="w-full h-full object-cover transition-all duration-300 hover:scale-105" style="aspect-ratio: 3/2;" width="240" height="160" alt="Galeri Samira ${idx + 1}" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+${idx + 1}'">
-          </div>
-        `;
-        });
-        DOM.photoContainer.innerHTML = photoHTML;
-      }
+// ✅ KODE BARU
+         function renderPhotoGallery(photoList) {
+           if (!DOM.photoContainer) return;
+           const photosToRender = (photoList && photoList.length > 0) ? photoList : PHOTO_GALLERY_ASSETS;
+           let photoHTML = "";
+           photosToRender.forEach((imgSrc, idx) => {
+             const fullPath = (imgSrc.startsWith('http') || imgSrc.startsWith('image/')) ? imgSrc : `image/${imgSrc}`;
+             photoHTML += `
+             <div class="shrink-0 w-[240px] h-[160px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+               <img src="${fullPath}" loading="lazy" decoding="async" class="w-full h-full object-cover transition-all duration-300 hover:scale-105" style="aspect-ratio: 3/2;" width="240" height="160" alt="Galeri Samira ${idx + 1}" onerror="this.src='https://placehold.co/300x200/1e40af/ffffff?text=Dokumentasi+${idx + 1}'">
+             </div>
+           `;
+           });
+           DOM.photoContainer.innerHTML = photoHTML;
+         }
 
       function renderVideoGallery() {
         if (!DOM.videoContainer) return;
@@ -6864,48 +7227,28 @@ window.heroSwiperInstance = new Swiper('.heroSwiper', {
       }
 
 // --- EXECUTE ON LOAD --- //
-      window.addEventListener("DOMContentLoaded", () => {
-        DOM.init();
-        initSPAPages();
-        initFormHandler();
-        
-        // Memuat sistem replika mitra otomatis
-        loadMitraReplica();
+window.addEventListener("DOMContentLoaded", () => {
+  DOM.init();
+  initSPAPages();
+  initFormHandler();
+  
+  // Memuat sistem replika mitra & banner otomatis
+  loadMitraReplica();
 
-        if (DOM.year) {
-          DOM.year.textContent = new Date().getFullYear();
-        }
+  if (DOM.year) {
+    DOM.year.textContent = new Date().getFullYear();
+  }
 
-        setTimeout(() => {
-          renderPhotoGallery();
-          renderVideoGallery();
-          renderTestimonials();
-          
-          // Inisialisasi Slider Hero Banner (Jalan setelah DOM Siap)
-          if (document.querySelector('.heroSwiper')) {
-            new Swiper('.heroSwiper', {
-              loop: true,
-              autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              },
-              pagination: {
-                el: '.heroSwiper .swiper-pagination',
-                clickable: true,
-              },
-              effect: 'fade',
-              fadeEffect: {
-                crossFade: true
-              }
-            });
-          }
-        }, 50);
-      });
+  setTimeout(() => {
+    renderVideoGallery();
+    renderTestimonials();
+  }, 50);
+});
 
-      // PENTING: Otomatis memuat data mitra saat Hash (#) di URL berubah di browser
-      window.addEventListener("hashchange", loadMitraReplica);
-      window.addEventListener("popstate", loadMitraReplica);
+// Otomatis memuat data mitra saat Hash (#) di URL berubah di browser
+window.addEventListener("hashchange", loadMitraReplica);
+window.addEventListener("popstate", loadMitraReplica);
+
 </script>
   </body>
 </html>
