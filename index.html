@@ -2286,12 +2286,12 @@ transform:translateY(-3px);
 }
 
 /* Custom Slider Pure CSS (Tinggi Seimbang dengan Kolom Sebelah & Full Width Portrait) */
-/* ✅ GANTI DENGAN KODE BARU INI (FLEKSIBLER DI HP & FULL COVER) */
+/* ✅ GANTI DENGAN KODE BARU INI (PRESISI UTK BANNER RASIO 1:1) */
 .custom-slider-container {
   position: relative !important;
   width: 100% !important;
   height: auto !important;
-  aspect-ratio: 3 / 4 !important; /* Otomatis mengikuti lebar HP & tinggi menyesuaikan rasio banner */
+  aspect-ratio: 1 / 1 !important; /* Presisi 1:1 Persegi ikuti lebar HP */
   background-color: #f1f5f9 !important;
   border-radius: 0.75rem !important;
   overflow: hidden !important;
@@ -2299,66 +2299,25 @@ transform:translateY(-3px);
 
 @media (min-width: 1024px) {
   .custom-slider-container {
-    height: 680px !important; /* Di Laptop/Desktop tetap tinggi seimbang dengan kolom sebelah */
+    height: 680px !important; /* Di Laptop/Desktop tetap tinggi seimbang */
     aspect-ratio: auto !important;
   }
 }
 
-/* Memaksa gambar mengisi penuh 100% kotak banner tanpa sela kosong */
-.custom-slide img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  border-radius: 0.5rem !important;
-}
-
-
-.custom-slider-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.custom-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-.custom-slide.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* 🖼️ Gambar Portrait: Auto-fit Utuh 100% Tanpa Terpotong (Atas-Bawah Utuh) */
-.custom-slide img.portrait-img {
-  height: 100% !important;
-  width: auto !important;
-  max-width: 100% !important;
-  object-fit: contain !important; /* KUNCI: Menjamin gambar utuh 100% tanpa kepotong */
-  object-position: center !important;
-  margin: auto !important;
-  border-radius: 0.5rem !important;
-}
-
-/* 🖼️ Gambar Landscape: Lebar 100% Kiri-Kanan & Vertical Center */
+/* Memaksa semua jenis gambar (1:1) memenuhi 100% wadah tanpa sela sisa */
+.custom-slide img,
+.custom-slide img.portrait-img,
 .custom-slide img.landscape-img {
   width: 100% !important;
-  height: auto !important;
+  height: 100% !important;
+  max-width: 100% !important;
   max-height: 100% !important;
-  object-fit: contain !important;
-  margin: auto !important;
+  object-fit: cover !important; /* Memenuhi kotak penuh */
+  object-position: center !important;
+  margin: 0 !important;
   border-radius: 0.5rem !important;
 }
+
 
 /* Dots Navigasi */
 .slider-dots {
