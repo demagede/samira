@@ -2396,7 +2396,61 @@ transform:translateY(-3px);
   border-radius: 12px !important;
   object-fit: contain !important;
 }
+/* ✅ KODE PERBAIKAN TIMPA BANNER SLIDER HEROS */
+.custom-slider-container {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1 !important; /* Presisi 1:1 di HP */
+  background-color: #f1f5f9 !important;
+  border-radius: 0.75rem !important;
+  overflow: hidden !important;
+}
 
+@media (min-width: 1024px) {
+  .custom-slider-container {
+    height: 680px !important; /* Di Laptop/Desktop tetap tinggi seimbang */
+    aspect-ratio: auto !important;
+  }
+}
+
+/* Memaksa Visibilitas Slide yang Aktif */
+.custom-slide {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  z-index: 1 !important;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Slide aktif muncul paling depan */
+.custom-slide.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 2 !important;
+}
+
+/* Gambar 1:1 Cover Penuh */
+.custom-slide img,
+.custom-slide img.portrait-img,
+.custom-slide img.landscape-img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  margin: 0 !important;
+  border-radius: 0.5rem !important;
+}
+    
     </style>
 
     <!-- Non-blocking stylesheet loading for Fonts & Animation -->
