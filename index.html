@@ -6614,6 +6614,7 @@ async function loadMitraReplica() {
       if (dotsWrapper) dotsWrapper.innerHTML = dotsHTML;
 
       // Autoplay & Navigasi Slider
+// ✅ GANTI DENGAN KODE BARU INI (AUTOPLAY LANCAR DI HP & DESKTOP)
       if (window.customSliderInterval) clearInterval(window.customSliderInterval);
 
       let currentIndex = 0;
@@ -6621,30 +6622,33 @@ async function loadMitraReplica() {
       const dots = dotsWrapper ? dotsWrapper.querySelectorAll('.slider-dot') : [];
 
       function goToSlide(index) {
+        if (!slides.length) return;
         slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
         dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
         currentIndex = index;
       }
 
       function nextSlide() {
+        if (slides.length <= 1) return;
         let nextIndex = (currentIndex + 1) % slides.length;
         goToSlide(nextIndex);
       }
 
-if (slides.length > 1) {
-          window.customSliderInterval = setInterval(nextSlide, 3500);
+      if (slides.length > 1) {
+        // Jalankan autoplay setiap 3.5 detik
+        window.customSliderInterval = setInterval(nextSlide, 3500);
 
-          const container = document.getElementById('customSlider');
-          if (container) {
-            container.addEventListener('mouseenter', () => clearInterval(window.customSliderInterval));
-            container.addEventListener('mouseleave', () => {
-              clearInterval(window.customSliderInterval);
-              window.customSliderInterval = setInterval(nextSlide, 3500);
-            });
-          }
+        // Event Klik pada Dots Indikator
+        dots.forEach((dot, i) => {
+          dot.addEventListener('click', () => {
+            goToSlide(i);
+            // Reset timer agar tidak langsung berpindah sesaat setelah diklik
+            clearInterval(window.customSliderInterval);
+            window.customSliderInterval = setInterval(nextSlide, 3500);
+          });
+        });
+      }
 
-          dots.forEach((dot, i) => dot.addEventListener('click', () => goToSlide(i)));
-        }
       } // <-- Penutup banner wrapper
 
       // 4. Render Slider Brosur Paket Dinamis Global
