@@ -2286,10 +2286,12 @@ transform:translateY(-3px);
 }
 
 /* Custom Slider Pure CSS (Tinggi Seimbang dengan Kolom Sebelah & Full Width Portrait) */
+/* ✅ GANTI DENGAN KODE BARU INI (FLEKSIBLER DI HP & FULL COVER) */
 .custom-slider-container {
   position: relative !important;
   width: 100% !important;
-  height: 520px !important; /* Tinggi di Layar HP/Tablet */
+  height: auto !important;
+  aspect-ratio: 3 / 4 !important; /* Otomatis mengikuti lebar HP & tinggi menyesuaikan rasio banner */
   background-color: #f1f5f9 !important;
   border-radius: 0.75rem !important;
   overflow: hidden !important;
@@ -2297,9 +2299,20 @@ transform:translateY(-3px);
 
 @media (min-width: 1024px) {
   .custom-slider-container {
-    height: 680px !important; /* 💡 DIPERPANJANG: Menyesuaikan tinggi kolom hero sebelah di Desktop */
+    height: 680px !important; /* Di Laptop/Desktop tetap tinggi seimbang dengan kolom sebelah */
+    aspect-ratio: auto !important;
   }
 }
+
+/* Memaksa gambar mengisi penuh 100% kotak banner tanpa sela kosong */
+.custom-slide img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 0.5rem !important;
+}
+
 
 .custom-slider-wrapper {
   position: relative;
