@@ -1,4 +1,4 @@
-async function loadMitraReplica() {
+window.loadMitraReplica = async function () {
         try {
           const [globalRes, mitraRes] = await Promise.all([
             fetch('data/global.json'),

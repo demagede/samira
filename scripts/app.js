@@ -534,7 +534,11 @@ const CONFIG = Object.freeze({
         DOM.init();
         initSPAPages();
         initFormHandler();
-        loadMitraReplica();
+        if (typeof window.loadMitraReplica === 'function') {
+          window.loadMitraReplica();
+        } else {
+          console.warn('loadMitraReplica is not available yet.');
+        }
 
         if (DOM.year) {
           DOM.year.textContent = new Date().getFullYear();
@@ -546,5 +550,13 @@ const CONFIG = Object.freeze({
         }, 50);
       });
 
-      window.addEventListener("hashchange", loadMitraReplica);
-      window.addEventListener("popstate", loadMitraReplica);
+      window.addEventListener("hashchange", () => {
+        if (typeof window.loadMitraReplica === 'function') {
+          window.loadMitraReplica();
+        }
+      });
+      window.addEventListener("popstate", () => {
+        if (typeof window.loadMitraReplica === 'function') {
+          window.loadMitraReplica();
+        }
+      });
