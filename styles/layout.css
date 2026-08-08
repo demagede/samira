@@ -338,9 +338,9 @@
       /* FOOTER */
       .site-footer { padding-block: 2.5rem; border-top: 1px solid #1e293b; color: #fff; background: #1e40af; }
       .site-footer__content { display: flex; flex-direction: column; gap: 0.75rem; text-align: center; }
-      .site-footer__text { color: #94a3b8; font-size: 0.75rem; }
+      .site-footer__text { color: #f9fafc; font-size: 0.75rem; }
       @media (min-width: 768px) { .site-footer__text { font-size: 0.875rem; } }
-      .site-footer__credit { display: inline-block; color: #fde68a; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: none; white-space: nowrap; background: none !important; -webkit-text-fill-color: #fde68a !important; -webkit-background-clip: unset !important; background-clip: unset !important; }
+      .site-footer__credit { display: inline-block; color: #f9f9f7; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: none; white-space: nowrap; background: none !important; -webkit-text-fill-color: #f5f4f0 !important; -webkit-background-clip: unset !important; background-clip: unset !important; }
 
       /* FLOATING WIDGETS */
       .floating-action {
