@@ -63,488 +63,30 @@
 
     <!-- Pure Semantic BEM Stylesheet (No Tailwind CSS) -->
     <style>
-      /* CSS RESET & CORE VARIABLES */
-      *, ::after, ::before {
-        box-sizing: border-box;
-        border-width: 0;
-        border-style: solid;
-        border-color: #e5e7eb;
-        margin: 0;
-        padding: 0;
-      }
-
-      :root {
-        --color-primary: #1e40af;
-        --color-primary-dark: #1e3a8a;
-        --color-accent: #d4af37;
-        --color-accent-hover: #bfa030;
-        --color-accent-dark: #926e07;
-        --color-text: #0f172a;
-        --color-text-muted: #64748b;
-        --color-text-light: #475569;
-        --color-surface: #ffffff;
-        --color-surface-soft: #f8fafc;
-        --color-border-soft: #f8fafc;
-        --color-border-strong: #e2e8f0;
-        --space-1: 0.25rem;
-        --space-2: 0.5rem;
-        --space-3: 0.75rem;
-        --space-4: 1rem;
-        --space-6: 1.5rem;
-        --space-8: 2rem;
-        --space-12: 3rem;
-        --space-16: 4rem;
-        --content-max-width: 80rem;
-        --radius-sm: 0.5rem;
-        --radius-md: 0.75rem;
-        --radius-lg: 1rem;
-        --radius-xl: 1.5rem;
-        --radius-full: 9999px;
-        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-        --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-        --transition-base: 180ms cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      html {
-        line-height: 1.5;
-        -webkit-text-size-adjust: 100%;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        scroll-behavior: smooth;
-        -webkit-tap-highlight-color: transparent;
-      }
-
-      body {
-        margin: 0;
-        color: var(--color-text);
-        background-color: var(--color-surface);
-        -webkit-font-smoothing: antialiased;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      input, textarea {
-        -webkit-user-select: text;
-        -moz-user-select: text;
-        user-select: text;
-        font-family: inherit;
-      }
-
-      button, a {
-        font-family: inherit;
-        color: inherit;
-        text-decoration: none;
-        cursor: pointer;
-      }
-
-      button:focus-visible, a:focus-visible {
-        outline: 3px solid var(--color-primary) !important;
-        outline-offset: 2px !important;
-      }
-
-      img, svg, video {
-        display: block;
-        max-width: 100%;
-        height: auto;
-      }
-
-      /* SHARED STATES */
-      .is-hidden { display: none !important; }
-
-      /* LAYOUT CONTAINERS & SECTIONS */
-      .site-container {
-        width: 100%;
-        max-width: var(--content-max-width);
-        margin-inline: auto;
-        padding-inline: var(--space-4);
-      }
-      @media (min-width: 640px) { .site-container { padding-inline: 1.5rem; } }
-      @media (min-width: 1024px) { .site-container { padding-inline: 2rem; } }
-
-      .layout-section { padding-block: var(--space-16); }
-      .layout-section--surface { background-color: var(--color-surface); }
-      .layout-section--soft { background-color: var(--color-surface-soft); }
-      .layout-section--bordered { border-bottom: 1px solid var(--color-border-strong); }
-      .layout-section--primary { background-color: var(--color-primary); color: #ffffff; }
-
-      .section-intro { text-align: center; margin-bottom: 2.5rem; }
-      .section-intro__title { font-size: 1.5rem; font-weight: 800; color: var(--color-text); letter-spacing: -0.025em; margin-bottom: 0.75rem; }
-      .section-intro__subtitle { font-size: 0.875rem; color: var(--color-text-muted); max-width: 42rem; margin-inline: auto; }
-      @media (min-width: 640px) {
-        .section-intro__title { font-size: 1.875rem; }
-        .section-intro__subtitle { font-size: 1rem; }
-      }
-
-      /* PROMO TOP BAR */
-      .site-promo {
-        position: fixed;
-        inset: 0 0 auto;
-        z-index: 1060;
-        display: flex;
-        align-items: center;
-        height: 2.5rem;
-        overflow: hidden;
-        background-color: #fffbeb;
-        box-shadow: var(--shadow-sm);
-      }
-      .site-promo__label {
-        z-index: 20;
-        display: flex;
-        flex: 0 0 auto;
-        align-items: center;
-        gap: 0.5rem;
-        height: 100%;
-        padding-inline: var(--space-4);
-        color: #fff;
-        background: #991b1b;
-        box-shadow: var(--shadow-sm);
-        font-size: 0.75rem;
-        font-weight: 800;
-        letter-spacing: 0.025em;
-        white-space: nowrap;
-      }
-      .site-promo__icon { width: 0.875rem; height: 0.875rem; fill: currentColor; transform: scaleX(-1); }
-      .site-promo__content { display: flex; flex-grow: 1; align-items: center; height: 100%; overflow: hidden; }
-      .site-promo__link { display: flex; align-items: center; width: 100%; height: 100%; color: var(--color-text); text-decoration: none; }
-      .site-promo__track { display: flex; white-space: nowrap; animation: marqueeScroll 50s linear infinite; will-change: transform; }
-      .site-promo__track:hover { animation-play-state: paused; }
-      .site-promo__message { padding-right: var(--space-16); font-size: 0.75rem; font-weight: 700; }
-      .site-promo__highlight { color: #991b1b; }
-      @media (min-width: 640px) { .site-promo__label, .site-promo__message { font-size: 0.875rem; } }
-
-      /* HEADER & NAVIGATION */
-      .site-header {
-        position: sticky;
-        top: 2.5rem;
-        z-index: 1050;
-        padding-block: var(--space-4);
-        border-bottom: 1px solid var(--color-border-strong);
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: var(--shadow-sm);
-        backdrop-filter: blur(12px);
-      }
+      /* Minimal critical CSS for header, nav and CTA to avoid FOUC */
+      .site-header { position: sticky; top: 2.5rem; z-index: 1050; padding-block: 1rem; border-bottom: 1px solid rgba(226,232,240,0.6); background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); }
       .site-header__container { display: flex; align-items: center; justify-content: space-between; }
-      .site-brand { display: flex; align-items: center; background: none; border: none; padding: 0; }
-      .site-brand__logo { width: 160px; height: auto; object-fit: contain; aspect-ratio: 160/80; }
-
-      .desktop-nav { display: none; align-items: center; gap: 1.5rem; }
-      @media (min-width: 1024px) { .desktop-nav { display: flex; } }
-
-      .nav-dropdown { position: relative; }
-      .nav-dropdown__trigger {
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-        padding-block: 0.5rem;
-        color: #1e293b;
-        font-weight: 600;
-        background: none;
-        border: none;
-        transition: color var(--transition-base);
-      }
-      .nav-dropdown__trigger:hover { color: var(--color-primary); }
-      .nav-dropdown__icon { width: 1rem; height: 1rem; color: #94a3b8; transition: color var(--transition-base); }
-      .nav-dropdown:hover .nav-dropdown__icon { color: var(--color-primary); }
-      .nav-dropdown__panel { position: absolute; top: 100%; left: 0; z-index: 1100; display: none; padding-top: 0.25rem; }
-      .nav-dropdown:hover .nav-dropdown__panel, .nav-dropdown__panel:hover { display: block; }
-      .nav-dropdown__panel--sm { width: 14rem; }
-      .nav-dropdown__panel--md { width: 16rem; }
-      .nav-dropdown__menu {
-        padding-block: 0.5rem;
-        border: 1px solid var(--color-border-strong);
-        border-radius: var(--radius-lg);
-        background: var(--color-surface);
-        box-shadow: var(--shadow-xl);
-      }
-      .nav-dropdown__item {
-        display: block;
-        width: calc(100% - 1rem);
-        margin-inline: 0.5rem;
-        padding: 0.5rem 1rem;
-        border-radius: var(--radius-md);
-        color: #334155;
-        text-align: left;
-        font-size: 0.875rem;
-        font-weight: 500;
-        background: none;
-        border: none;
-      }
-      .nav-dropdown__item:hover { color: var(--color-primary); background: var(--color-surface-soft); }
-
-      .partner-program-link {
-        display: flex;
-        align-items: center;
-        gap: 0.375rem;
-        padding: 0.5rem 1rem;
-        border: 1px solid #fcd34d;
-        border-radius: var(--radius-full);
-        color: var(--color-text);
-        background: linear-gradient(to right, #fbbf24, #f59e0b);
-        box-shadow: var(--shadow-sm);
-        font-size: 0.875rem;
-        font-weight: 700;
-        white-space: nowrap;
-      }
-      .partner-program-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-      .partner-program-link__badge {
-        padding: 0.125rem 0.5rem;
-        border-radius: var(--radius-full);
-        color: #fff;
-        background: #991b1b;
-        font-size: 9px;
-        font-weight: 700;
-        transform-origin: center;
-        will-change: transform, box-shadow;
-        animation: badge-pulse 1.6s ease-in-out infinite;
-      }
-      /* pulse animation for Hot badge */
-      @keyframes badge-pulse {
-        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(217,70,70, 0.6); }
-        50% { transform: scale(1.08); box-shadow: 0 8px 20px -6px rgba(217,70,70, 0.35); }
-        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(217,70,70, 0); }
-      }
-      .partner-program-link__badge.pulse {
-        animation: badge-pulse 1.6s ease-in-out infinite;
-        transform-origin: center;
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .partner-program-link__badge { animation: none !important; }
-      }
-      .partner-program-link--mobile {
-        justify-content: center;
-        width: 100%;
-        margin-block: 0.75rem;
-        border-radius: var(--radius-md);
-        position: sticky;
-        top: 0;
-        z-index: 1100;
-      }
-      .partner-program-link--mobile-only { display: none; }
-      .desktop-only { display: inline-flex; }
-
-      @media (max-width: 1023px) {
-        .desktop-only { display: none !important; }
-        .partner-program-link--mobile-only {
-          display: inline-flex !important;
-          margin-left: auto;
-          margin-right: 0.25rem;
-          padding: 0.45rem 0.85rem;
-          font-size: 0.9rem;
-          min-width: auto;
-          gap: 0.35rem;
-        }
-      }
-
-      .mobile-nav-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 3rem;
-        height: 3rem;
-        color: #1e293b;
-        background: none;
-        border: none;
-      }
+      .site-brand__logo { width: 160px; height: auto; object-fit: contain; }
+      .desktop-nav { display: none; gap: 1.5rem; }
+      @media (min-width: 1024px) { .desktop-nav { display: flex; margin-left: auto; } }
+      .mobile-nav-toggle { display: flex; }
       @media (min-width: 1024px) { .mobile-nav-toggle { display: none; } }
-      .mobile-nav-toggle__icon { width: 1.5rem; height: 1.5rem; }
-
-      .mobile-nav { display: block; margin-top: 0.5rem; padding: 0.75rem var(--space-4); border-bottom: 1px solid var(--color-border-strong); background: var(--color-surface); }
-      @media (min-width: 1024px) { .mobile-nav { display: none; } }
-      .mobile-nav__group { padding-block: 0.25rem; border-bottom: 1px solid var(--color-border-soft); }
-      .mobile-nav__trigger {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        min-height: 2.75rem;
-        padding-block: 0.75rem;
-        color: #1e293b;
-        font-size: 0.875rem;
-        font-weight: 700;
-        text-align: left;
-        background: none;
-        border: none;
-      }
-      .mobile-nav__arrow { width: 1rem; height: 1rem; transition: transform 200ms; }
-      .mobile-nav__submenu { padding: 0 0 0.5rem 1rem; }
-      .mobile-nav__link {
-        display: block;
-        width: 100%;
-        padding-block: 0.625rem;
-        color: #475569;
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-align: left;
-        background: none;
-        border: none;
-      }
-
-      /* HERO SECTION */
-      .hero-section {
-        position: relative;
-        overflow: hidden;
-        background: linear-gradient(to bottom right, #f0f9ff, #e0f2fe, #fff);
-      }
-      .hero-section__bg-pattern {
-        position: absolute;
-        inset: 0;
-        opacity: 0.03;
-        pointer-events: none;
-        z-index: 1;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%230f172a'%3E%3Cpath fill-rule='evenodd' d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm1-61c3.148 0 5.7-2.552 5.7-5.7 0-3.148-2.552-5.7-5.7-5.7-3.148 0-5.7 2.552-5.7 5.7 0 3.148 2.552 5.7 5.7 5.7zm50 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM21 39c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm5-18c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm47 25c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-21-8c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-9-17c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-12 3c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm30 3c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-3-11c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-12 16c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-14 1c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm38 2c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-8-12c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-21 22c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm16-11c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-12 11c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-2-19c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm19-3c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-16-11c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-2 19c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-9-1c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm19-3c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-12-9c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-12 9c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-9-1c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-12-9c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-12 9c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-9-1c0-1.105-.895-2-2-2s-2 .895-2 2 .resse")
-      }
-      .hero-section__content { position: relative; z-index: 10; }
-      .hero-section__grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
-      @media (min-width: 1024px) { .hero-section__grid { grid-template-columns: repeat(12, 1fr); } }
-
-      .hero-section__profile { display: flex; flex-direction: column; align-items: center; text-align: center; }
-      @media (min-width: 1024px) { .hero-section__profile { grid-column: span 5; } }
-
-      .hero-section__identity { display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5rem; }
-      .hero-section__avatar {
-        width: 9rem;
-        height: 9rem;
-        border: 5px solid var(--color-accent);
-        border-radius: var(--radius-full);
-        object-fit: cover;
-        object-position: center 15%;
-        box-shadow: var(--shadow-2xl);
-        transition: transform var(--transition-base);
-        aspect-ratio: 1/1;
-      }
-      @media (min-width: 640px) { .hero-section__avatar { width: 11rem; height: 11rem; } }
-      .hero-section__avatar:hover { transform: scale(1.05); }
-
-      .hero-section__badge {
-        position: relative;
-        z-index: 10;
-        margin-top: -1rem;
-        padding: 0.25rem 0.875rem;
-        border-radius: var(--radius-full);
-        color: #fff;
-        background: var(--color-primary);
-        box-shadow: var(--shadow-sm);
-        font-size: 10px;
-        font-weight: 700;
-        white-space: nowrap;
-      }
-
-      .hero-section__message {
-        max-width: 24rem;
-        margin-bottom: 1.5rem;
-        padding: var(--space-4);
-        border: 1px solid rgba(253, 230, 138, 0.5);
-        border-radius: var(--radius-lg);
-        background: rgba(255, 251, 235, 0.8);
-        box-shadow: var(--shadow-sm);
-      }
-      .hero-section__message p { margin: 0; color: #78350f; font-size: 0.75rem; font-weight: 500; line-height: 1.625; }
-
-      .hero-section__title { margin: 0; color: var(--color-text); font-size: 1rem; font-weight: 800; line-height: 1.25; }
-      @media (min-width: 1024px) { .hero-section__title { font-size: 1rem; } }
-
-      .hero-section__description { max-width: 24rem; margin: 0.75rem 0 1.5rem; color: #475569; font-size: 0.75rem; line-height: 1.625; }
-      @media (min-width: 640px) { .hero-section__description { font-size: 0.875rem; } }
-
-      .hero-section__trust {
-        width: 100%;
-        max-width: 24rem;
-        margin-bottom: 1.5rem;
-        padding: var(--space-4);
-        border: 1px solid var(--color-border-strong);
-        border-radius: var(--radius-lg);
-        background: var(--color-surface-soft);
-        box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
-        text-align: left;
-      }
-      .hero-section__trust-item { display: flex; align-items: center; gap: 0.625rem; color: #334155; font-size: 0.75rem; font-weight: 700; }
-      .hero-section__trust-item + .hero-section__trust-item { margin-top: 0.625rem; }
-      @media (min-width: 640px) { .hero-section__trust-item { font-size: 0.875rem; } }
-      .hero-section__trust-note { margin: 0.375rem 0 0; padding-top: 0.375rem; border-top: 1px solid rgba(226, 232, 240, 0.6); color: #475569; font-size: 0.75rem; font-style: italic; }
-
-      .hero-section__actions { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; max-width: 42rem; gap: var(--space-4); }
-      @media (min-width: 640px) { .hero-section__actions { flex-direction: row; } }
-
-      .hero-section__cta {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        padding: var(--space-4) 1.5rem;
-        border-radius: var(--radius-full);
-        color: #fff;
-        background: var(--color-primary);
-        box-shadow: var(--shadow-xl);
-        font-size: 0.875rem;
-        font-weight: 800;
-        border: none;
-        transition: transform var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base);
-      }
-      .hero-section__cta--small { max-width: 15rem; font-size: 0.875rem; padding: 0.75rem 1.25rem; }
-      .hero-section__cta--centered { margin-inline: auto; }
-      @media (min-width: 640px) { .hero-section__cta { width: 100%; max-width: 24rem; font-size: 1rem; } }
-      .hero-section__cta:hover { background: var(--color-primary-dark); box-shadow: var(--shadow-2xl); transform: translateY(-0.25rem); }
-
-      .hero-section__media { width: 100%; }
-      @media (min-width: 1024px) { .hero-section__media { grid-column: span 7; } }
-      .hero-section__media-frame { padding: 0.75rem; overflow: hidden; border: 2px solid #fbbf24; border-radius: var(--radius-lg); background: var(--color-surface); box-shadow: var(--shadow-xl); }
-
-      .heroSwiper, .custom-slider-container { position: relative !important; width: 100% !important; height: auto !important; aspect-ratio: 1 / 1 !important; background-color: #f1f5f9 !important; border-radius: 0.75rem !important; overflow: hidden !important; }
-      @media (min-width: 1024px) { .custom-slider-container { height: 680px !important; aspect-ratio: auto !important; } }
-      .custom-slide { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; opacity: 0 !important; visibility: hidden !important; z-index: 1 !important; transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out !important; display: flex !important; align-items: center !important; justify-content: center !important; }
-      .custom-slide.active { opacity: 1 !important; visibility: visible !important; z-index: 2 !important; }
-      .custom-slide img { width: 100% !important; height: 100% !important; max-width: 100% !important; max-height: 100% !important; object-fit: cover !important; object-position: center !important; margin: 0 !important; border-radius: 0.5rem !important; }
-      .slider-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
-      .slider-dot { width: 10px; height: 10px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.6); cursor: pointer; transition: all 0.3s ease; }
-      .slider-dot.active { background-color: #1e3a8a; width: 24px; border-radius: 999px; }
-      /* SLIDER CONTROL LAYOUT: center download button, place arrows at slider edges */
-      .slider-control-bar { display: block; height: 0; margin-bottom: 0; }
-      .slider-wrapper-container { position: relative; overflow: visible; padding-top: 0.5rem; }
-      /* Download button must not inherit full-width from .hero-section__cta */
-      .slider-download-btn { position: absolute; top: -28px; left: 50%; transform: translateX(-50%); z-index: 40; display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 2rem; width: auto; max-width: 42rem; min-width: 12rem; }
-      /* place arrows vertically centered and outside card edges */
-      .slider-control-buttons { position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); display: block; pointer-events: none; z-index: 35; }
-      .slider-control-buttons .slider-control-btn { pointer-events: auto; position: absolute; top: 50%; transform: translateY(-50%); }
-      .slider-arrow-left { left: -34px; }
-      .slider-arrow-right { right: -34px; }
-      .slider-control-btn { width: 2.75rem; height: 2.75rem; border-radius: 50%; background: #fff; border: 1px solid #e2e8f0; box-shadow: 0 6px 16px rgba(15,23,42,0.06); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
-      @media (max-width: 1024px) { .slider-download-btn { top: -24px; padding: 0.5rem 1.25rem; } .slider-arrow-left, .slider-arrow-right { left: 8px; right: 8px; position: relative; transform: none; top: auto; } }
+      .partner-program-link { display: inline-flex; align-items: center; gap: .35rem; padding: .45rem .85rem; border-radius: 9999px; background: linear-gradient(to right,#fbbf24,#f59e0b); font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+      .partner-program-link__badge { padding: .125rem .5rem; border-radius: 9999px; background: #991b1b; color: #fff; font-size: 9px; font-weight: 700; }
+      /* Small helper classes used in markup */
+      .desktop-only { display: none; }
+      @media (min-width: 1024px) { .desktop-only { display: inline-flex; } }
+      .partner-program-link--mobile-only { display: none; }
+      @media (max-width: 1023px) { .partner-program-link--mobile-only { display: inline-flex; } }
+      .site-header__controls { display: flex; align-items: center; gap: .25rem; }
     </style>
-    <!-- Overrides to work around potential earlier CSS parse error -->
-    <style>
-      .hero-section__bg-pattern { background-image: none !important; }
-      .slider-wrapper-container { position: relative; overflow: visible !important; padding-top: 0.5rem !important; }
-      .slider-download-btn { position: absolute !important; top: -28px !important; left: 50% !important; transform: translateX(-50%) !important; z-index: 999 !important; display: inline-flex !important; align-items: center; justify-content: center; padding: 0.75rem 2rem !important; width: auto !important; min-width: 12rem !important; }
-      .slider-control-buttons { position: absolute !important; top: 50% !important; left: 0 !important; right: 0 !important; transform: translateY(-50%) !important; pointer-events: none !important; }
-      .slider-control-buttons .slider-control-btn { pointer-events: auto !important; position: absolute !important; top: 50% !important; transform: translateY(-50%) !important; }
-      .slider-arrow-left { left: -34px !important; }
-      .slider-arrow-right { right: -34px !important; }
-      @media (max-width: 1024px) {
-        .slider-download-btn { top: -24px !important; padding: 0.5rem 1.25rem !important; }
-        .slider-arrow-left {
-          left: 8px !important;
-          right: auto !important;
-          position: absolute !important;
-          top: 50% !important;
-          transform: translateY(-50%) !important;
-          z-index: 999 !important;
-        }
-        .slider-arrow-right {
-          right: 8px !important;
-          left: auto !important;
-          position: absolute !important;
-          top: 50% !important;
-          transform: translateY(-50%) !important;
-          z-index: 999 !important;
-        }
-      }
-    </style>
-    <link rel="preload" href="styles/layout.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+
+    <!-- Preload canonical styles (onload swaps to stylesheet) -->
+    <link rel="preload" href="styles/global.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="styles/layout.css" as="style" onload="this.rel='stylesheet'">
     <noscript>
-      <link rel="stylesheet" href="styles/layout.css" />
+      <link rel="stylesheet" href="styles/global.css">
+      <link rel="stylesheet" href="styles/layout.css">
     </noscript>
 
 
@@ -710,16 +252,18 @@
           </button>
         </div>
 
-        <button data-action="spa-nav" data-target="program-mitra" class="partner-program-link partner-program-link--mobile-only">
-          <span class="wave-text">Program Mitra</span>
-          <span class="partner-program-link__badge pulse">Hot!</span>
-        </button>
+        <div class="site-header__controls">
+          <button data-action="spa-nav" data-target="program-mitra" class="partner-program-link partner-program-link--mobile-only">
+            <span class="wave-text">Program Mitra</span>
+            <span class="partner-program-link__badge pulse">Hot!</span>
+          </button>
 
-        <button data-action="toggle-mobile-menu" class="mobile-nav-toggle" aria-label="Buka Menu" aria-expanded="false" aria-controls="mobileMenu">
-          <svg class="mobile-nav-toggle__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
+          <button data-action="toggle-mobile-menu" class="mobile-nav-toggle" aria-label="Buka Menu" aria-expanded="false" aria-controls="mobileMenu">
+            <svg class="mobile-nav-toggle__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
       </div>
 
       <!-- MOBILE NAVIGATION -->
@@ -881,7 +425,7 @@
                     Mengapa Banyak Calon Jamaah Nyaman Berkonsultasi dengan <span class="mitra-nama">Dedy MBS</span>?
                   </h3>
                   <div class="info-badge info-badge--dark info-badge--start">
-                    🛡️ Mitra Resmi Samira Travel • (<span class="mitra-id">M-DGI-9725</span>)
+                    🛡️ Mitra Resmi Samira Travel (<span class="mitra-id">M-DGI-9725</span>)
                   </div>
                   <p class="story-section__text story-section__text--spaced">
                     Tidak perlu terburu-buru mengambil keputusan. Mari mulai dengan berkonsultasi terlebih dahulu. Saya akan membantu menjelaskan seluruh pilihan program secara terbuka agar Anda dapat menentukan yang paling sesuai dengan kebutuhan dan kemampuan Anda.
@@ -953,7 +497,7 @@
           <div class="site-container section-intro">
             <h2 class="section-intro__title">Profil Samira</h2>
             <p class="section-intro__subtitle">
-              Pelajari lebih dalam mengenai Profil Samira Travel melalui portal informasi terpadu di bawah ini.
+              Pelajari lebih dalam mengenai Profil Samira Travel melalui portal informasi terpadu di bawah ini:
             </p>
           </div>
 
@@ -1646,12 +1190,12 @@
           <div class="l-container">
             <div class="program-partner__center">
               <span class="c-badge c-badge--primary">🚀 PROGRAM WEBSITE PROMOSI MITRA</span>
-              <h1 class="hero-section__title">
+              <h1 class="hero-section__title program-partner__benefits">
                 Bangun Promosi Digital Anda
                 <span class="c-title__subtitle">Tanpa Harus Membuat Website Dari Nol</span>
               </h1>
 
-              <div class="c-body--constrained c-body">
+              <div class="c-body program-partner__description">
                 <p>Website ini saya bangun berdasarkan pengalaman nyata dalam mempromosikan layanan Umroh secara digital.</p>
                 <p>Kini sesama Mitra Samira juga dapat memiliki Website Promosi yang profesional sehingga calon jamaah lebih mudah mengenal profil, legalitas, paket Umroh, dokumentasi perjalanan, hingga langsung menghubungi Anda melalui WhatsApp.</p>
                 <p>Cocok untuk Mitra Samira yang ingin memiliki media promosi profesional tanpa harus membuat website sendiri.</p>
@@ -1671,8 +1215,8 @@
             <div class="c-panel program-partner__center">
               <div class="l-container--narrow">
                 <span class="c-badge c-badge--primary">MENGAPA WEBSITE PROMOSI ?</span>
-                <h2 class="hero-section__title">Mengapa Mitra Samira Membutuhkan Website Promosi?</h2>
-                <div class="c-body program-partner__benefits">
+                <h2 class="hero-section__title program-partner__benefits">Mengapa Mitra Samira Membutuhkan Website Promosi?</h2>
+                <div class="c-body">
                   <p>Sebagian besar calon jamaah mencari informasi melalui Google, media sosial, maupun WhatsApp sebelum menghubungi seorang Mitra Samira.</p>
                   <p>Website membantu memperkenalkan profil Anda, legalitas, paket Umroh, dokumentasi, hingga tombol WhatsApp dalam satu halaman profesional.</p>
                   <p>Dengan demikian, promosi tetap berjalan selama 24 jam, sehingga calon jamaah dapat menemukan informasi kapan saja meskipun Anda sedang bekerja ataupun beristirahat.</p>
@@ -1686,7 +1230,7 @@
           <div class="l-container">
             <div class="l-container--narrow program-partner__center">
               <span class="c-badge c-badge--primary">BENEFIT WEBSITE</span>
-              <h2 class="hero-section__title">Apa Yang Akan Anda Dapatkan?</h2>
+              <h2 class="hero-section__title program-partner__benefits">Apa Yang Akan Anda Dapatkan?</h2>
               <p class="c-body">Seluruh fasilitas berikut sudah termasuk dalam Website Promosi Mitra.</p>
             </div>
 
@@ -1729,7 +1273,7 @@
           <div class="l-container">
             <div class="c-panel content-highlight-panel content-highlight-panel--centered">
               <span class="c-badge c-badge--primary info-badge--center">MENGAPA WEBSITE INI BERBEDA ?</span>
-              <h2 class="hero-section__title">Bukan Template, Tetapi Website Yang Benar-Benar Digunakan Untuk Promosi Umroh</h2>
+              <h2 class="hero-section__title program-partner__benefits">Bukan Template, Tetapi Website Yang Benar-Benar Digunakan Untuk Promosi Umroh</h2>
               <p class="c-body">Website yang Anda lihat saat ini bukan contoh desain, melainkan website yang benar-benar saya gunakan sebagai media promosi digital.</p>
               <p class="c-body">Artinya Anda tidak memulai dari halaman kosong. Anda memperoleh website yang sudah saya bangun, uji, dan terus saya kembangkan berdasarkan pengalaman nyata mempromosikan layanan Umroh.</p>
               <p class="c-body">Dengan demikian Anda dapat langsung fokus membangun jaringan, melayani calon jamaah, dan meningkatkan promosi online.</p>
@@ -1776,7 +1320,7 @@
           <div class="l-container">
             <div class="program-partner__center">
               <span class="c-badge c-badge--primary">👥 SIAPA YANG COCOK?</span>
-              <h2 class="hero-section__title">Website Promosi Ini Cocok Untuk...</h2>
+              <h2 class="hero-section__title program-partner__benefits">Website Promosi Ini Cocok Untuk...</h2>
               <p class="c-body program-partner__description">
                 Website ini dirancang agar dapat langsung digunakan oleh sesama Mitra Samira tanpa harus memiliki kemampuan membuat website ataupun pengalaman di bidang digital.
               </p>
