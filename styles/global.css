@@ -228,7 +228,7 @@
       }
       .partner-program-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
       .partner-program-link__badge { padding: 0.125rem 0.5rem; border-radius: var(--radius-full); color: #fff; background: #991b1b; font-size: 9px; font-weight: 700; }
-      .partner-program-link--mobile { justify-content: center; width: 100%; margin-block: 0.75rem; border-radius: var(--radius-md); }
+      .partner-program-link--mobile { justify-content: center; width: 100%; margin-block: 0.75rem; border-radius: var(--radius-md); white-space: nowrap; }
 
       .mobile-nav-toggle {
         display: flex;
