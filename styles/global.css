@@ -91,7 +91,7 @@
 
       .mobile-nav.is-hidden,
       .mobile-nav__submenu.is-hidden {
-        display: block !important;
+        display: none !important;
         max-height: 0 !important;
         opacity: 0 !important;
         visibility: hidden !important;
@@ -103,6 +103,7 @@
       }
       .mobile-nav:not(.is-hidden),
       .mobile-nav__submenu:not(.is-hidden) {
+        display: block !important;
         visibility: visible !important;
       }
 

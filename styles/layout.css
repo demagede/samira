@@ -21,17 +21,19 @@
 
       .hero-section__identity { display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5rem; }
       .hero-section__avatar {
-        width: 9rem;
-        height: 9rem;
+        width: 176px;
+        height: 176px;
         border: 5px solid var(--color-accent);
         border-radius: var(--radius-full);
         object-fit: cover;
         object-position: center 15%;
         box-shadow: var(--shadow-2xl);
         transition: transform var(--transition-base);
-        aspect-ratio: 1/1;
+        aspect-ratio: 1 / 1;
       }
-      @media (min-width: 640px) { .hero-section__avatar { width: 11rem; height: 11rem; } }
+      @media (min-width: 640px) {
+        .hero-section__avatar { width: 176px; height: 176px; }
+      }
       .hero-section__avatar:hover { transform: scale(1.05); }
 
       .hero-section__badge {
