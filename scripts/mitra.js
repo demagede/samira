@@ -1,4 +1,10 @@
 window.loadMitraReplica = async function () {
+        if (window.__mitraReplicaLoading) {
+          return;
+        }
+
+        window.__mitraReplicaLoading = true;
+
         try {
           const [globalRes, mitraRes] = await Promise.all([
             fetch('data/global.json'),
@@ -91,7 +97,9 @@ window.loadMitraReplica = async function () {
                     src="${bannerUrl}" 
                     alt="Banner Promo ${idx + 1}" 
                     class="${imgClass}"
-                    ${isFirst ? 'fetchpriority="high" decoding="async"' : 'loading="lazy"'}
+                    width="800"
+                    height="1000"
+                    ${isFirst ? 'fetchpriority="high" loading="eager" decoding="async"' : 'loading="lazy" decoding="async"'}
                   />
                 </div>
               `;
@@ -122,8 +130,8 @@ window.loadMitraReplica = async function () {
             }
 
             if (slides.length > 1) {
-              // autoplay helpers
               function startAutoplay() {
+                if (document.hidden) return;
                 if (window.customSliderInterval) clearInterval(window.customSliderInterval);
                 window.customSliderInterval = setInterval(nextSlide, 3500);
               }
@@ -132,8 +140,15 @@ window.loadMitraReplica = async function () {
                 window.customSliderInterval = null;
               }
 
-              // start autoplay initially
-              startAutoplay();
+              document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                  stopAutoplay();
+                } else {
+                  startAutoplay();
+                }
+              });
+
+              setTimeout(startAutoplay, 600);
 
               // pause when pointer/finger is over the banner, resume when leaves
               bannerWrapper.addEventListener('pointerenter', stopAutoplay);
@@ -229,5 +244,7 @@ window.loadMitraReplica = async function () {
 
         } catch (error) {
           console.error('Gagal memuat data mitra/routing:', error);
+        } finally {
+          window.__mitraReplicaLoading = false;
         }
       }

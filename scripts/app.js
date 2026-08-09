@@ -87,6 +87,20 @@ const CONFIG = Object.freeze({
         },
       ];
 
+      function scheduleDeferredRender() {
+        const render = () => {
+          renderVideoGallery();
+          renderTestimonials();
+        };
+
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(render, { timeout: 1500 });
+          return;
+        }
+
+        setTimeout(render, 150);
+      }
+
       const rAFThrottle = (callback) => {
         let active = false;
         return (...args) => {
@@ -170,6 +184,7 @@ const CONFIG = Object.freeze({
 
       function renderTestimonials() {
         if (!DOM.testimonialContainer) return;
+
         let testimonialHTML = "";
         TESTIMONIAL_DATA.forEach((t) => {
           testimonialHTML += `
@@ -180,7 +195,8 @@ const CONFIG = Object.freeze({
           </div>
         `;
         });
-        DOM.testimonialContainer.innerHTML = testimonialHTML + testimonialHTML;
+
+        DOM.testimonialContainer.innerHTML = testimonialHTML;
       }
 
       const allPages = {
@@ -544,10 +560,7 @@ const CONFIG = Object.freeze({
           DOM.year.textContent = new Date().getFullYear();
         }
 
-        setTimeout(() => {
-          renderVideoGallery();
-          renderTestimonials();
-        }, 50);
+        scheduleDeferredRender();
       });
 
       window.addEventListener("hashchange", () => {

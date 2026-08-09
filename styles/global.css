@@ -89,6 +89,23 @@
       /* SHARED STATES */
       .is-hidden { display: none !important; }
 
+      .mobile-nav.is-hidden,
+      .mobile-nav__submenu.is-hidden {
+        display: block !important;
+        max-height: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        overflow: hidden !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        border-bottom-width: 0 !important;
+        pointer-events: none !important;
+      }
+      .mobile-nav:not(.is-hidden),
+      .mobile-nav__submenu:not(.is-hidden) {
+        visibility: visible !important;
+      }
+
       /* LAYOUT CONTAINERS & SECTIONS */
       .site-container {
         width: 100%;
@@ -243,7 +260,24 @@
       @media (min-width: 1024px) { .mobile-nav-toggle { display: none; } }
       .mobile-nav-toggle__icon { width: 1.5rem; height: 1.5rem; }
 
-      .mobile-nav { display: block; margin-top: 0.5rem; padding: 0.75rem var(--space-4); border-bottom: 1px solid var(--color-border-strong); background: var(--color-surface); }
+      .mobile-nav {
+        display: block;
+        max-height: 0;
+        margin-top: 0.5rem;
+        overflow: hidden;
+        opacity: 0;
+        padding: 0 var(--space-4);
+        border-bottom: 0 solid var(--color-border-strong);
+        background: var(--color-surface);
+        contain: layout paint;
+        transition: max-height 240ms ease, opacity 180ms ease, padding 180ms ease, border-bottom-width 180ms ease;
+      }
+      .mobile-nav:not(.is-hidden) {
+        max-height: 52rem;
+        opacity: 1;
+        padding: 0.75rem var(--space-4);
+        border-bottom-width: 1px;
+      }
       @media (min-width: 1024px) { .mobile-nav { display: none; } }
       .mobile-nav__group { padding-block: 0.25rem; border-bottom: 1px solid var(--color-border-soft); }
       .mobile-nav__trigger {
@@ -261,7 +295,21 @@
         border: none;
       }
       .mobile-nav__arrow { width: 1rem; height: 1rem; transition: transform 200ms; }
-      .mobile-nav__submenu { padding: 0 0 0.5rem 1rem; }
+      .mobile-nav__submenu {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        padding: 0 0 0 1rem;
+        contain: layout paint;
+        transition: max-height 220ms ease, opacity 180ms ease, padding 180ms ease, visibility 180ms ease;
+      }
+      .mobile-nav__submenu:not(.is-hidden) {
+        max-height: 20rem;
+        opacity: 1;
+        visibility: visible;
+        padding: 0 0 0.5rem 1rem;
+      }
       .mobile-nav__link {
         display: block;
         width: 100%;
