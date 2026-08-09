@@ -340,7 +340,7 @@
       .site-footer__content { display: flex; flex-direction: column; gap: 0.75rem; text-align: center; }
       .site-footer__text { color: #f9fafc; font-size: 0.75rem; }
       @media (min-width: 768px) { .site-footer__text { font-size: 0.875rem; } }
-      .site-footer__credit { display: inline-block; color: #f9f9f7; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: none; white-space: nowrap; background: none !important; -webkit-text-fill-color: #f5f4f0 !important; -webkit-background-clip: unset !important; background-clip: unset !important; }
+      .site-footer__credit { display: inline-block; color: #f9f9f7; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: none; white-space: nowrap; background: none !important; -webkit-text-fill-color: #fafa4c !important; -webkit-background-clip: unset !important; background-clip: unset !important; }
 
       /* FLOATING WIDGETS */
       .floating-action {
@@ -401,6 +401,7 @@
       .tips-timeline-item::before { left: 5px; top: 16px; background-color: #d1d5db; width: 1.5px; }
       .compact-timeline-item:last-child::before, .tips-timeline-item:last-child::before { display: none; }
 
+      .wavi-text { background: linear-gradient(90deg, #f7fd4ef7, #f7f7f4f7, #f7fd4ef7); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: waveText 8s linear infinite; }
       .wave-text { background: linear-gradient(90deg, #1e40af, #a13f06, #1e40af); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: waveText 8s linear infinite; }
       .nav-active { color: #926e07 !important; border-bottom: 2px solid #926e07; }
       .feature-list__marker { color: #926e07; }
