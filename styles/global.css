@@ -107,7 +107,7 @@
 
       .section-intro { text-align: center; margin-bottom: 2.5rem; }
       .section-intro__title { font-size: 1.5rem; font-weight: 800; color: var(--color-text); letter-spacing: -0.025em; margin-bottom: 0.75rem; }
-      .section-intro__subtitle { font-size: 0.875rem; color: var(--color-text-muted); max-width: 47rem; margin-inline: auto; }
+      .section-intro__subtitle { font-size: 0.875rem; color: var(--color-text-muted); max-width: 42rem; margin-inline: auto; }
       @media (min-width: 640px) {
         .section-intro__title { font-size: 1.875rem; }
         .section-intro__subtitle { font-size: 1rem; }
@@ -166,9 +166,7 @@
       .site-brand__logo { width: 160px; height: auto; object-fit: contain; aspect-ratio: 160/80; }
 
       .desktop-nav { display: none; align-items: center; gap: 1.5rem; }
-      @media (min-width: 1024px) {
-        .desktop-nav { display: flex; margin-left: auto; }
-      }
+      @media (min-width: 1024px) { .desktop-nav { display: flex; } }
 
       .nav-dropdown { position: relative; }
       .nav-dropdown__trigger {
@@ -228,7 +226,7 @@
       }
       .partner-program-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
       .partner-program-link__badge { padding: 0.125rem 0.5rem; border-radius: var(--radius-full); color: #fff; background: #991b1b; font-size: 9px; font-weight: 700; }
-      .partner-program-link--mobile { justify-content: center; width: 100%; margin-block: 0.75rem; border-radius: var(--radius-md); white-space: nowrap; }
+      .partner-program-link--mobile { justify-content: center; width: 100%; margin-block: 0.75rem; border-radius: var(--radius-md); }
 
       .mobile-nav-toggle {
         display: flex;
@@ -273,15 +271,3 @@
         background: none;
         border: none;
       }
-
-/* Responsive visibility helpers (used by header markup) */
-.desktop-only { display: none; }
-@media (min-width: 1024px) { .desktop-only { display: inline-flex; } }
-.partner-program-link--mobile-only { display: none; }
-@media (max-width: 1023px) {
-  .partner-program-link--mobile-only { display: inline-flex; white-space: nowrap; min-width: 0; }
-  .partner-program-link--mobile-only .wave-text { white-space: nowrap; }
-}
-
-/* Header controls grouping for mobile (hamburger + CTA) */
-.site-header__controls { display: flex; align-items: center; gap: 0.25rem; }
