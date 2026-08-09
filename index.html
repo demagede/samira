@@ -286,6 +286,7 @@
         box-shadow: var(--shadow-sm);
         font-size: 0.875rem;
         font-weight: 700;
+        white-space: nowrap;
       }
       .partner-program-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
       .partner-program-link__badge {
@@ -312,7 +313,30 @@
       @media (prefers-reduced-motion: reduce) {
         .partner-program-link__badge { animation: none !important; }
       }
-      .partner-program-link--mobile { justify-content: center; width: 100%; margin-block: 0.75rem; border-radius: var(--radius-md); }
+      .partner-program-link--mobile {
+        justify-content: center;
+        width: 100%;
+        margin-block: 0.75rem;
+        border-radius: var(--radius-md);
+        position: sticky;
+        top: 0;
+        z-index: 1100;
+      }
+      .partner-program-link--mobile-only { display: none; }
+      .desktop-only { display: inline-flex; }
+
+      @media (max-width: 1023px) {
+        .desktop-only { display: none !important; }
+        .partner-program-link--mobile-only {
+          display: inline-flex !important;
+          margin-left: auto;
+          margin-right: 0.25rem;
+          padding: 0.45rem 0.85rem;
+          font-size: 0.9rem;
+          min-width: auto;
+          gap: 0.35rem;
+        }
+      }
 
       .mobile-nav-toggle {
         display: flex;
@@ -680,12 +704,16 @@
             </div>
           </div>
 
-          <button data-action="spa-nav" data-target="program-mitra" class="partner-program-link">
-            <span>🚀</span>
+          <button data-action="spa-nav" data-target="program-mitra" class="partner-program-link desktop-only">
             <span class="wave-text">Program Mitra</span>
             <span class="partner-program-link__badge pulse">Hot!</span>
           </button>
         </div>
+
+        <button data-action="spa-nav" data-target="program-mitra" class="partner-program-link partner-program-link--mobile-only">
+          <span class="wave-text">Program Mitra</span>
+          <span class="partner-program-link__badge pulse">Hot!</span>
+        </button>
 
         <button data-action="toggle-mobile-menu" class="mobile-nav-toggle" aria-label="Buka Menu" aria-expanded="false" aria-controls="mobileMenu">
           <svg class="mobile-nav-toggle__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -757,11 +785,6 @@
           </div>
         </div>
 
-        <button data-action="spa-nav" data-target="program-mitra" class="partner-program-link partner-program-link--mobile">
-          <span>🚀</span>
-          <span>Program Mitra</span>
-          <span class="partner-program-link__badge">Hot!</span>
-        </button>
       </div>
     </nav>
 
@@ -816,7 +839,7 @@
 
                 <div class="hero-section__actions">
                   <button data-action="spa-nav" data-target="form-pendaftaran" class="hero-section__cta">
-                    <span class="wave-text site-footer__credit">💬 Konsultasi Gratis Via Whatsapp</span>
+                    <span>💬 Konsultasi Gratis Via Whatsapp</span>
                   </button>
                 </div>
               </div>
@@ -1906,8 +1929,8 @@
           <span class="mitra-nama">Dedy MBS</span> (<span class="mitra-id">M-DGI-9725</span>)</strong>.
         </div>
         <div class="site-footer__text"><strong>All Rights Reserved.</strong></div>
-        <h2 class="wave-text site-footer__credit site-footer__text">
-          <strong>• Design by MetaVerse Blessing Sphere (MBS) •</strong>
+        <h2>
+          <span class="wavi-text">🎨</span> <strong class="site-footer__text">Design by MetaVerse Blessing Sphere (MBS) •</strong>
         </h2>
       </div>
     </footer>
