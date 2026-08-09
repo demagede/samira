@@ -109,7 +109,7 @@
       .hero-section__media-frame {
         width: 100%;
         min-height: 20rem;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 3 / 4;
         padding: 0.75rem;
         overflow: hidden;
         border: 2px solid #fbbf24;
@@ -120,7 +120,7 @@
       @media (min-width: 1024px) {
         .hero-section__media-frame {
           min-height: 32rem;
-          aspect-ratio: 4 / 5;
+          aspect-ratio: 3 / 4;
         }
       }
 
@@ -270,7 +270,7 @@
         width: 100% !important;
         height: 100% !important;
         min-height: 20rem !important;
-        aspect-ratio: 1 / 1 !important;
+        aspect-ratio: 3 / 4 !important;
         background-color: #f1f5f9 !important;
         border-radius: 0.75rem !important;
         overflow: hidden !important;
@@ -279,7 +279,7 @@
         .custom-slider-container {
           height: 100% !important;
           min-height: 32rem !important;
-          aspect-ratio: 4 / 5 !important;
+          aspect-ratio: 3 / 4 !important;
         }
       }
 

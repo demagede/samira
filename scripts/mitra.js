@@ -97,8 +97,8 @@ window.loadMitraReplica = async function () {
                     src="${bannerUrl}" 
                     alt="Banner Promo ${idx + 1}" 
                     class="${imgClass}"
-                    width="800"
-                    height="1000"
+                    width="450"
+                    height="600"
                     ${isFirst ? 'fetchpriority="high" loading="eager" decoding="async"' : 'loading="lazy" decoding="async"'}
                   />
                 </div>
