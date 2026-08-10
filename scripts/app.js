@@ -530,25 +530,34 @@ const CONFIG = Object.freeze({
         }
       }
 
-      window.addEventListener("DOMContentLoaded", () => {
-        DOM.init();
-        initSPAPages();
-        initFormHandler();
-        if (typeof window.loadMitraReplica === 'function') {
-          window.loadMitraReplica();
-        } else {
-          console.warn('loadMitraReplica is not available yet.');
-        }
+window.addEventListener("DOMContentLoaded", () => {
+  DOM.init();
+  initSPAPages();
+  initFormHandler();
 
-        if (DOM.year) {
-          DOM.year.textContent = new Date().getFullYear();
-        }
+  const loadMitraAfterInitialRender = () => {
+    if (typeof window.loadMitraReplica === 'function') {
+      window.loadMitraReplica();
+    } else {
+      console.warn('loadMitraReplica is not available yet.');
+    }
+  };
 
-        setTimeout(() => {
-          renderVideoGallery();
-          renderTestimonials();
-        }, 50);
-      });
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadMitraAfterInitialRender, { timeout: 1500 });
+  } else {
+    setTimeout(loadMitraAfterInitialRender, 1000);
+  }
+
+  if (DOM.year) {
+    DOM.year.textContent = new Date().getFullYear();
+  }
+
+  setTimeout(() => {
+    renderVideoGallery();
+    renderTestimonials();
+  }, 50);
+});
 
       window.addEventListener("hashchange", () => {
         if (typeof window.loadMitraReplica === 'function') {
