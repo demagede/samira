@@ -117,7 +117,6 @@
       }
 
       body {
-        margin: 0;
         color: var(--color-text);
         background-color: var(--color-surface);
         -webkit-font-smoothing: antialiased;
@@ -434,7 +433,6 @@
       .hero__message p { margin: 0; color: #78350f; font-size: 0.75rem; font-weight: 500; line-height: 1.625; }
 
       .hero__title { margin: 0; color: var(--color-text); font-size: 1rem; font-weight: 800; line-height: 1.25; }
-      @media (min-width: 1024px) { .hero__title { font-size: 1rem; } }
 
       .hero__description { max-width: 24rem; margin: 0.75rem 0 1.5rem; color: #475569; font-size: 0.75rem; line-height: 1.625; }
       @media (min-width: 640px) { .hero__description { font-size: 0.875rem; } }
@@ -489,7 +487,7 @@
       .custom-slide img { width: 100% !important; height: 100% !important; max-width: 100% !important; max-height: 100% !important; object-fit: cover !important; object-position: center !important; margin: 0; border-radius: 0.5rem !important; }
       .slider-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
       .slider-dot { width: 10px; height: 10px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.6); cursor: pointer; transition: width 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;}
-      .slider-dot.active { background-color: #1e3a8a; width: 24px; border-radius: 999px; }
+      .slider-dot.active { background-color: var(--color-primary-dark); width: 24px; border-radius: 999px; }
 /* SLIDER CONTROL LAYOUT */
 .slider-control-bar {
   display: block;
@@ -546,18 +544,6 @@
   right: -34px;
 }
 
-.slider-control-btn {
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-}
 
 /* Mobile / tablet */
 @media (max-width: 1024px) {
