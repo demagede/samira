@@ -117,7 +117,6 @@
       }
 
       body {
-        margin: 0;
         color: var(--color-text);
         background-color: var(--color-surface);
         -webkit-font-smoothing: antialiased;
@@ -141,8 +140,8 @@
       }
 
       button:focus-visible, a:focus-visible {
-        outline: 3px solid var(--color-primary) !important;
-        outline-offset: 2px !important;
+        outline: 3px solid var(--color-primary);
+        outline-offset: 2px;
       }
 
       img, svg, video {
@@ -155,31 +154,30 @@
       .is-hidden { display: none !important; }
 
       /* LAYOUT CONTAINERS & SECTIONS */
-      .site-container {
+      .tabel {
         width: 100%;
         max-width: var(--content-max-width);
         margin-inline: auto;
         padding-inline: var(--space-4);
       }
-      @media (min-width: 640px) { .site-container { padding-inline: 1.5rem; } }
-      @media (min-width: 1024px) { .site-container { padding-inline: 2rem; } }
+      @media (min-width: 640px) { .tabel { padding-inline: 1.5rem; } }
+      @media (min-width: 1024px) { .tabel { padding-inline: 2rem; } }
 
-      .layout-section { padding-block: var(--space-16); }
-      .layout-section--surface { background-color: var(--color-surface); }
-      .layout-section--soft { background-color: var(--color-surface-soft); }
-      .layout-section--bordered { border-bottom: 1px solid var(--color-border-strong); }
-      .layout-section--primary { background-color: var(--color-primary); color: #ffffff; }
+      .layout { padding-block: var(--space-16); }
+      .l-face { background-color: var(--color-surface); }
+      .layout--soft { background-color: var(--color-surface-soft); }
+      .l-border { border-bottom: 1px solid var(--color-border-strong); }
 
-      .section-intro { text-align: center; margin-bottom: 2.5rem; }
-      .section-intro__title { font-size: 1.5rem; font-weight: 800; color: var(--color-text); letter-spacing: -0.025em; margin-bottom: 0.75rem; }
-      .section-intro__subtitle { font-size: 0.875rem; color: var(--color-text-muted); max-width: 42rem; margin-inline: auto; }
+      .intro { text-align: center; margin-bottom: 2.5rem; }
+      .i_title { font-size: 1.5rem; font-weight: 800; color: var(--color-text); letter-spacing: -0.025em; margin-bottom: 0.75rem; }
+      .i_subtitle { font-size: 0.875rem; color: var(--color-text-muted); max-width: 42rem; margin-inline: auto; }
       @media (min-width: 640px) {
-        .section-intro__title { font-size: 1.875rem; }
-        .section-intro__subtitle { font-size: 1rem; }
+        .i_title { font-size: 1.875rem; }
+        .i_subtitle { font-size: 1rem; }
       }
 
       /* PROMO TOP BAR */
-      .site-promo {
+      .spromo {
         position: fixed;
         inset: 0 0 auto;
         z-index: 1060;
@@ -190,7 +188,7 @@
         background-color: #fffbeb;
         box-shadow: var(--shadow-sm);
       }
-      .site-promo__label {
+      .sp_label {
         z-index: 20;
         display: flex;
         flex: 0 0 auto;
@@ -206,17 +204,17 @@
         letter-spacing: 0.025em;
         white-space: nowrap;
       }
-      .site-promo__icon { width: 0.875rem; height: 0.875rem; fill: currentColor; transform: scaleX(-1); }
-      .site-promo__content { display: flex; flex-grow: 1; align-items: center; height: 100%; overflow: hidden; }
-      .site-promo__link { display: flex; align-items: center; width: 100%; height: 100%; color: var(--color-text); text-decoration: none; }
-      .site-promo__track { display: flex; white-space: nowrap; animation: marqueeScroll 50s linear infinite; will-change: transform; }
-      .site-promo__track:hover { animation-play-state: paused; }
-      .site-promo__message { padding-right: var(--space-16); font-size: 0.75rem; font-weight: 700; }
-      .site-promo__highlight { color: #991b1b; }
-      @media (min-width: 640px) { .site-promo__label, .site-promo__message { font-size: 0.875rem; } }
+      .sp_icon { width: 0.875rem; height: 0.875rem; fill: currentColor; transform: scaleX(-1); }
+      .sp_content { display: flex; flex-grow: 1; align-items: center; height: 100%; overflow: hidden; }
+      .sp_link { display: flex; align-items: center; width: 100%; height: 100%; color: var(--color-text); text-decoration: none; }
+      .sp_track { display: flex; white-space: nowrap; animation: marqueeScroll 50s linear infinite; will-change: transform; }
+      .sp_track:hover { animation-play-state: paused; }
+      .sp_message { padding-right: var(--space-16); font-size: 0.75rem; font-weight: 700; }
+      .sp_highlight { color: #991b1b; }
+      @media (min-width: 640px) { .sp_label, .sp_message { font-size: 0.875rem; } }
 
       /* HEADER & NAVIGATION */
-      .site-header {
+      .header {
         position: sticky;
         top: 2.5rem;
         z-index: 1050;
@@ -226,9 +224,9 @@
         box-shadow: var(--shadow-sm);
         backdrop-filter: blur(12px);
       }
-      .site-header__container { display: flex; align-items: center; justify-content: space-between; }
-      .site-brand { display: flex; align-items: center; background: none; border: none; padding: 0; }
-      .site-brand__logo { width: 160px; height: auto; object-fit: contain; aspect-ratio: 160/80; }
+      .header-tabel { display: flex; align-items: center; justify-content: space-between; }
+      .sbrand { display: flex; align-items: center; background: none; border: none; padding: 0; }
+      .sbrand_logo { width: 160px; height: auto; object-fit: contain; aspect-ratio: 160/80; }
 
       .desktop-nav { display: none; align-items: center; gap: 1.5rem; }
       @media (min-width: 1024px) { .desktop-nav { display: flex; } }
@@ -274,7 +272,7 @@
       }
       .nav-dropdown__item:hover { color: var(--color-primary); background: var(--color-surface-soft); }
 
-      .partner-program-link {
+      .partner-link {
         display: flex;
         align-items: center;
         gap: 0.375rem;
@@ -288,8 +286,8 @@
         font-weight: 700;
         white-space: nowrap;
       }
-      .partner-program-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-      .partner-program-link__badge {
+      .partner-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+      .partner-link__badge {
         padding: 0.125rem 0.5rem;
         border-radius: var(--radius-full);
         color: #fff;
@@ -306,28 +304,19 @@
         50% { transform: scale(1.08); box-shadow: 0 8px 20px -6px rgba(217,70,70, 0.35); }
         100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(217,70,70, 0); }
       }
-      .partner-program-link__badge.pulse {
+      .partner-link__badge.pulse {
         animation: badge-pulse 1.6s ease-in-out infinite;
         transform-origin: center;
       }
       @media (prefers-reduced-motion: reduce) {
-        .partner-program-link__badge { animation: none !important; }
+        .partner-link__badge { animation: none !important; }
       }
-      .partner-program-link--mobile {
-        justify-content: center;
-        width: 100%;
-        margin-block: 0.75rem;
-        border-radius: var(--radius-md);
-        position: sticky;
-        top: 0;
-        z-index: 1100;
-      }
-      .partner-program-link--mobile-only { display: none; }
+      .partner-link--mobile-only { display: none; }
       .desktop-only { display: inline-flex; }
 
       @media (max-width: 1023px) {
         .desktop-only { display: none !important; }
-        .partner-program-link--mobile-only {
+        .partner-link--mobile-only {
           display: inline-flex !important;
           margin-left: auto;
           margin-right: 0.25rem;
@@ -383,28 +372,28 @@
       }
 
       /* HERO SECTION */
-      .hero-section {
+      .hero {
         position: relative;
         overflow: hidden;
         background: linear-gradient(to bottom right, #f0f9ff, #e0f2fe, #fff);
       }
-      .hero-section__bg-pattern {
+      .hero__bg-pattern {
         position: absolute;
         inset: 0;
         opacity: 0.03;
         pointer-events: none;
         z-index: 1;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%230f172a'%3E%3Cpath fill-rule='evenodd' d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm1-61c3.148 0 5.7-2.552 5.7-5.7 0-3.148-2.552-5.7-5.7-5.7-3.148 0-5.7 2.552-5.7 5.7 0 3.148 2.552 5.7 5.7 5.7zm50 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM21 39c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm5-18c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm47 25c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-21-8c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-9-17c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-12 3c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm30 3c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-3-11c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-12 16c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-14 1c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm38 2c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-8-12c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-21 22c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm16-11c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-12 11c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-2-19c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm19-3c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-16-11c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-2 19c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-9-1c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm19-3c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-12-9c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-12 9c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-9-1c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-12-9c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-12 9c0-1.105-.895-2-2-2s-2 .895-2 2 .895 2 2 2 2-.895 2-2zm-9-1c0-1.105-.895-2-2-2s-2 .895-2 2 .resse")
+        background-image: none;
       }
-      .hero-section__content { position: relative; z-index: 10; }
-      .hero-section__grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
-      @media (min-width: 1024px) { .hero-section__grid { grid-template-columns: repeat(12, 1fr); } }
+      .hero__content { position: relative; z-index: 10; }
+      .hero__grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
+      @media (min-width: 1024px) { .hero__grid { grid-template-columns: repeat(12, 1fr); } }
 
-      .hero-section__profile { display: flex; flex-direction: column; align-items: center; text-align: center; }
-      @media (min-width: 1024px) { .hero-section__profile { grid-column: span 5; } }
+      .hero__profile { display: flex; flex-direction: column; align-items: center; text-align: center; }
+      @media (min-width: 1024px) { .hero__profile { grid-column: span 5; } }
 
-      .hero-section__identity { display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5rem; }
-      .hero-section__avatar {
+      .hero__identity { display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5rem; }
+      .hero__avatar {
         width: 9rem;
         height: 9rem;
         border: 5px solid var(--color-accent);
@@ -415,10 +404,10 @@
         transition: transform var(--transition-base);
         aspect-ratio: 1/1;
       }
-      @media (min-width: 640px) { .hero-section__avatar { width: 11rem; height: 11rem; } }
-      .hero-section__avatar:hover { transform: scale(1.05); }
+      @media (min-width: 640px) { .hero__avatar { width: 11rem; height: 11rem; } }
+      .hero__avatar:hover { transform: scale(1.05); }
 
-      .hero-section__badge {
+      .hero__badge {
         position: relative;
         z-index: 10;
         margin-top: -1rem;
@@ -432,7 +421,7 @@
         white-space: nowrap;
       }
 
-      .hero-section__message {
+      .hero__message {
         max-width: 24rem;
         margin-bottom: 1.5rem;
         padding: var(--space-4);
@@ -441,15 +430,14 @@
         background: rgba(255, 251, 235, 0.8);
         box-shadow: var(--shadow-sm);
       }
-      .hero-section__message p { margin: 0; color: #78350f; font-size: 0.75rem; font-weight: 500; line-height: 1.625; }
+      .hero__message p { margin: 0; color: #78350f; font-size: 0.75rem; font-weight: 500; line-height: 1.625; }
 
-      .hero-section__title { margin: 0; color: var(--color-text); font-size: 1rem; font-weight: 800; line-height: 1.25; }
-      @media (min-width: 1024px) { .hero-section__title { font-size: 1rem; } }
+      .hero__title { margin: 0; color: var(--color-text); font-size: 1rem; font-weight: 800; line-height: 1.25; }
 
-      .hero-section__description { max-width: 24rem; margin: 0.75rem 0 1.5rem; color: #475569; font-size: 0.75rem; line-height: 1.625; }
-      @media (min-width: 640px) { .hero-section__description { font-size: 0.875rem; } }
+      .hero__description { max-width: 24rem; margin: 0.75rem 0 1.5rem; color: #475569; font-size: 0.75rem; line-height: 1.625; }
+      @media (min-width: 640px) { .hero__description { font-size: 0.875rem; } }
 
-      .hero-section__trust {
+      .hero__trust {
         width: 100%;
         max-width: 24rem;
         margin-bottom: 1.5rem;
@@ -460,15 +448,15 @@
         box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
         text-align: left;
       }
-      .hero-section__trust-item { display: flex; align-items: center; gap: 0.625rem; color: #334155; font-size: 0.75rem; font-weight: 700; }
-      .hero-section__trust-item + .hero-section__trust-item { margin-top: 0.625rem; }
-      @media (min-width: 640px) { .hero-section__trust-item { font-size: 0.875rem; } }
-      .hero-section__trust-note { margin: 0.375rem 0 0; padding-top: 0.375rem; border-top: 1px solid rgba(226, 232, 240, 0.6); color: #475569; font-size: 0.75rem; font-style: italic; }
+      .hero__trust-item { display: flex; align-items: center; gap: 0.625rem; color: #334155; font-size: 0.75rem; font-weight: 700; }
+      .hero__trust-item + .hero__trust-item { margin-top: 0.625rem; }
+      @media (min-width: 640px) { .hero__trust-item { font-size: 0.875rem; } }
+      .hero__trust-note { margin: 0.375rem 0 0; padding-top: 0.375rem; border-top: 1px solid rgba(226, 232, 240, 0.6); color: #475569; font-size: 0.75rem; font-style: italic; }
 
-      .hero-section__actions { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; max-width: 42rem; gap: var(--space-4); }
-      @media (min-width: 640px) { .hero-section__actions { flex-direction: row; } }
+      .hero__actions { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; max-width: 42rem; gap: var(--space-4); }
+      @media (min-width: 640px) { .hero__actions { flex-direction: row; } }
 
-      .hero-section__cta {
+      .hero__cta {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -483,70 +471,96 @@
         border: none;
         transition: transform var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base);
       }
-      .hero-section__cta--small { max-width: 15rem; font-size: 0.875rem; padding: 0.75rem 1.25rem; }
-      .hero-section__cta--centered { margin-inline: auto; }
-      @media (min-width: 640px) { .hero-section__cta { width: 100%; max-width: 24rem; font-size: 1rem; } }
-      .hero-section__cta:hover { background: var(--color-primary-dark); box-shadow: var(--shadow-2xl); transform: translateY(-0.25rem); }
-
-      .hero-section__media { width: 100%; }
-      @media (min-width: 1024px) { .hero-section__media { grid-column: span 7; } }
-      .hero-section__media-frame { padding: 0.75rem; overflow: hidden; border: 2px solid #fbbf24; border-radius: var(--radius-lg); background: var(--color-surface); box-shadow: var(--shadow-xl); }
-
-      .heroSwiper, .custom-slider-container { position: relative !important; width: 100% !important; height: auto !important; aspect-ratio: 1 / 1 !important; background-color: #f1f5f9 !important; border-radius: 0.75rem !important; overflow: hidden !important; }
-      @media (min-width: 1024px) { .custom-slider-container { height: 680px !important; aspect-ratio: auto !important; } }
-      .custom-slide { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; opacity: 0 !important; visibility: hidden !important; z-index: 1 !important; transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out !important; display: flex !important; align-items: center !important; justify-content: center !important; }
-      .custom-slide.active { opacity: 1 !important; visibility: visible !important; z-index: 2 !important; }
-      .custom-slide img { width: 100% !important; height: 100% !important; max-width: 100% !important; max-height: 100% !important; object-fit: cover !important; object-position: center !important; margin: 0 !important; border-radius: 0.5rem !important; }
-      .slider-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
-      .slider-dot { width: 10px; height: 10px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.6); cursor: pointer; transition: all 0.3s ease; }
-      .slider-dot.active { background-color: #1e3a8a; width: 24px; border-radius: 999px; }
-      /* SLIDER CONTROL LAYOUT: center download button, place arrows at slider edges */
-      .slider-control-bar { display: block; height: 0; margin-bottom: 0; }
-      .slider-wrapper-container { position: relative; overflow: visible; padding-top: 0.5rem; }
-      /* Download button must not inherit full-width from .hero-section__cta */
-      .slider-download-btn { position: absolute; top: -28px; left: 50%; transform: translateX(-50%); z-index: 40; display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 2rem; width: auto; max-width: 42rem; min-width: 12rem; }
-      /* place arrows vertically centered and outside card edges */
-      .slider-control-buttons { position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); display: block; pointer-events: none; z-index: 35; }
-      .slider-control-buttons .slider-control-btn { pointer-events: auto; position: absolute; top: 50%; transform: translateY(-50%); }
-      .slider-arrow-left { left: -34px; }
-      .slider-arrow-right { right: -34px; }
-      .slider-control-btn { width: 2.75rem; height: 2.75rem; border-radius: 50%; background: #fff; border: 1px solid #e2e8f0; box-shadow: 0 6px 16px rgba(15,23,42,0.06); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
-      @media (max-width: 1024px) { .slider-download-btn { top: -24px; padding: 0.5rem 1.25rem; } .slider-arrow-left, .slider-arrow-right { left: 8px; right: 8px; position: relative; transform: none; top: auto; } }
-    </style>
-    <!-- Overrides to work around potential earlier CSS parse error -->
-    <style>
-      .hero-section__bg-pattern { background-image: none !important; }
-      .slider-wrapper-container { position: relative; overflow: visible !important; padding-top: 0.5rem !important; }
-      .slider-download-btn { position: absolute !important; top: -28px !important; left: 50% !important; transform: translateX(-50%) !important; z-index: 999 !important; display: inline-flex !important; align-items: center; justify-content: center; padding: 0.75rem 2rem !important; width: auto !important; min-width: 12rem !important; }
-      .slider-control-buttons { position: absolute !important; top: 50% !important; left: 0 !important; right: 0 !important; transform: translateY(-50%) !important; pointer-events: none !important; }
-      .slider-control-buttons .slider-control-btn { pointer-events: auto !important; position: absolute !important; top: 50% !important; transform: translateY(-50%) !important; }
-      .slider-arrow-left { left: -34px !important; }
-      .slider-arrow-right { right: -34px !important; }
-      @media (max-width: 1024px) {
-        .slider-download-btn { top: -24px !important; padding: 0.5rem 1.25rem !important; }
-        .slider-arrow-left {
-          left: 8px !important;
-          right: auto !important;
-          position: absolute !important;
-          top: 50% !important;
-          transform: translateY(-50%) !important;
-          z-index: 999 !important;
-        }
-        .slider-arrow-right {
-          right: 8px !important;
-          left: auto !important;
-          position: absolute !important;
-          top: 50% !important;
-          transform: translateY(-50%) !important;
-          z-index: 999 !important;
-        }
+      .hero__cta--small { max-width: 15rem; font-size: 0.875rem; padding: 0.75rem 1.25rem; }
+      .hero__cta--centered { margin-inline: auto; }
+      @media (min-width: 640px) { .hero__cta { width: 100%; max-width: 24rem; font-size: 1rem; } }
+      .hero__cta:hover { background: var(--color-primary-dark); box-shadow: var(--shadow-2xl); transform: translateY(-0.25rem); }
+      .slider-download-btn:hover { transform: translateX(-50%) translateY(-0.25rem);
       }
+      .hero__media { width: 100%; }
+      @media (min-width: 1024px) { .hero__media { grid-column: span 7; } }
+      .hero__media-frame { padding: 0.75rem; overflow: hidden; border: 2px solid #fbbf24; border-radius: var(--radius-lg); background: var(--color-surface); box-shadow: var(--shadow-xl); }
+
+      .custom-slider-container { position: relative !important; width: 100% !important; height: auto !important; aspect-ratio: 1 / 1 !important; background-color: #f1f5f9 !important; border-radius: 0.75rem !important; overflow: hidden !important; }
+      @media (min-width: 1024px) { .custom-slider-container { height: 680px !important; aspect-ratio: auto !important; } }
+      .custom-slide { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; opacity: 0 !important; visibility: hidden !important; z-index: 1 !important; transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; display: flex !important; align-items: center !important; justify-content: center !important; }
+      .custom-slide.active { opacity: 1 !important; visibility: visible !important; z-index: 2 !important; }
+      .custom-slide img { width: 100% !important; height: 100% !important; max-width: 100% !important; max-height: 100% !important; object-fit: cover !important; object-position: center !important; margin: 0; border-radius: 0.5rem !important; }
+      .slider-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
+      .slider-dot { width: 10px; height: 10px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.6); cursor: pointer; transition: width 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;}
+      .slider-dot.active { background-color: var(--color-primary-dark); width: 24px; border-radius: 999px; }
+
+/* Download button */
+.slider-download-btn {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  width: auto;
+  max-width: 42rem;
+  min-width: 12rem;
+}
+
+/* Slider navigation buttons */
+.slider-control-buttons {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: block;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.slider-control-buttons .slider-control-btn {
+  pointer-events: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slider-arrow-left {
+  left: -34px;
+}
+
+.slider-arrow-right {
+  right: -34px;
+}
+
+/* Mobile / tablet */
+@media (max-width: 1024px) {
+  .slider-download-btn {
+    top: -24px;
+    padding: 0.5rem 1.25rem;
+  }
+
+  .slider-arrow-left {
+    left: 8px;
+    right: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .slider-arrow-right {
+    right: 8px;
+    left: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
     </style>
     <link rel="preload" href="styles/layout.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript>
-      <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
     </noscript>
-
 
     <!-- External font stylesheet removed to cut third-party network dependencies -->
 
@@ -581,30 +595,30 @@
 
   <body>
     <!-- HEADER PROMO -->
-    <section class="site-promo" aria-label="Promo Terbatas">
-      <div class="site-promo__label">
+    <section class="spromo" aria-label="Promo Terbatas">
+      <div class="sp_label">
         PENTING
-        <svg class="site-promo__icon" viewBox="0 0 16 16" aria-hidden="true">
+        <svg class="sp_icon" viewBox="0 0 16 16" aria-hidden="true">
           <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-11zm-1 .724c-2.067.95-4.539 1.481-7 1.656v5.237c2.461.175 4.933.706 7 1.656V3.224zm-8 2.25c-1.117-.07-2.224-.318-3-.556V11.23c.776-.238 1.883-.486 3-.556V5.474zM13 1v14H0V1h13z"/>
         </svg>
       </div>
-      <div class="site-promo__content">
+      <div class="sp_content">
         <a
-          class="site-promo__link"
+          class="sp_link"
           href="https://wa.me/6287783073536?text=Assalaamualaikum%20Customer%20Service%20Samira%2C%20saya%20tertarik%20dengan%20info%20Promo%20Umroh%20Kuota%20Terbatas%20dari%20website%20Anda.%20Mohon%20info%20selengkapnya."
           target="_blank"
           rel="noopener noreferrer"
         >
-          <div class="site-promo__track">
-            <span class="site-promo__message">
-              <strong class="site-promo__highlight">Promo Musim ini & Kuota Terbatas! Amankan Seat Anda Sekarang</strong>
+          <div class="sp_track">
+            <span class="sp_message">
+              <strong class="sp_highlight">Promo Musim ini & Kuota Terbatas! Amankan Seat Anda Sekarang</strong>
               • Selamat datang di Samira Travel, bersama <span class="mitra-nama">Dedy MBS</span> kami menyediakan layanan 🕋 Pendaftaran Umroh, Tour Halal, Haji Khusus, dan Haji Furodha • Nikmati kemudahan beribadah bersama tim profesional kami ......
-              <strong class="site-promo__highlight">• 🚀 Program Mitra Samira • 🌐 Landing Page Profesional •......</strong> •
+              <strong class="sp_highlight">• 🚀 Program Mitra Samira • 🌐 Landing Page Profesional •......</strong> •
             </span>
-            <span class="site-promo__message">
-              <strong class="site-promo__highlight">Promo Musim ini & Kuota Terbatas! Amankan Seat Anda Sekarang</strong>
+            <span class="sp_message">
+              <strong class="sp_highlight">Promo Musim ini & Kuota Terbatas! Amankan Seat Anda Sekarang</strong>
               • Selamat datang di Samira Travel, bersama <span class="mitra-nama">Dedy MBS</span> kami menyediakan layanan 🕋 Pendaftaran Umroh, Tour Halal, Haji Khusus, dan Haji Furodha • Nikmati kemudahan beribadah bersama tim profesional kami ......
-              <strong class="site-promo__highlight">• 🚀 Program Mitra Samira • 🌐 Landing Page Profesional •......</strong> •
+              <strong class="sp_highlight">• 🚀 Program Mitra Samira • 🌐 Landing Page Profesional •......</strong> •
             </span>
           </div>
         </a>
@@ -612,15 +626,15 @@
     </section>
 
     <!-- MAIN HEADER -->
-    <nav class="site-header">
-      <div class="site-container site-header__container">
-        <button data-action="spa-nav" data-target="home" class="site-brand" aria-label="Kembali ke beranda">
+    <nav class="header">
+      <div class="tabel header-tabel">
+        <button data-action="spa-nav" data-target="home" class="sbrand" aria-label="Kembali ke beranda">
           <img
             src="image/samiraku-160.webp"
             srcset="image/samiraku-80.webp 80w, image/samiraku-160.webp 160w"
             sizes="160px"
             alt="Samira Travel"
-            class="site-brand__logo"
+            class="sbrand_logo"
             width="160"
             height="80"
             fetchpriority="high"
@@ -704,15 +718,15 @@
             </div>
           </div>
 
-          <button data-action="spa-nav" data-target="program-mitra" class="partner-program-link desktop-only">
+          <button data-action="spa-nav" data-target="program-mitra" class="partner-link desktop-only">
             <span class="wave-text">Program Mitra</span>
-            <span class="partner-program-link__badge pulse">Hot!</span>
+            <span class="partner-link__badge pulse">Hot!</span>
           </button>
         </div>
 
-        <button data-action="spa-nav" data-target="program-mitra" class="partner-program-link partner-program-link--mobile-only">
+        <button data-action="spa-nav" data-target="program-mitra" class="partner-link partner-link--mobile-only">
           <span class="wave-text">Program Mitra</span>
-          <span class="partner-program-link__badge pulse">Hot!</span>
+          <span class="partner-link__badge pulse">Hot!</span>
         </button>
 
         <button data-action="toggle-mobile-menu" class="mobile-nav-toggle" aria-label="Buka Menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -793,60 +807,60 @@
       <!-- ================= PAGE: HOME ================= -->
       <section id="spa-home" class="spa-page">
         <!-- HERO HEADER -->
-        <header class="layout-section hero-section">
-          <div class="hero-section__bg-pattern"></div>
-          <div class="site-container hero-section__content">
-            <div class="hero-section__grid">
+        <header class="layout hero">
+          <div class="hero__bg-pattern"></div>
+          <div class="tabel hero__content">
+            <div class="hero__grid">
               <!-- Profile Column -->
-              <div class="hero-section__profile">
-                <div class="hero-section__identity">
+              <div class="hero__profile">
+                <div class="hero__identity">
                   <img
                     id="foto-mitra"
                     src="image/dedyfoto-176.webp"
                     alt="Profil Mitra Samira Travel"
-                    class="hero-section__avatar"
+                    class="hero__avatar"
                     width="176"
                     height="176"
                   />
-                  <span id="badge-mitra-id" class="hero-section__badge">
+                  <span id="badge-mitra-id" class="hero__badge">
                     🛡️ Mitra Resmi Samira Travel • (<span class="mitra-id">M-DGI-9725</span>)
                   </span>
                 </div>
 
-                <div class="hero-section__message">
+                <div class="hero__message">
                   <p>
                     <strong>Assalamu'alaikum Warahmatullahi Wabarakatuh, </strong><br />
                     <strong>Saya <span class="mitra-nama">Dedy MBS</span>.</strong> Saya siap membantu Anda memahami pilihan program Umroh dengan jelas sehingga Anda dapat mengambil keputusan dengan tenang.
                   </p>
                 </div>
 
-                <h1 class="hero-section__title">
+                <h1 class="hero__title">
                   Berangkat Umroh dengan Tenang Bersama Mitra Resmi Samira Travel
                 </h1>
 
-                <p class="hero-section__description">
+                <p class="hero__description">
                   Didampingi langsung oleh <strong class="wave-text mitra-nama">Dedy MBS</strong> untuk membantu Anda memilih program Umroh, Haji Khusus, atau Tour Halal yang sesuai dengan kebutuhan dan kemampuan Anda.
                 </p>
 
-                <div class="hero-section__trust">
-                  <div class="hero-section__trust-item"><span>🛡️</span> <span>Resmi Kemenag RI</span></div>
-                  <div class="hero-section__trust-item"><span>💳</span> <span>Tabungan Umroh Syariah</span></div>
-                  <div class="hero-section__trust-item"><span>🕋</span> <span>Berangkat Dulu, Bayar Belakangan*</span></div>
-                  <div class="hero-section__trust-item"><span>🤝</span> <span>Pendampingan Sampai Pulang</span></div>
-                  <div class="hero-section__trust-item"><span>✔️</span> <span>Melayani Jamaah Seluruh Indonesia</span></div>
-                  <p class="hero-section__trust-note">*Sesuai syarat & ketentuan program.</p>
+                <div class="hero__trust">
+                  <div class="hero__trust-item"><span>🛡️</span> <span>Resmi Kemenag RI</span></div>
+                  <div class="hero__trust-item"><span>💳</span> <span>Tabungan Umroh Syariah</span></div>
+                  <div class="hero__trust-item"><span>🕋</span> <span>Berangkat Dulu, Bayar Belakangan*</span></div>
+                  <div class="hero__trust-item"><span>🤝</span> <span>Pendampingan Sampai Pulang</span></div>
+                  <div class="hero__trust-item"><span>✔️</span> <span>Melayani Jamaah Seluruh Indonesia</span></div>
+                  <p class="hero__trust-note">*Sesuai syarat & ketentuan program.</p>
                 </div>
 
-                <div class="hero-section__actions">
-                  <button data-action="spa-nav" data-target="form-pendaftaran" class="hero-section__cta">
+                <div class="hero__actions">
+                  <button data-action="spa-nav" data-target="form-pendaftaran" class="hero__cta">
                     <span>💬 Konsultasi Gratis Via Whatsapp</span>
                   </button>
                 </div>
               </div>
 
               <!-- Hajiland / Banner Media Column -->
-              <div class="hero-section__media">
-                <div class="hero-section__media-frame">
+              <div class="hero__media">
+                <div class="hero__media-frame">
                   <div class="custom-slider-container" id="customSlider">
                     <div class="custom-slider-wrapper" id="hero-swiper-wrapper"></div>
                     <div class="slider-dots" id="sliderDots"></div>
@@ -858,8 +872,8 @@
         </header>
 
         <!-- STORYTELLING SECTION -->
-        <section id="storytelling" class="layout-section layout-section--surface layout-section--bordered">
-          <div class="site-container">
+        <section id="storytelling" class="layout l-face l-border">
+          <div class="tabel">
             <div class="story-section__grid">
               <div class="story-section__content">
                 <span class="story-section__tag story-section__heading--highlight">Kisah Rindu Baitullah</span>
@@ -892,11 +906,11 @@
                     <li class="feature-list__item">✅ Mendampingi proses pendaftaran hingga keberangkatan.</li>
                     <li class="feature-list__item">✅ Konsultasi tanpa biaya dan tanpa kewajiban mendaftar.</li>
                   </ul>
-                  <div class="section-intro">
-                    <button data-action="spa-nav" data-target="form-pendaftaran" class="hero-section__cta hero-section__cta--centered">
+                  <div class="intro">
+                    <button data-action="spa-nav" data-target="form-pendaftaran" class="hero__cta hero__cta--centered">
                       💬 Konsultasi Gratis Sekarang
                     </button>
-                    <p class="hero-section__trust-note">
+                    <p class="hero__trust-note">
                       Gratis konsultasi • Tanpa kewajiban mendaftar
                     </p>
                   </div>
@@ -907,12 +921,12 @@
         </section>
 
         <!-- DIGITAL BONUS SECTION -->
-        <section id="digital-bonus" class="layout-section layout-section--soft">
-          <div class="site-container">
-            <div class="section-intro">
+        <section id="digital-bonus" class="layout layout--soft">
+          <div class="tabel">
+            <div class="intro">
               <span class="story-section__tag story-section__heading--highlight">Program Pendampingan Digital</span>
               <h2 class="story-section__heading">Lebih dari Sekadar Perjalanan Umroh</h2>
-              <p class="section-intro__subtitle">
+              <p class="i_subtitle">
                 Bagi jamaah yang memiliki keinginan untuk mengajak keluarga, sahabat maupun masyarakat menuju Baitullah, saya siap membantu melalui Program Pendampingan Digital.
               </p>
             </div>
@@ -949,15 +963,15 @@
 
       <!-- ================= PAGE: PROFIL ================= -->
       <section id="spa-profil" class="spa-page is-hidden">
-        <section class="layout-section layout-section--soft layout-section--bordered">
-          <div class="site-container section-intro">
-            <h2 class="section-intro__title">Profil Samira</h2>
-            <p class="section-intro__subtitle">
+        <section class="layout layout--soft l-border">
+          <div class="tabel intro">
+            <h2 class="i_title">Profil Samira</h2>
+            <p class="i_subtitle">
               Pelajari lebih dalam mengenai Profil Samira Travel melalui portal informasi terpadu di bawah ini.
             </p>
           </div>
 
-          <div class="site-container">
+          <div class="tabel">
             <!-- Tab Controls -->
             <div class="tab-navigation">
               <div class="tab-navigation__track tab-navigation__track--center" id="proTabList" role="tablist" aria-label="Portal Profil">
@@ -998,10 +1012,10 @@
 
               <!-- Tab 2 -->
               <div id="pro-tab-content-1" class="pro-pane is-hidden" role="tabpanel">
-                <div class="section-intro">
+                <div class="intro">
                   <span class="info-badge info-badge--success info-badge--center">IJIN RESMI PEMERINTAH</span>
                   <h3 class="c-heading--small">Legalitas Resmi Kemenag RI</h3>
-                  <p class="section-intro__subtitle">
+                  <p class="i_subtitle">
                     Samira Travel (PT. Samira Ali Wisata) terdaftar resmi dan memiliki izin Penyelenggara Perjalanan Ibadah Umrah (PPIU) dari Kementerian Agama RI untuk menjamin keamanan penuh perjalanan ibadah Anda.
                   </p>
                 </div>
@@ -1017,7 +1031,7 @@
 
               <!-- Tab 3 -->
               <div id="pro-tab-content-2" class="pro-pane is-hidden" role="tabpanel">
-                <div class="section-intro">
+                <div class="intro">
                   <span class="info-badge">NILAI UTAMA</span>
                   <h3 class="c-heading--small">Mengapa Memilih Samira Travel</h3>
                 </div>
@@ -1047,15 +1061,15 @@
 
       <!-- ================= PAGE: EDUKASI ================= -->
       <section id="spa-edukasi" class="spa-page is-hidden">
-        <section class="layout-section layout-section--soft layout-section--bordered">
-          <div class="site-container section-intro">
-            <h2 class="section-intro__title">Edukasi, Legalitas & Layanan Samira</h2>
-            <p class="section-intro__subtitle">
+        <section class="layout layout--soft l-border">
+          <div class="tabel intro">
+            <h2 class="i_title">Edukasi, Legalitas & Layanan Samira</h2>
+            <p class="i_subtitle">
               Pelajari lebih dalam mengenai ibadah Umroh, iklim terbaik, dan keunggulan pelayanan Samira Travel melalui portal informasi terpadu di bawah ini.
             </p>
           </div>
 
-          <div class="site-container">
+          <div class="tabel">
             <div class="tab-navigation">
               <div class="tab-navigation__track" id="eduTabList" role="tablist" aria-label="Portal Edukasi">
                 <button data-action="edu-tab" data-index="0" class="edu-tab-btn portal-tab-button active" role="tab" aria-selected="true" aria-controls="edu-tab-content-0">1. Pengertian Umroh</button>
@@ -1167,10 +1181,10 @@
 
               <!-- Tab 3 -->
               <div id="edu-tab-content-3" class="edu-pane is-hidden" role="tabpanel">
-                <div class="section-intro">
+                <div class="intro">
                   <span class="info-badge">INFO PENTING IKLIM</span>
                   <h3 class="c-heading--small">Pilihan Waktu Terbaik Berumroh</h3>
-                  <p class="section-intro__subtitle">
+                  <p class="i_subtitle">
                     Sesuaikan rencana perjalanan ibadah suci Anda dengan kondisi iklim dan musim terbaik di Tanah Suci.
                   </p>
                 </div>
@@ -1200,7 +1214,7 @@
 
               <!-- Tab 4 -->
               <div id="edu-tab-content-4" class="edu-pane is-hidden" role="tabpanel">
-                <div class="section-intro">
+                <div class="intro">
                   <span class="info-badge">PANDUAN MANASIK</span>
                   <h3 class="c-heading--small">Rangkaian Kegiatan Umroh Terencana</h3>
                 </div>
@@ -1248,15 +1262,15 @@
 
       <!-- ================= PAGE: PAKET & INFO ================= -->
       <section id="spa-paket-info" class="spa-page is-hidden">
-        <section class="layout-section layout-section--surface layout-section--bordered">
-          <div class="site-container section-intro">
-            <h2 class="section-intro__title">Paket & Info Perjalanan</h2>
-            <p class="section-intro__subtitle">
+        <section class="layout l-face l-border">
+          <div class="tabel intro">
+            <h2 class="i_title">Paket & Info Perjalanan</h2>
+            <p class="i_subtitle">
               Temukan rincian harga paket, persyaratan administrasi, solusi pembiayaan syariah, serta perlengkapan premium dari Samira Travel.
             </p>
           </div>
 
-          <div class="site-container">
+          <div class="tabel">
             <div class="tab-navigation">
               <div class="tab-navigation__track" id="paketTabList" role="tablist" aria-label="Informasi Paket">
                 <button data-action="paket-tab" data-index="0" class="paket-tab-btn portal-tab-button active" role="tab" aria-selected="true" aria-controls="paket-tab-content-0">1. Solusi Skema Syariah</button>
@@ -1335,7 +1349,7 @@
 
               <!-- Tab 2 -->
               <div id="paket-tab-content-2" class="paket-pane package-pane--center is-hidden" role="tabpanel">
-                <div class="section-intro">
+                <div class="intro">
                   <span class="info-badge">FASILITAS JAMAAH</span>
                   <h3 class="c-heading--small">Perlengkapan Eksklusif Premium</h3>
                 </div>
@@ -1387,10 +1401,10 @@
 
               <!-- Tab 3 -->
               <div id="paket-tab-content-3" class="paket-pane is-hidden" role="tabpanel">
-                <div class="section-intro">
+                <div class="intro">
                   <span class="info-badge info-badge--center">AKOMODASI & BROSUR PAKET</span>
                   <h3 class="c-heading--small">Pilihan Paket & Hotel Eksklusif</h3>
-                  <p class="section-intro__subtitle">
+                  <p class="i_subtitle">
                     Geser / Swipe ke kanan & kiri untuk melihat ragam brosur paket Umroh terbaru kami.
                   </p>
                 </div>
@@ -1403,7 +1417,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Lihat Paket Umroh di Google Drive"
-                    class="hero-section__cta hero-section__cta--small slider-download-btn"
+                    class="hero__cta hero__cta--small slider-download-btn"
                   >
                     <span>📖 Download Brosur</span>
                   </a><br>
@@ -1499,7 +1513,7 @@
 
               <!-- Tab 4 -->
               <div id="paket-tab-content-4" class="paket-pane package-pane--left is-hidden" role="tabpanel">
-                <div class="section-intro">
+                <div class="intro">
                   <span class="info-badge info-badge--warning info-badge--center">PROGRAM KHUSUS</span>
                   <div class="info-card">
                     <img class="package-furoda__image" src="image/banner/hajifuroda-450.webp" alt="Haji Furoda Samira Travel" loading="lazy" decoding="async" width="340" height="480" onerror="this.src='https://placehold.co/400x550/1e40af/ffffff?text=Haji+Furoda'"/>
@@ -1576,15 +1590,15 @@
 
       <!-- ================= PAGE: DOKUMENTASI ================= -->
       <section id="spa-dokumentasi" class="spa-page is-hidden">
-        <section class="layout-section layout-section--soft layout-section--bordered">
-          <div class="site-container section-intro">
-            <h2 class="section-intro__title">Dokumentasi Kegiatan & Testimoni</h2>
-            <p class="section-intro__subtitle">
+        <section class="layout layout--soft l-border">
+          <div class="tabel intro">
+            <h2 class="i_title">Dokumentasi Kegiatan & Testimoni</h2>
+            <p class="i_subtitle">
               Kumpulan rekam jejak perjalanan spiritual, cuplikan manasik akbar, serta ungkapan rasa bahagia dari seluruh jamaah kami.
             </p>
           </div>
 
-          <div class="site-container">
+          <div class="tabel">
             <div class="tab-navigation tab-navigation--constrained">
               <div class="tab-navigation__track tab-navigation__track--center" id="docTabList" role="tablist" aria-label="Portal Dokumentasi">
                 <button data-action="doc-tab" data-index="0" class="doc-tab-btn portal-tab-button portal-tab-button--fill active" role="tab" aria-selected="true" aria-controls="doc-tab-content-0">Galeri Video</button>
@@ -1596,7 +1610,7 @@
             <div class="portal-panel portal-panel--compact">
               <!-- Tab 0 -->
               <div id="doc-tab-content-0" class="doc-pane" role="tabpanel">
-                <div class="section-intro">
+                <div class="intro">
                   <h3 class="c-heading--small">Dokumentasi Video Kegiatan Akbar</h3>
                 </div>
 
@@ -1610,7 +1624,7 @@
 
               <!-- Tab 1 -->
               <div id="doc-tab-content-1" class="doc-pane is-hidden" role="tabpanel">
-                <div class="section-intro">
+                <div class="intro">
                   <h3 class="c-heading--small">Dokumentasi Foto Kegiatan</h3>
                 </div>
 
@@ -1624,7 +1638,7 @@
 
               <!-- Tab 2 -->
               <div id="doc-tab-content-2" class="doc-pane is-hidden" role="tabpanel">
-                <div class="section-intro">
+                <div class="intro">
                   <h3 class="c-heading--small">Testimoni Nyata Kebahagiaan Jamaah</h3>
                 </div>
 
@@ -1642,11 +1656,11 @@
 
       <!-- ================= PAGE: PROGRAM MITRA ================= -->
       <section id="spa-program-mitra" class="spa-page is-hidden">
-        <section class="layout-section">
+        <section class="layout">
           <div class="l-container">
             <div class="program-partner__center">
               <span class="c-badge c-badge--primary">🚀 PROGRAM WEBSITE PROMOSI MITRA</span>
-              <h1 class="hero-section__title">
+              <h1 class="hero__title">
                 Bangun Promosi Digital Anda
                 <span class="c-title__subtitle">Tanpa Harus Membuat Website Dari Nol</span>
               </h1>
@@ -1666,12 +1680,12 @@
           </div>
         </section>
 
-        <section class="layout-section layout-section--surface">
+        <section class="layout l-face">
           <div class="l-container">
             <div class="c-panel program-partner__center">
               <div class="l-container--narrow">
                 <span class="c-badge c-badge--primary">MENGAPA WEBSITE PROMOSI ?</span>
-                <h2 class="hero-section__title">Mengapa Mitra Samira Membutuhkan Website Promosi?</h2>
+                <h2 class="hero__title">Mengapa Mitra Samira Membutuhkan Website Promosi?</h2>
                 <div class="c-body program-partner__benefits">
                   <p>Sebagian besar calon jamaah mencari informasi melalui Google, media sosial, maupun WhatsApp sebelum menghubungi seorang Mitra Samira.</p>
                   <p>Website membantu memperkenalkan profil Anda, legalitas, paket Umroh, dokumentasi, hingga tombol WhatsApp dalam satu halaman profesional.</p>
@@ -1682,11 +1696,11 @@
           </div>
         </section>
 
-        <section class="layout-section layout-section--soft">
+        <section class="layout layout--soft">
           <div class="l-container">
             <div class="l-container--narrow program-partner__center">
               <span class="c-badge c-badge--primary">BENEFIT WEBSITE</span>
-              <h2 class="hero-section__title">Apa Yang Akan Anda Dapatkan?</h2>
+              <h2 class="hero__title">Apa Yang Akan Anda Dapatkan?</h2>
               <p class="c-body">Seluruh fasilitas berikut sudah termasuk dalam Website Promosi Mitra.</p>
             </div>
 
@@ -1725,11 +1739,11 @@
           </div>
         </section>
 
-        <section class="layout-section layout-section--surface">
+        <section class="layout l-face">
           <div class="l-container">
             <div class="c-panel content-highlight-panel content-highlight-panel--centered">
               <span class="c-badge c-badge--primary info-badge--center">MENGAPA WEBSITE INI BERBEDA ?</span>
-              <h2 class="hero-section__title">Bukan Template, Tetapi Website Yang Benar-Benar Digunakan Untuk Promosi Umroh</h2>
+              <h2 class="hero__title">Bukan Template, Tetapi Website Yang Benar-Benar Digunakan Untuk Promosi Umroh</h2>
               <p class="c-body">Website yang Anda lihat saat ini bukan contoh desain, melainkan website yang benar-benar saya gunakan sebagai media promosi digital.</p>
               <p class="c-body">Artinya Anda tidak memulai dari halaman kosong. Anda memperoleh website yang sudah saya bangun, uji, dan terus saya kembangkan berdasarkan pengalaman nyata mempromosikan layanan Umroh.</p>
               <p class="c-body">Dengan demikian Anda dapat langsung fokus membangun jaringan, melayani calon jamaah, dan meningkatkan promosi online.</p>
@@ -1737,12 +1751,12 @@
           </div>
         </section>
 
-        <section class="layout-section layout-section--soft">
+        <section class="layout layout--soft">
           <div class="l-container">
             <div class="info-grid info-grid--2col info-grid--gap-large">
               <div class="c-panel content-highlight-panel">
                 <span class="info-badge info-badge--dark info-badge--start">💙 Investasi Website Promosi</span>
-                <h2 class="hero-section__title">Miliki Website Promosi Anda</h2>
+                <h2 class="hero__title">Miliki Website Promosi Anda</h2>
                 <p class="c-body">Website akan disiapkan menggunakan identitas Mitra Anda, sehingga dapat langsung digunakan sebagai media promosi digital yang profesional.</p>
                 <div class="program-partner__spacer">
                   <span class="info-badge info-badge--success">🤝 Investasi = Rp350.000 Sekali Bayar • Tanpa Biaya Bulanan</span>
@@ -1756,7 +1770,7 @@
 
               <div class="c-panel content-highlight-panel">
                 <span class="info-badge info-badge--success info-badge--start">🤝 Program Apresiasi Mitra</span>
-                <h2 class="hero-section__title">Mari Bertumbuh Bersama Sesama Mitra</h2>
+                <h2 class="hero__title">Mari Bertumbuh Bersama Sesama Mitra</h2>
                 <p class="c-body">Apabila Website Promosi ini menurut Anda bermanfaat, Anda dapat merekomendasikannya kepada sesama Mitra Samira.</p>
                 <div class="program-partner__spacer">
                   <div class="card-green-price">Apresiasi = Rp50.000</div>
@@ -1772,11 +1786,11 @@
           </div>
         </section>
 
-        <section class="layout-section layout-section--surface">
+        <section class="layout l-face">
           <div class="l-container">
             <div class="program-partner__center">
               <span class="c-badge c-badge--primary">👥 SIAPA YANG COCOK?</span>
-              <h2 class="hero-section__title">Website Promosi Ini Cocok Untuk...</h2>
+              <h2 class="hero__title">Website Promosi Ini Cocok Untuk...</h2>
               <p class="c-body program-partner__description">
                 Website ini dirancang agar dapat langsung digunakan oleh sesama Mitra Samira tanpa harus memiliki kemampuan membuat website ataupun pengalaman di bidang digital.
               </p>
@@ -1806,11 +1820,11 @@
           </div>
         </section>
 
-        <section class="layout-section layout-section--soft">
+        <section class="layout layout--soft">
           <div class="l-container">
             <div class="program-partner__faq-header">
               <span class="c-badge c-badge--primary">🤝 FAQ</span>
-              <h2 class="hero-section__title">Pertanyaan Yang Sering Diajukan</h2>
+              <h2 class="hero__title">Pertanyaan Yang Sering Diajukan</h2>
             </div>
 
             <div class="digital-note digital-note--clean">
@@ -1840,11 +1854,11 @@
           </div>
         </section>
 
-        <section class="layout-section">
+        <section class="layout">
           <div class="l-container">
             <div class="c-panel content-highlight-panel content-highlight-panel--primary-transparent">
               <h2 class="c-badge c-badge--primary">Siap Memiliki Website Promosi Anda Sendiri?</h2>
-              <p class="hero-section__title">
+              <p class="hero__title">
                 Saya siap membantu Anda memiliki Website Promosi yang profesional tanpa harus membuatnya dari nol.
               </p>
               <div class="program-partner__cta-action wave-text">
@@ -1859,15 +1873,15 @@
 
       <!-- ================= PAGE: PENDAFTARAN ================= -->
       <section id="spa-form-pendaftaran" class="spa-page is-hidden">
-        <section class="layout-section layout-section--surface">
-          <div class="site-container section-intro">
-            <h2 class="section-intro__title">Konsultasi & Pendaftaran Seat</h2>
-            <p class="section-intro__subtitle">
+        <section class="layout l-face">
+          <div class="tabel intro">
+            <h2 class="i_title">Konsultasi & Pendaftaran Seat</h2>
+            <p class="i_subtitle">
               Jangan tunda niat baik Anda. Kirimkan pertanyaan atau data diri Anda. Kami akan segera menghubungi Anda untuk konsultasi rencana ibadah terbaik.
             </p>
           </div>
 
-          <div class="site-container">
+          <div class="tabel">
             <div class="registration-layout">
               <div class="registration-layout__form">
                 <form id="waForm" class="registration-form">
@@ -1923,7 +1937,7 @@
 
     <!-- FOOTER -->
     <footer class="site-footer">
-      <div class="site-container site-footer__content">
+      <div class="tabel site-footer__content">
         <div class="site-footer__text">
           <strong>&copy; <span id="year"></span> Samira Travel •
           <span class="mitra-nama">Dedy MBS</span> (<span class="mitra-id">M-DGI-9725</span>)</strong>.
