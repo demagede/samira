@@ -188,6 +188,81 @@
   padding-top: 0.5rem;
 }
 
+/* PAKET BROCHURE SLIDER */
+.slider-download-btn {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.5rem;
+  padding: 0.75rem 2rem;
+  width: fit-content;
+  max-width: none;
+  min-width: 12rem;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.slider-control-buttons {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: block;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.slider-control-buttons .slider-control-btn {
+  pointer-events: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slider-arrow-left {
+  left: -34px;
+}
+
+.slider-arrow-right {
+  right: -34px;
+}
+
+.slider-download-btn:hover {
+  transform: translateY(-0.25rem);
+}
+
+@media (max-width: 1024px) {
+  .slider-download-btn {
+    top: auto !important;
+    padding: 0.5rem 1.25rem !important;
+    z-index: 20 !important;
+  }
+
+  .slider-arrow-left {
+    left: 8px !important;
+    right: auto !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 999 !important;
+  }
+
+  .slider-arrow-right {
+    right: 8px !important;
+    left: auto !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 999 !important;
+  }
+}
+
       /* PROGRAM MITRA & BENEFIT STYLES */
       .benefit-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
       .benefit-card { padding: 26px 18px; background: #fff; border: 1px solid #dbeafe; border-radius: 22px; text-align: center; transition: 0.35s ease; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05); height: 100%; }
