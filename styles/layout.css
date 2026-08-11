@@ -158,10 +158,14 @@
       .pure-paket-card img { width: 100%; height: auto; display: block; border-radius: 12px; object-fit: contain; }
 
 .slider-control-bar {
-  display: block;
-  height: 0;
-  margin: 0;
-  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 64rem;
+  margin-inline: auto;
+  padding-inline: 0.5rem;
 }
 
 .slider-control-btn {
