@@ -185,9 +185,9 @@
   max-width: 64rem;
   margin-inline: auto;
   margin-top: 1rem;
-  overflow: visible;
   padding-top: 0.5rem;
 }
+
       /* PROGRAM MITRA & BENEFIT STYLES */
       .benefit-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
       .benefit-card { padding: 26px 18px; background: #fff; border: 1px solid #dbeafe; border-radius: 22px; text-align: center; transition: 0.35s ease; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05); height: 100%; }
