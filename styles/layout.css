@@ -186,6 +186,7 @@
   margin-inline: auto;
   margin-top: 1rem;
   overflow: visible;
+  padding-top: 0.5rem;
 }
       /* PROGRAM MITRA & BENEFIT STYLES */
       .benefit-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
