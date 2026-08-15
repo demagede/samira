@@ -1,0 +1,63 @@
+{
+  "default": {
+    "_catatan": "Opsi 1: Standar Hanya foto global",
+    "nama": "Dedy MBS",
+    "idMitra": "M-DGI-9725",
+    "whatsapp": "6287783073536",
+    "facebook": "https://www.facebook.com/elife.info.se",
+    "tiktok": "https://tiktok.com/@madedagede",
+    "telegram": "https://t.me/madedagede",
+    "instagram": "https://instagram.com/madedagede",
+    "youtube": "https://youtube.com/@belajarhadist1825",
+    "fotoDedy": "image/dedyfoto-176.webp",
+    "linkDrive": "https://drive.google.com/drive/folders/1nMtd0VE93RHl_HB_qydxKcoZvqFkNloI?usp=drive_link"
+  },
+  "inspirasi": {
+    "nama": "Dedy MBS",
+    "idMitra": "M-DGI-9725",
+    "whatsapp": "6287783073536",
+    "facebook": "https://www.facebook.com/elife.info.se",
+    "tiktok": "https://tiktok.com/@madedagede",
+    "telegram": "https://t.me/madedagede",
+    "instagram": "https://instagram.com/madedagede",
+    "youtube": "https://youtube.com/@belajarhadist1825",
+    "fotoDedy": "image/dedyfoto-176.webp",
+    "linkDrive": "https://drive.google.com/drive/folders/1nMtd0VE93RHl_HB_qydxKcoZvqFkNloI?usp=drive_link"
+  },
+  "ahmad": {
+    "_catatan": "Opsi 2: Foto Ahmad + Foto Global",
+    "nama": "Ahmad Fauzi",
+    "idMitra": "M-DGI-1022",
+    "whatsapp": "6281234567890",
+    "facebook": "https://facebook.com/ahmadfauzi",
+    "tiktok": "https://tiktok.com/@ahmadfauzi",
+    "telegram": "https://t.me/ahmadfauzi",
+    "instagram": "https://instagram.com/@ahmadfauzi",
+    "youtube": "https://youtube.com/ahmadfauzi",
+    "fotoDedy": "image/mitra/ahmad.webp",
+    "linkDrive": "https://drive.google.com/drive/folders/1nMtd0VE93RHl_HB_qydxKcoZvqFkNloI?usp=drive_link",
+    "fotoGaleri": [
+      "image/banner/turki-450.webp",
+      "image/mitra/ahmad.webp"
+    ]
+  },
+  "rina": {
+    "_catatan": "Opsi 3: Ekslusif hanya foto pribadi di galery foto",
+    "nama": "Rina Rosdiana",
+    "idMitra": "M-DGI-1022",
+    "whatsapp": "6281234567890",
+    "email": "rinarosdiana@gmail.com",
+    "facebook": "https://facebook.com/rinarosdiana",
+    "tiktok": "https://tiktok.com/@rinarosdiana",
+    "telegram": "https://t.me/rinarosdiana",
+    "instagram": "https://instagram.com/@rinarosdiana",
+    "youtube": "https://youtube.com/rinarosdiana",
+    "fotoDedy": "image/mitra/ahmad.webp",
+    "linkDrive": "https://drive.google.com/drive/folders/1nMtd0VE93RHl_HB_qydxKcoZvqFkNloI?usp=drive_link",
+    "fotoGaleri": [
+      "image/banner/turki-450.webp",
+      "image/mitra/ahmad.webp"
+    ],
+    "hanyaFotoSendiri": true
+  }
+}
