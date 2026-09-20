@@ -2,19 +2,15 @@
   "globalBanners": [
     "image/banner/hajilands-450.webp",
     "image/banner/hajifuroda-450.webp",
-    "image/banner/gebyar-450.webp",
+    "image/banner/gebyar.webp",
     "image/banner/umrohreg-450.webp",
     "image/banner/turki-450.webp"
   ],
   "globalPaket": [
-    "image/paket/paket-1.webp",
-    "image/paket/paket-2.webp",
-    "image/paket/paket-3.webp",
-    "image/paket/paket-4.webp",
-    "image/paket/paket-5.webp",
-    "image/paket/paket-6.webp",
-    "image/paket/paket-7.webp",
-    "image/paket/paket-8.webp"
+    "image/paket/umrohceria.webp",
+    "image/paket/umrohturky.webp",
+    "image/paket/hajikhusus.webp",
+    "image/paket/hajifuroda.webp"
   ],
   "globalPhotos": [
     "20250106-075317_WhatsApp%20Image%202024-12-24%20at%2008.42.59(2).webp",
