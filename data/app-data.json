@@ -1,10 +1,10 @@
 {
   "globalBanners": [
+    "image/banner/gebyar.webp",
+    "image/banner/turki-450.webp",
     "image/banner/hajilands-450.webp",
     "image/banner/hajifuroda-450.webp",
-    "image/banner/gebyar.webp",
-    "image/banner/umrohreg-450.webp",
-    "image/banner/turki-450.webp"
+    "image/banner/umrohreg-450.webp"
   ],
   "globalPaket": [
     "image/paket/umrohceria.webp",
